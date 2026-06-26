@@ -1,4 +1,6 @@
+import { Link } from "react-router";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
+import Button from "../components/common/Button";
 
 function Beranda() {
   return (
@@ -22,12 +24,12 @@ function Beranda() {
                 pemahaman Anda.
               </p>
 
-              <a
-                href="#"
+              <Link
+                to="/login"
                 className="inline-block px-8 max-md:px-4 py-3.5 bg-[#2ecc71] text-white font-bold rounded-[10px] hover:bg-[#28b864] transition-all duration-300 max-md:w-full"
               >
                 Temukan Video Course untuk Dipelajari!
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -314,7 +316,9 @@ function Beranda() {
 
               <form className="flex gap-3.5 justify-center max-md:flex-col">
                 <input type="email" placeholder="Masukkan Emailmu" className="w-[420px] text-slate-900 bg-white max-md:w-full px-4 py-4 rounded-[10px] text-[15px] border-none outline-none" />
-                <button type="submit" className="px-7 py-4 bg-[#f3b02e] text-white font-bold rounded-[10px] cursor-pointer max-md:w-full">Subscribe</button>
+                <Button type="submit" variant="subscribe" className="max-md:w-full">
+                  Subscribe
+                </Button>
               </form>
             </div>
           </div>
