@@ -3,10 +3,10 @@ import LayoutAuth from "../components/layout/LayoutAuth";
 function Register() {
   return (
     <LayoutAuth>
-      <div className="w-full max-w-[580px] mx-auto bg-white border border-[#e8e8e8] rounded-md max-md:rounded-[4px] p-[42px_34px] max-md:p-[26px_20px] max-[480px]:p-[22px_18px] my-[50px] max-md:my-7">
+      <div className="w-full max-w-145 mx-auto bg-white border border-[#e8e8e8] rounded max-md:rounded-sm p-10 max-md:p-[26px_20px] max-[480px]:p-[22px_18px] my-12 max-md:my-7">
         {/* Title */}
         <div className="text-center mb-8 max-md:mb-6">
-          <h2 className="text-xl md:text-2xl font-bold mb-3">
+          <h2 className="text-4xl max-lg:text-[44px] max-md:text-[34px] max-[480px]:text-[28px] font-extrabold leading-tight mb-3 max-md:mb-2.5">
             Pendaftaran Akun
           </h2>
           <p className="text-base max-md:text-[15px] text-[#777]">
@@ -15,7 +15,7 @@ function Register() {
         </div>
 
         {/* FORM */}
-        <form className="flex flex-col gap-[22px] max-md:gap-[18px]">
+        <form className="flex flex-col gap-5 max-md:gap-4">
           {/* Nama */}
           <div>
             <label className="block text-lg max-md:text-base text-[#666] mb-2.5 max-md:mb-2">
@@ -23,7 +23,7 @@ function Register() {
             </label>
             <input
               type="text"
-              className="w-full h-[58px] max-md:h-[50px] border border-[#dddddd] rounded-md px-4 text-base max-md:text-[15px] bg-white outline-none"
+              className="w-full h-14 max-md:h-12 border border-[#dddddd] rounded px-4 text-base max-md:text-[15px] bg-white outline-none"
             />
           </div>
 
@@ -34,7 +34,7 @@ function Register() {
             </label>
             <input
               type="email"
-              className="w-full h-[58px] max-md:h-[50px] border border-[#dddddd] rounded-md px-4 text-base max-md:text-[15px] bg-white outline-none"
+              className="w-full h-14 max-md:h-12 border border-[#dddddd] rounded px-4 text-base max-md:text-[15px] bg-white outline-none"
             />
           </div>
 
@@ -43,7 +43,7 @@ function Register() {
             <label className="block text-lg max-md:text-base text-[#666] mb-2.5 max-md:mb-2">
               Jenis Kelamin <span className="text-[#ff5a2c]">*</span>
             </label>
-            <select className="w-full h-[58px] max-md:h-[50px] border border-[#dddddd] rounded-md px-4 text-base max-md:text-[15px] bg-white outline-none">
+            <select className="w-full h-14 max-md:h-12 border border-[#dddddd] rounded px-4 text-base max-md:text-[15px] bg-white outline-none">
               <option>Wanita</option>
               <option>Pria</option>
             </select>
@@ -56,8 +56,8 @@ function Register() {
             </label>
 
             <div className="grid grid-cols-[160px_1fr] max-md:grid-cols-[124px_1fr] max-[480px]:grid-cols-[110px_1fr] gap-3.5 max-md:gap-2.5">
-              <div className="h-[58px] max-md:h-[50px] border border-[#dddddd] rounded-md flex items-center px-3 gap-2.5">
-                <div className="w-[34px] max-md:w-7 h-6 max-md:h-5 rounded-sm border border-[#ddd] bg-[linear-gradient(to_bottom,#e70011_0%,#e70011_50%,#ffffff_50%,#ffffff_100%)]"></div>
+              <div className="hh-14 max-md:h-12 border border-[#dddddd] rounded flex items-center px-3 gap-2.5">
+                <div className="w-8 max-md:w-7 h-6 max-md:h-5 rounded-sm border border-[#ddd] bg-[linear-gradient(to_bottom,#e70011_0%,#e70011_50%,#ffffff_50%,#ffffff_100%)]"></div>
                 <span className="text-lg max-md:text-base text-[#444]">
                   +62
                 </span>
@@ -66,7 +66,7 @@ function Register() {
 
               <input
                 type="text"
-                className="w-full h-[58px] max-md:h-[50px] border border-[#dddddd] rounded-md px-4 text-base max-md:text-[15px] bg-white outline-none"
+                className="w-full h-14 max-md:h-12 border border-[#dddddd] rounded px-4 text-base max-md:text-[15px] bg-white outline-none"
               />
             </div>
           </div>
@@ -80,7 +80,7 @@ function Register() {
             <div className="relative">
               <input
                 type="password"
-                className="w-full h-[58px] max-md:h-[50px] border border-[#dddddd] rounded-md px-4 pr-[50px] text-base max-md:text-[15px] bg-white outline-none"
+                className="w-full h-14 max-md:h-12 border border-[#dddddd] rounded px-4 pr-12 text-base max-md:text-[15px] bg-white outline-none"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#999] text-[22px] max-md:text-xl cursor-pointer">
                 👁
@@ -97,7 +97,7 @@ function Register() {
             <div className="relative">
               <input
                 type="password"
-                className="w-full h-[58px] max-md:h-[50px] border border-[#dddddd] rounded-md px-4 pr-[50px] text-base max-md:text-[15px] bg-white outline-none"
+                className="w-full h-14 max-md:h-12 border border-[#dddddd] rounded px-4 pr-12 text-base max-md:text-[15px] bg-white outline-none"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#999] text-[22px] max-md:text-xl cursor-pointer">
                 👁
@@ -118,14 +118,14 @@ function Register() {
           {/* Buttons */}
           <button
             type="submit"
-            className="w-full h-14 max-md:h-[50px] bg-[#39c93f] text-white text-lg max-[480px]:text-[17px] font-medium rounded-[10px] cursor-pointer border-none hover:bg-[#2fb836] transition-colors duration-300"
+            className="w-full h-14 max-md:h-12 bg-[#39c93f] text-white text-lg max-[480px]:text-[17px] font-medium rounded-[10px] cursor-pointer border-none hover:bg-[#2fb836] transition-colors duration-300"
           >
             Daftar
           </button>
 
           <a
             href="/login"
-            className="w-full h-14 max-md:h-[50px] bg-[#d9ecd2] text-[#39c93f] text-lg max-[480px]:text-[17px] font-medium rounded-[10px] flex items-center justify-center no-underline cursor-pointer border-none"
+            className="w-full h-14 max-md:h-12 bg-[#d9ecd2] text-[#39c93f] text-lg max-[480px]:text-[17px] font-medium rounded-[10px] flex items-center justify-center no-underline cursor-pointer border-none"
           >
             Masuk
           </a>
@@ -140,9 +140,9 @@ function Register() {
           {/* Google */}
           <a
             href="#"
-            className="w-full h-14 max-md:h-[50px] border border-[#dddddd] bg-white rounded-[10px] text-lg max-[480px]:text-base font-bold text-[#444] flex items-center justify-center gap-3 cursor-pointer no-underline"
+            className="w-full h-14 max-md:h-12 border border-[#dddddd] bg-white rounded-[10px] text-lg max-[480px]:text-base font-bold text-[#444] flex items-center justify-center gap-3 cursor-pointer no-underline"
           >
-            <span className="[&>svg]:w-[26px] [&>svg]:h-[26px]">
+            <span className="[&>svg]:w-6 [&>svg]:h-6">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                 <path
                   fill="#FFC107"
