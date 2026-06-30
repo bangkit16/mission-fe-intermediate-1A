@@ -1,5 +1,12 @@
-import { useState } from "react";
-import { ChevronDown, ChevronUp, Filter } from "lucide-react";
+import { useState, type ReactNode } from "react";
+import {
+  ChevronUp,
+  ChevronDown,
+  BookOpen,
+  ShoppingBag,
+  Clock,
+  Filter,
+} from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
 /*  Tipe data untuk setiap grup filter                                        */
@@ -23,50 +30,77 @@ interface FilterSidebarProps {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  Sub-komponen: satu grup filter dengan tombol collapsible                  */
+/*  Mapping icon untuk tiap grup                                              */
 /* -------------------------------------------------------------------------- */
-function CollapsibleFilterGroup({
-  group,
-}: {
-  group: FilterGroup;
-}) {
+const groupIcons: Record<string, ReactNode> = {
+  "bidang-studi": <BookOpen size={24} strokeWidth={2} />,
+  harga: <ShoppingBag size={24} strokeWidth={2} />,
+  durasi: <Clock size={24} strokeWidth={2} />,
+};
+
+/* -------------------------------------------------------------------------- */
+/*  Sub-komponen: satu grup filter (card collapsible)                         */
+/* -------------------------------------------------------------------------- */
+function CollapsibleFilterGroup({ group }: { group: FilterGroup }) {
   const [open, setOpen] = useState(true);
   const inputType = group.type === "checkbox" ? "checkbox" : "radio";
   const nameAttr = group.type === "radio" ? group.id : undefined;
 
   return (
-    <div>
-      {/* Header grup — bisa diklik untuk toggle collapsible */}
+    <div className="flex flex-col justify-center items-start p-3 px-4 gap-[18px] w-full bg-white border border-[rgba(58,53,65,0.12)] rounded-[10px]">
+      {/* Header grup — bisa diklik untuk toggle */}
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex justify-between items-center w-full mb-3 cursor-pointer bg-transparent border-none p-0"
+        className="flex flex-row items-center gap-4 w-full bg-transparent border-none p-0 cursor-pointer"
       >
-        <span className="font-semibold text-[15px] text-[#333]">
+        {/* Icon */}
+        <span className="w-6 h-6 flex items-center justify-center text-[#3ECF4C]">
+          {groupIcons[group.id] || groupIcons["bidang-studi"]}
+        </span>
+
+        {/* Judul */}
+        <span
+          className="flex-1 text-[16px] leading-[140%] tracking-[0.2px] text-[#3ECF4C] text-left"
+          style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
+        >
           {group.title}
         </span>
-        {open ? (
-          <ChevronUp size={16} className="text-gray-400" />
-        ) : (
-          <ChevronDown size={16} className="text-gray-400" />
-        )}
+
+        {/* Chevron */}
+        <span className="w-6 h-6 flex items-center justify-center text-[#3ECF4C]">
+          {open ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+        </span>
       </button>
 
-      {/* Daftar opsi — muncul/ hilang sesuai state open */}
+      {/* Daftar opsi */}
       {open && (
-        <div className="flex flex-col gap-2.5 pl-1">
+        <div className="flex flex-col items-start gap-3 w-full">
           {group.options.map((opt) => (
             <label
               key={opt.value}
-              className="flex items-center gap-3 text-sm text-[#555] cursor-pointer"
+              className="flex flex-row items-center gap-3 cursor-pointer"
             >
               <input
                 type={inputType}
                 name={nameAttr}
                 value={opt.value}
-                className="w-4 h-4 rounded border-gray-300 accent-emerald-500"
+                className="w-[18px] h-[18px] accent-[#3ECF4C]"
+                style={
+                  group.type === "checkbox"
+                    ? { borderRadius: "4px" }
+                    : undefined
+                }
               />
-              {opt.label}
+              <span
+                className="text-[16px] leading-[140%] tracking-[0.2px] text-[rgba(51,51,51,0.68)]"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 400,
+                }}
+              >
+                {opt.label}
+              </span>
             </label>
           ))}
         </div>
@@ -81,33 +115,36 @@ function CollapsibleFilterGroup({
 function FilterSidebar({ groups, onReset, className = "" }: FilterSidebarProps) {
   return (
     <aside
-      className={`w-full lg:w-[320px] bg-white border border-[#e0e0e0] rounded-lg p-6 lg:sticky lg:top-24 shrink-0 shadow-sm ${className}`}
+      className={`w-full lg:w-[366px] flex flex-col items-start p-5 gap-4 bg-white border border-[rgba(58,53,65,0.12)] rounded-[10px] lg:sticky lg:top-24 shrink-0 ${className}`}
     >
-      {/* Header filter */}
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="font-bold text-lg text-[#222] flex items-center gap-2">
-          <Filter size={18} className="text-[#333]" />
+      {/* Header Filter + Reset */}
+      <div className="flex flex-row justify-between items-center gap-4 w-full">
+        <h3
+          className="text-[18px] leading-[120%] text-[rgba(51,51,51,0.68)] flex items-center gap-2"
+          style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600 }}
+        >
+          <Filter size={18} className="text-[rgba(51,51,51,0.68)]" />
           Filter
         </h3>
+
         {onReset && (
           <button
             type="button"
             onClick={onReset}
-            className="text-red-500 font-semibold text-sm hover:underline bg-transparent border-none cursor-pointer"
+            className="bg-transparent border-none cursor-pointer text-[16px] leading-[140%] tracking-[0.2px] text-[#FF5C2B] hover:underline"
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 500,
+            }}
           >
             Reset
           </button>
         )}
       </div>
 
-      {/* Rendu tiap grup filter */}
-      {groups.map((group, index) => (
-        <div
-          key={group.id}
-          className={index > 0 ? "border-t border-gray-100 pt-4 mb-6" : "mb-6"}
-        >
-          <CollapsibleFilterGroup group={group} />
-        </div>
+      {/* Rendu tiap grup filter sebagai card terpisah */}
+      {groups.map((group) => (
+        <CollapsibleFilterGroup key={group.id} group={group} />
       ))}
     </aside>
   );
