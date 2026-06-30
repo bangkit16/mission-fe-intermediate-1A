@@ -8,14 +8,14 @@ function Header() {
           <img src="/Logo.png" alt="Logo" className="block" />
         </Link>
 
-        <nav className="flex items-center gap-4 max-md:hidden">
+        <nav className="hidden md:flex items-center gap-4">
           <Link to="/login" className="text-sm no-underline text-gray-600">
             Kategori
           </Link>
           <img src="https://i.pravatar.cc/40" alt="Profile" className="w-10 h-10 rounded-full" />
         </nav>
 
-        <button className="hidden max-md:block bg-transparent text-3xl cursor-pointer leading-none">
+        <button className="block md:hidden bg-transparent text-3xl cursor-pointer leading-none">
           &#9776;
         </button>
       </div>

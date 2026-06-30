@@ -13,17 +13,17 @@ export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   labelClassName?: string;
 }
 
-/* ── Tailwind default untuk input ── */
+/* ── Tailwind default untuk input (Mobile-first: default = mobile) ── */
 const inputBase =
-  "w-full h-14 max-md:h-12 max-[480px]:h-12 border rounded px-4 text-base max-md:text-[15px] outline-none transition-colors duration-200 bg-white placeholder:text-[#333]";
+  "w-full h-12 md:h-14 border rounded px-4 text-[15px] md:text-base outline-none transition-colors duration-200 bg-white placeholder:text-[#333]";
 
 const inputNormal = "border-[#dcdcdc] focus:border-[#3ac943]";
 const inputError = "border-red-500 focus:border-red-500";
 const inputDisabled = "bg-gray-100 cursor-not-allowed opacity-60";
 
-/* ── Tailwind default untuk label (gaya Register) ── */
+/* ── Tailwind default untuk label (Mobile-first) ── */
 const labelDefault =
-  "block text-sm md:text-lg max-md:text-base text-[#666] mb-2.5 max-md:mb-2";
+  "block text-sm md:text-lg text-gray-600 mb-2 md:mb-2.5";
 
 function InputField({
   label,

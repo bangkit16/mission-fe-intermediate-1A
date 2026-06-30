@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="bg-white mt-10 pt-16 pb-6 border-t border-[#ececec]">
       <div className="max-w-300 w-[90%] mx-auto">
-        <div className="grid grid-cols-4 max-lg:grid-cols-2 max-md:grid-cols-1 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div className="footer-brand">
             <Link to="/">
               <img src="/Logo.png" alt="" className="w-[280px] h-auto" />
@@ -41,7 +41,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#eee] pt-5 flex justify-between items-center gap-5 max-md:flex-col max-md:items-start">
+        <div className="flex flex-col items-start gap-5 md:flex-row md:justify-between md:items-center border-t border-[#eee] pt-5">
           <p className="text-[#777]">@2023 Gerobak Sayur All Rights Reserved.</p>
 
           <div className="flex gap-3">

@@ -16,7 +16,7 @@ function Register() {
         />
 
         {/* FORM */}
-        <form className="flex flex-col gap-5 max-md:gap-4">
+        <form className="flex flex-col gap-4 md:gap-5">
           {/* Nama */}
           <InputField
             type="text"
@@ -34,11 +34,11 @@ function Register() {
           />
 
           {/* Jenis Kelamin (mobile only) */}
-          <div className="hidden max-md:block">
-            <label className="block text-lg max-md:text-base text-[#666] mb-2.5 max-md:mb-2">
+          <div className="block md:hidden">
+            <label className="block text-sm md:text-lg text-[#666] mb-2 md:mb-2.5">
               Jenis Kelamin <span className="text-[#ff5a2c]">*</span>
             </label>
-            <select className="w-full h-14 max-md:h-12 border border-[#dddddd] rounded px-4 text-base max-md:text-[15px] bg-white outline-none">
+            <select className="w-full h-12 md:h-14 border border-[#dddddd] rounded px-4 text-[15px] md:text-base bg-white outline-none">
               <option>Wanita</option>
               <option>Pria</option>
             </select>
@@ -46,14 +46,14 @@ function Register() {
 
           {/* Nomor HP */}
           <div>
-            <label className="block text-lg max-md:text-base text-[#666] mb-2.5 max-md:mb-2">
+            <label className="block text-sm md:text-lg text-[#666] mb-2 md:mb-2.5">
               No. Hp <span className="text-[#ff5a2c]">*</span>
             </label>
 
-            <div className="grid grid-cols-[160px_1fr] max-md:grid-cols-[124px_1fr] max-[480px]:grid-cols-[110px_1fr] gap-3.5 max-md:gap-2.5">
-              <div className="h-14 max-md:h-12 border border-[#dddddd] rounded flex items-center px-3 gap-2.5">
-                <div className="w-8 max-md:w-7 h-6 max-md:h-5 rounded-sm border border-[#ddd] bg-[linear-gradient(to_bottom,#e70011_0%,#e70011_50%,#ffffff_50%,#ffffff_100%)]"></div>
-                <span className="text-lg max-md:text-base text-[#444]">
+            <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[124px_1fr] md:grid-cols-[160px_1fr] gap-2.5 md:gap-3.5">
+              <div className="h-12 md:h-14 border border-[#dddddd] rounded flex items-center px-3 gap-2.5">
+                <div className="w-7 h-5 md:w-8 md:h-6 rounded-sm border border-[#ddd] bg-[linear-gradient(to_bottom,#e70011_0%,#e70011_50%,#ffffff_50%,#ffffff_100%)]"></div>
+                <span className="text-sm md:text-lg text-[#444]">
                   +62
                 </span>
                 <span className="ml-auto text-[#888]">⌄</span>
@@ -62,7 +62,7 @@ function Register() {
               <InputField
                 type="text"
                 placeholder="81234567890"
-                className="rounded max-md:rounded"
+                className="rounded"
               />
             </div>
           </div>
@@ -85,7 +85,7 @@ function Register() {
           <div className="text-right -mt-2">
             <a
               href="#"
-              className="text-base max-md:text-[15px] text-[#666] no-underline"
+              className="text-[15px] md:text-base text-[#666] no-underline"
             >
               Lupa Password?
             </a>
@@ -103,7 +103,7 @@ function Register() {
           {/* Divider */}
           <Divider
             text="atau"
-            textClassName="text-[#666] text-lg max-md:text-base"
+            textClassName="text-[#666] text-base md:text-lg"
           />
 
           {/* Google */}

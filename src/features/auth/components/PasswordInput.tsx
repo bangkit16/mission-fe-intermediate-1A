@@ -12,15 +12,15 @@ export interface PasswordInputProps
   labelClassName?: string;
 }
 
-/* ── Gaya input (sama dengan InputField) ── */
+/* ── Gaya input (Mobile-first) ── */
 const inputBase =
-  "w-full h-14 max-md:h-12 border rounded px-4 pr-12 text-base max-md:text-[15px] outline-none transition-colors duration-200 bg-white placeholder:text-[#333]";
+  "w-full h-12 md:h-14 border rounded px-4 pr-12 text-[15px] md:text-base outline-none transition-colors duration-200 bg-white placeholder:text-[#333]";
 const inputNormal = "border-[#dcdcdc]";
 const inputError = "border-red-500 focus:border-red-500";
 
-/* ── Gaya label default (Register) ── */
+/* ── Gaya label default (Mobile-first) ── */
 const labelDefault =
-  "block text-lg max-md:text-base text-[#666] mb-2.5 max-md:mb-2";
+  "block text-sm md:text-lg text-[#666] mb-2 md:mb-2.5";
 
 function PasswordInput({
   label,
@@ -70,7 +70,7 @@ function PasswordInput({
         <button
           type="button"
           onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#9d9d9d] text-xl max-md:text-lg cursor-pointer leading-none"
+          className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#9d9d9d] text-lg md:text-xl cursor-pointer leading-none"
           aria-label={showPassword ? "Sembunyikan password" : "Tampilkan password"}
         >
           {showPassword ? "🙈" : "👁"}

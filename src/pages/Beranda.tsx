@@ -164,11 +164,11 @@ function Beranda() {
         overlayOpacity={58}
         contentClassName="max-w-[850px]"
       >
-        <h1 className="text-5xl max-lg:text-[38px] max-md:text-[34px] max-[480px]:text-3xl leading-tight font-extrabold mb-5">
+        <h1 className="text-3xl md:text-[34px] lg:text-[38px] xl:text-5xl leading-tight font-extrabold mb-5">
           Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video
           Interaktif!
         </h1>
-        <p className="text-base max-md:text-[15px] text-[#f0f0f0] mb-7">
+        <p className="text-[15px] md:text-base text-[#f0f0f0] mb-7">
           Temukan ilmu baru yang menarik dan mendalam melalui koleksi video
           pembelajaran berkualitas tinggi. Tidak hanya itu, Anda juga dapat
           berpartisipasi dalam latihan interaktif yang akan meningkatkan
@@ -176,7 +176,7 @@ function Beranda() {
         </p>
         <Link
           to="/login"
-          className="inline-block px-8 max-md:px-4 py-3.5 bg-[#3ECF4C] text-white font-bold rounded-[10px] hover:bg-[#28b864] transition-all duration-300 max-md:w-full"
+          className="w-full md:w-auto inline-block px-4 md:px-8 py-3.5 bg-[#3ECF4C] text-white font-bold rounded-[10px] hover:bg-[#28b864] transition-all duration-300"
         >
           Temukan Video Course untuk Dipelajari!
         </Link>
@@ -197,7 +197,7 @@ function Beranda() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, index) => (
             <CourseCard
               key={index}

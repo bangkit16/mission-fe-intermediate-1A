@@ -31,7 +31,7 @@ const sizeClasses: Record<ButtonSize, string> = {
   md: "px-6 py-3 text-base rounded-[10px]",
   lg: "px-8 py-3.5 text-lg rounded-[10px]",
   xl: "px-10 py-4 text-lg rounded-[10px]",
-  full: "w-full h-14 max-md:h-[52px] max-[480px]:h-12 text-lg max-md:text-[17px] rounded-[10px]",
+  full: "w-full h-12 sm:h-[52px] md:h-14 text-[17px] md:text-lg rounded-[10px]",
 };
 
 function Button({

@@ -39,7 +39,7 @@ function Login() {
           <div className="text-right mb-6">
             <a
               href="#"
-              className="text-[#707070] text-base max-[480px]:text-[15px] no-underline"
+              className="text-[15px] sm:text-base text-[#707070] no-underline"
             >
               Lupa Password?
             </a>
