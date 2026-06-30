@@ -4,7 +4,7 @@ function LayoutAuth({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="flex items-center justify-center">{children}</main>
     </>
   );
 }

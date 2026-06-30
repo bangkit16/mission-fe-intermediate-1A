@@ -1,329 +1,220 @@
 import { Link } from "react-router";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
-import Button from "../components/common/Button";
+import CourseCard from "../features/beranda/components/CourseCard";
+import SectionHeading from "../components/common/SectionHeading";
+import SectionContainer from "../components/common/SectionContainer";
+import OverlaySection from "../features/beranda/components/OverlaySection";
+import TabLink from "../components/common/TabLink";
+import NewsletterSection from "../features/beranda/components/NewsletterSection";
+
+/* ── Data dummy ── */
+const courses = [
+  {
+    image: "https://picsum.photos/400/250?1",
+    title: "Full-Stack Web Development Bootcamp",
+    description:
+      "Kuasai JavaScript, React, dan Node.js dari dasar hingga siap kerja dalam 3 bulan. Belajar bersama mentor profesional. lorem ipsum dolor sit amet",
+    instructor: {
+      name: "Rian Hidayat",
+      role: "Senior Software Engineer",
+      company: "Gojek",
+      avatar: "https://i.pravatar.cc/40?img=2",
+    },
+    rating: 4.8,
+    reviewCount: 342,
+    price: "Rp 450K",
+  },
+  {
+    image: "https://picsum.photos/400/250?3",
+    title: "UI/UX Design Masterclass",
+    description:
+      "Belajar UI/UX modern menggunakan Figma dengan studi kasus proyek aplikasi nyata.",
+    instructor: {
+      name: "Dewi Lestari",
+      role: "Lead Product Designer",
+      company: "Tokopedia",
+      avatar: "https://i.pravatar.cc/40?img=1",
+    },
+    rating: 4.7,
+    reviewCount: 189,
+    price: "Rp 350K",
+  },
+  {
+    image: "https://picsum.photos/400/250?9",
+    title: "Data Science & Machine Learning",
+    description:
+      "Mulai karir data analitik dengan menguasai Python, SQL, dan visualisasi data.",
+    instructor: {
+      name: "Budi Santoso",
+      role: "Data Scientist Specialist",
+      company: "Bukalapak",
+      avatar: "https://i.pravatar.cc/40?img=3",
+    },
+    rating: 4.5,
+    reviewCount: 95,
+    price: "Rp 500K",
+  },
+  {
+    image: "https://picsum.photos/400/250?2",
+    title: "Digital Marketing Specialist",
+    description:
+      "Strategi jitu optimasi SEO, Google Ads, dan Copywriting untuk menaikkan penjualan.",
+    instructor: {
+      name: "Siti Rahma",
+      role: "Growth Marketing Manager",
+      company: "Shopee",
+      avatar: "https://i.pravatar.cc/40?img=4",
+    },
+    rating: 4.6,
+    reviewCount: 213,
+    price: "Rp 250K",
+  },
+  {
+    image: "https://picsum.photos/400/250?4",
+    title: "Product Management Fundamental",
+    description:
+      "Pelajari framework manajemen produk, riset user, hingga peluncuran fitur sukses.",
+    instructor: {
+      name: "Andi Wijaya",
+      role: "Senior Product Manager",
+      company: "Blibli",
+      avatar: "https://i.pravatar.cc/40?img=5",
+    },
+    rating: 4.4,
+    reviewCount: 76,
+    price: "Rp 300K",
+  },
+  {
+    image: "https://picsum.photos/400/250?8",
+    title: "Cyber Security & Ethical Hacking",
+    description:
+      "Pahami celah keamanan jaringan, enkripsi, dan teknik penetrasi sistem komputer.",
+    instructor: {
+      name: "Fahmi Idris",
+      role: "Security Analyst",
+      company: "Dana",
+      avatar: "https://i.pravatar.cc/40?img=6",
+    },
+    rating: 4.9,
+    reviewCount: 154,
+    price: "Rp 600K",
+  },
+  {
+    image: "https://picsum.photos/400/250?6",
+    title: "Mobile App Development with Flutter",
+    description:
+      "Bangun aplikasi Android dan iOS sekaligus menggunakan satu codebase framework Flutter.",
+    instructor: {
+      name: "Jessica Tan",
+      role: "Mobile Developer",
+      company: "tiket.com",
+      avatar: "https://i.pravatar.cc/40?img=7",
+    },
+    rating: 4.6,
+    reviewCount: 112,
+    price: "Rp 400K",
+  },
+  {
+    image: "https://picsum.photos/400/250?7",
+    title: "DevOps Engineering Roadmap",
+    description:
+      "Otomatisasi deploy software menggunakan Docker, Kubernetes, dan CI/CD pipeline.",
+    instructor: {
+      name: "Kevin Pratama",
+      role: "DevOps Engineer",
+      company: "Traveloka",
+      avatar: "https://i.pravatar.cc/40?img=8",
+    },
+    rating: 4.7,
+    reviewCount: 88,
+    price: "Rp 550K",
+  },
+  {
+    image: "https://picsum.photos/400/250?10",
+    title: "Python for Automation & Scripting",
+    description:
+      "Tingkatkan produktivitas kerja dengan membuat bot dan skrip otomatisasi Python.",
+    instructor: {
+      name: "Eka Putri",
+      role: "Automation Engineer",
+      company: "Telkom",
+      avatar: "https://i.pravatar.cc/40?img=9",
+    },
+    rating: 4.3,
+    reviewCount: 140,
+    price: "Rp 200K",
+  },
+];
+
+/* ── Tabs ── */
+const tabs = [
+  { label: "Semua Kelas", active: true },
+  { label: "Pemasaran" },
+  { label: "Desain" },
+  { label: "Pengembangan Diri" },
+  { label: "Bisnis" },
+];
 
 function Beranda() {
   return (
     <LayoutBeranda>
-      {/* HERO */}
-      <section className="py-12 md:py-14">
-        <div className="max-w-[1200px] w-[90%] mx-auto">
-          <div className="relative min-h-[380px] max-md:min-h-[420px] rounded-[18px] overflow-hidden bg-[url('https://picsum.photos/1400/800?education')] bg-cover bg-center bg-no-repeat">
-            <div className="absolute inset-0 bg-black/58"></div>
-
-            <div className="relative z-[2] max-w-[850px] mx-auto text-center text-white px-8 max-md:px-5 py-[70px] max-md:py-[50px]">
-              <h1 className="text-5xl max-lg:text-[38px] max-md:text-[34px] max-[480px]:text-3xl leading-tight font-extrabold mb-5">
-                Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video
-                Interaktif!
-              </h1>
-
-              <p className="text-base max-md:text-[15px] text-[#f0f0f0] mb-7">
-                Temukan ilmu baru yang menarik dan mendalam melalui koleksi video
-                pembelajaran berkualitas tinggi. Tidak hanya itu, Anda juga dapat
-                berpartisipasi dalam latihan interaktif yang akan meningkatkan
-                pemahaman Anda.
-              </p>
-
-              <Link
-                to="/login"
-                className="inline-block px-8 max-md:px-4 py-3.5 bg-[#2ecc71] text-white font-bold rounded-[10px] hover:bg-[#28b864] transition-all duration-300 max-md:w-full"
-              >
-                Temukan Video Course untuk Dipelajari!
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* HERO SECTION */}
+      <OverlaySection
+        bgImage="https://picsum.photos/1400/800?education"
+        overlayOpacity={58}
+        contentClassName="max-w-[850px]"
+      >
+        <h1 className="text-5xl max-lg:text-[38px] max-md:text-[34px] max-[480px]:text-3xl leading-tight font-extrabold mb-5">
+          Revolusi Pembelajaran: Temukan Ilmu Baru melalui Platform Video
+          Interaktif!
+        </h1>
+        <p className="text-base max-md:text-[15px] text-[#f0f0f0] mb-7">
+          Temukan ilmu baru yang menarik dan mendalam melalui koleksi video
+          pembelajaran berkualitas tinggi. Tidak hanya itu, Anda juga dapat
+          berpartisipasi dalam latihan interaktif yang akan meningkatkan
+          pemahaman Anda.
+        </p>
+        <Link
+          to="/login"
+          className="inline-block px-8 max-md:px-4 py-3.5 bg-[#3ECF4C] text-white font-bold rounded-[10px] hover:bg-[#28b864] transition-all duration-300 max-md:w-full"
+        >
+          Temukan Video Course untuk Dipelajari!
+        </Link>
+      </OverlaySection>
 
       {/* COURSE SECTION */}
-      <section className="py-12 md:py-14">
-        <div className="max-w-[1200px] w-[90%] mx-auto">
-          <div className="section-heading">
-            <h2 className="text-4xl max-md:text-3xl max-[480px]:text-[28px] font-extrabold mb-2.5">Koleksi Video Pembelajaran Unggulan</h2>
-            <p className="text-[#777] mb-7">Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!</p>
-          </div>
+      <SectionContainer>
+        <SectionHeading
+          title="Koleksi Video Pembelajaran Unggulan"
+          subtitle="Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!"
+        />
 
-          {/* Tabs */}
-          <div className="flex gap-7 overflow-x-auto mb-8 pb-2.5">
-            <a href="#" className="text-[#f28c28] whitespace-nowrap text-[15px] pb-2 border-b-[3px] border-[#f28c28] font-bold no-underline">Semua Kelas</a>
-            <a href="#" className="text-[#666] whitespace-nowrap text-[15px] pb-2 no-underline">Pemasaran</a>
-            <a href="#" className="text-[#666] whitespace-nowrap text-[15px] pb-2 no-underline">Desain</a>
-            <a href="#" className="text-[#666] whitespace-nowrap text-[15px] pb-2 no-underline">Pengembangan Diri</a>
-            <a href="#" className="text-[#666] whitespace-nowrap text-[15px] pb-2 no-underline">Bisnis</a>
-          </div>
-
-          {/* Cards */}
-          <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6">
-            {/* CARD 1 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?1" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=1" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 2 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?2" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=2" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 3 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?3" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=3" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 4 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?4" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=4" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 5 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?5" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=5" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 6 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?6" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=6" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 7 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?7" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=7" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 8 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?8" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=8" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 9 */}
-            <div className="bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 max-md:flex max-md:flex-row max-md:gap-3.5 max-md:p-3.5 max-[480px]:gap-3 max-[480px]:p-3">
-              <div className="p-3.5 pb-0 max-md:p-0">
-                <img src="https://picsum.photos/400/250?9" alt="" className="w-full h-[210px] object-cover rounded-[10px] max-md:w-[140px] max-md:min-w-[140px] max-md:h-[140px] max-md:rounded-xl max-[480px]:w-[110px] max-[480px]:min-w-[110px] max-[480px]:h-[110px]" />
-              </div>
-              <div className="p-4 max-md:p-0 max-md:w-full">
-                <h3 className="text-2xl max-md:text-lg max-[480px]:text-base leading-tight font-bold mb-3 max-md:mb-1.5 max-md:leading-[1.3]">Big 4 Auditor Financial Analyst</h3>
-                <p className="text-sm max-md:text-[13px] max-[480px]:text-xs text-[#666] max-md:text-[#777] mb-4 max-md:mb-2.5 max-md:leading-[1.4]">
-                  Mulai transformasi dengan instruktur profesional, harga yang
-                  terjangkau, dan...
-                </p>
-
-                <div className="flex items-center gap-2.5 mb-4 max-md:mb-2.5">
-                  <img src="https://i.pravatar.cc/40?img=9" alt="" className="w-[42px] h-[42px] rounded-full max-md:w-8 max-md:h-8 max-[480px]:w-7 max-[480px]:h-7" />
-                  <div>
-                    <h4 className="text-[15px] max-md:text-[13px] font-semibold">Jenna Ortega</h4>
-                    <span className="text-[13px] max-md:text-[11px] text-[#777]">Senior Accountant di Gojek</span>
-                  </div>
-                </div>
-
-                <div className="flex justify-between items-center max-md:flex-wrap max-md:gap-1">
-                  <div className="text-sm max-md:text-[13px]">⭐⭐⭐ <span className="text-[#666] ml-1">3.5 (86)</span></div>
-                  <div className="text-3xl max-md:text-[22px] max-[480px]:text-lg font-extrabold text-[#2ecc71]">Rp 300K</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Tabs */}
+        <div className="flex gap-7 overflow-x-auto mb-8 pb-2.5">
+          {tabs.map((tab) => (
+            <TabLink key={tab.label} label={tab.label} active={tab.active} />
+          ))}
         </div>
-      </section>
 
-      {/* NEWSLETTER */}
-      <section className="py-12 md:py-14">
-        <div className="max-w-[1200px] w-[90%] mx-auto">
-          <div className="relative min-h-[340px] max-md:min-h-[420px] rounded-[18px] overflow-hidden bg-[url('https://picsum.photos/1400/800?newsletter')] bg-cover bg-center bg-no-repeat">
-            <div className="absolute inset-0 bg-black/62"></div>
-
-            <div className="relative z-[2] max-w-[760px] mx-auto text-center text-white px-5 py-[70px]">
-              <span className="tracking-[2px] text-[13px]">NEWSLETTER</span>
-              <h2 className="text-[46px] max-lg:text-4xl font-bold max-md:text-[34px] max-[480px]:text-3xl mt-2.5 mb-3.5">Mau Belajar Lebih Banyak?</h2>
-              <p className="text-[#e7e7e7] mb-7">
-                Daftarkan dirimu untuk mendapatkan informasi terbaru dan penawaran
-                spesial dari program-program terbaik.
-              </p>
-
-              <form className="flex gap-3.5 justify-center max-md:flex-col">
-                <input type="email" placeholder="Masukkan Emailmu" className="w-[420px] text-slate-900 bg-white max-md:w-full px-4 py-4 rounded-[10px] text-[15px] border-none outline-none" />
-                <Button type="submit" variant="subscribe" className="max-md:w-full">
-                  Subscribe
-                </Button>
-              </form>
-            </div>
-          </div>
+        {/* Cards Grid */}
+        <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6">
+          {courses.map((course, index) => (
+            <CourseCard
+              key={index}
+              image={course.image}
+              title={course.title}
+              description={course.description}
+              instructor={course.instructor}
+              rating={course.rating}
+              reviewCount={course.reviewCount}
+              price={course.price}
+            />
+          ))}
         </div>
-      </section>
+      </SectionContainer>
+
+      {/* NEWSLETTER SECTION */}
+      <NewsletterSection />
     </LayoutBeranda>
   );
 }
