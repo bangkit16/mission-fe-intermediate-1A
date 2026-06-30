@@ -5,7 +5,9 @@ function LayoutBeranda({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <main className="flex-row items-center justify-center">{children}</main>
+      <main className="flex-1 flex flex-col max-w-300 mx-auto w-full px-3 py-4">
+        {children}
+      </main>
       <Footer />
     </>
   );

@@ -27,7 +27,7 @@ function NewsletterSection({
 }: NewsletterSectionProps) {
   return (
     <section className="py-12 md:py-14">
-      <div className="max-w-300 w-[90%] mx-auto">
+      <div className="max-w-300 w-[95%] md:w-full mx-auto">
         <div
           className="relative md:max-h-105 md:min-h-85 rounded-[18px] overflow-hidden bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${bgImage}')` }}

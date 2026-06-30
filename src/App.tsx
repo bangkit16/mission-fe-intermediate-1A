@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 import Beranda from "./pages/Beranda";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import SemuaProduk from "./pages/SemuaProduk";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
         <Route path="/" element={<Beranda />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+
+        <Route path="/produk" element={<SemuaProduk />} />
       </Route>
     </Routes>
   );

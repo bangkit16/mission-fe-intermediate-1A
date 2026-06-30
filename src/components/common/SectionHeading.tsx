@@ -10,11 +10,11 @@ export interface SectionHeadingProps {
 function SectionHeading({ title, subtitle, className = "" }: SectionHeadingProps) {
   return (
     <div className={`section-heading ${className}`}>
-      <h2 className="text-[28px] md:text-3xl lg:text-4xl font-extrabold mb-2.5">
+      <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold mb-2.5">
         {title}
       </h2>
       {subtitle && typeof subtitle === "string" ? (
-        <p className="text-[#777] mb-7">{subtitle}</p>
+        <p className="text-[#777] text-sm md:text-base mb-7">{subtitle}</p>
       ) : (
         subtitle
       )}
