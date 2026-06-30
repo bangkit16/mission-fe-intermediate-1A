@@ -48,7 +48,7 @@ function CourseCard({
         {/* Container Konten Utama */}
         <div className="flex justify-between w-full h-full md:p-4 ">
           {/* Bagian Atas: Judul, Deskripsi, dan Instruktur */}
-          <div className="flex flex-col justify-around md:justify-between h-full mb-2 md:mb-4">
+          <div className="flex flex-col justify-around md:justify-between h-full mb-1 ">
             <h3 className="text-base font-bold leading-[1.3] mb-1.5 md:text-xl md:leading-tight md:mb-2 line-clamp-2">
               {title}
             </h3>
@@ -59,7 +59,7 @@ function CourseCard({
               <img
                 src={instructor.avatar}
                 alt={instructor.name}
-                className="w-7 h-7 rounded-xl md:w-[42px] md:h-[42px]"
+                className="w-7 h-7 rounded-xl md:w-10 md:h-10"
               />
               <div className="min-w-0">
                 <h4 className="text-[13px] font-semibold leading-tight truncate md:text-base">
@@ -80,7 +80,7 @@ function CourseCard({
         </div>
       </div>
       {/* Bagian Bawah: Rating dan Harga */}
-      <div className="flex justify-between items-center gap-1  pt-2 md:px-3 md:my-3 md:border-none">
+      <div className="flex justify-between items-center gap-1 md:px-3 md:my-3 md:border-none">
         <div className="text-[13px] md:text-sm">
           {"⭐".repeat(Math.floor(rating))}
           <span className="text-[#666] ml-1">

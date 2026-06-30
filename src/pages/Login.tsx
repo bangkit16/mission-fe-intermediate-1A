@@ -60,7 +60,7 @@ function Login() {
 
           {/* GOOGLE */}
           <Button variant="google" className="mt-0">
-            <span className="[&>svg]:w-[26px] [&>svg]:h-[26px]">
+            <span className="[&>svg]:w-6 [&>svg]:h-6">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                 <path
                   fill="#FFC107"

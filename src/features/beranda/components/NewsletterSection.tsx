@@ -27,14 +27,14 @@ function NewsletterSection({
 }: NewsletterSectionProps) {
   return (
     <section className="py-12 md:py-14">
-      <div className="max-w-[1200px] w-[90%] mx-auto">
+      <div className="max-w-300 w-[90%] mx-auto">
         <div
-          className="relative min-h-[420px] md:min-h-[340px] rounded-[18px] overflow-hidden bg-cover bg-center bg-no-repeat"
+          className="relative min-h-105 md:min-h-85 rounded-[18px] overflow-hidden bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${bgImage}')` }}
         >
           <div className="absolute inset-0 bg-black/62"></div>
 
-          <div className="relative z-[2] max-w-[760px] mx-auto text-center text-white px-5 py-[70px]">
+          <div className="relative z-2 max-w-190 mx-auto text-center text-white px-5 py-70">
             <span className="tracking-[2px] text-[13px]">{badge}</span>
             <h2 className="text-3xl md:text-[34px] lg:text-4xl xl:text-[46px] font-bold mt-2.5 mb-3.5">
               {title}
@@ -45,7 +45,7 @@ function NewsletterSection({
               <input
                 type="email"
                 placeholder={placeholder}
-                className="w-full md:w-[420px] text-slate-900 bg-white px-4 py-4 rounded-[10px] text-[15px] border-none outline-none"
+                className="w-full md:w-105 text-slate-900 bg-white px-4 py-4 rounded-[10px] text-[15px] border-none outline-none"
               />
               <Button
                 type="submit"
