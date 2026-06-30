@@ -25,9 +25,9 @@ function OverlaySection({
 }: OverlaySectionProps) {
   return (
     <section className={`py-12 md:py-14 ${className}`}>
-      <div className={`max-w-[1200px] w-[90%] mx-auto ${containerClassName}`}>
+      <div className={`max-w-300 w-[90%] mx-auto ${containerClassName}`}>
         <div
-          className="relative min-h-[420px] md:min-h-[380px] rounded-[18px] overflow-hidden bg-cover bg-center bg-no-repeat"
+          className="relative min-h-105 md:min-h-95 rounded-3xl overflow-hidden bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${bgImage}')` }}
         >
           <div

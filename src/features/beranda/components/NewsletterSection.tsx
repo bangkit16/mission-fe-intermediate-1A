@@ -29,12 +29,12 @@ function NewsletterSection({
     <section className="py-12 md:py-14">
       <div className="max-w-300 w-[90%] mx-auto">
         <div
-          className="relative min-h-105 md:min-h-85 rounded-[18px] overflow-hidden bg-cover bg-center bg-no-repeat"
+          className="relative md:max-h-105 md:min-h-85 rounded-[18px] overflow-hidden bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${bgImage}')` }}
         >
           <div className="absolute inset-0 bg-black/62"></div>
 
-          <div className="relative z-2 max-w-190 mx-auto text-center text-white px-5 py-70">
+          <div className="relative z-2 max-w-190 mx-auto text-center text-white px-5 py-17">
             <span className="tracking-[2px] text-[13px]">{badge}</span>
             <h2 className="text-3xl md:text-[34px] lg:text-4xl xl:text-[46px] font-bold mt-2.5 mb-3.5">
               {title}
