@@ -8,7 +8,7 @@ export interface AuthHeadingProps {
 function AuthHeading({ title, subtitle, className = "" }: AuthHeadingProps) {
   return (
     <div className={`text-center mb-9 ${className}`}>
-      <h2 className="text-[28px] md:text-3xl lg:text-4xl font-bold mb-3">
+      <h2 className="text-[28px] md:text-2xl lg:text-3xl font-semibold mb-3">
         {title}
       </h2>
       {subtitle && (
