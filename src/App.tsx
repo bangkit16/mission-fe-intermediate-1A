@@ -4,6 +4,7 @@ import Beranda from "./pages/Beranda";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SemuaProduk from "./pages/SemuaProduk";
+import Produk from "./pages/Produk";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
 
         <Route path="/produk" element={<SemuaProduk />} />
+        <Route path="/produk/:slug" element={<Produk />} />
       </Route>
     </Routes>
   );

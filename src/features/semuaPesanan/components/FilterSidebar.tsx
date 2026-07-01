@@ -5,7 +5,6 @@ import {
   BookOpen,
   ShoppingBag,
   Clock,
-  Filter,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -85,13 +84,15 @@ function CollapsibleFilterGroup({ group }: { group: FilterGroup }) {
                 type={inputType}
                 name={nameAttr}
                 value={opt.value}
-                className="w-[18px] h-[18px] accent-[#3ECF4C]"
+                // Tambahkan focus:ring dan ganti kelas border bawaan jika perlu
+                className="w-4 h-4 appearance-none border border-[#3ECF4C] text-[#3ECF4C] focus:ring-[#3ECF4C] bg-green-50 checked:bg-[#3ECF4C] checked:accent-[#3ECF4C]"
                 style={
-                  group.type === "checkbox"
-                    ? { borderRadius: "4px" }
+                  group.type === "radio"
+                    ? { borderRadius: "50%" }
                     : undefined
                 }
               />
+
               <span
                 className="text-[16px] leading-[140%] tracking-[0.2px] text-[rgba(51,51,51,0.68)]"
                 style={{
@@ -112,7 +113,11 @@ function CollapsibleFilterGroup({ group }: { group: FilterGroup }) {
 /* -------------------------------------------------------------------------- */
 /*  FilterSidebar — komponen utama                                            */
 /* -------------------------------------------------------------------------- */
-function FilterSidebar({ groups, onReset, className = "" }: FilterSidebarProps) {
+function FilterSidebar({
+  groups,
+  onReset,
+  className = "",
+}: FilterSidebarProps) {
   return (
     <aside
       className={`w-full lg:w-[366px] flex flex-col items-start p-5 gap-4 bg-white border border-[rgba(58,53,65,0.12)] rounded-[10px] lg:sticky lg:top-24 shrink-0 ${className}`}
@@ -123,7 +128,6 @@ function FilterSidebar({ groups, onReset, className = "" }: FilterSidebarProps) 
           className="text-[18px] leading-[120%] text-[rgba(51,51,51,0.68)] flex items-center gap-2"
           style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 600 }}
         >
-          <Filter size={18} className="text-[rgba(51,51,51,0.68)]" />
           Filter
         </h3>
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
-import CourseCard from "../features/beranda/components/CourseCard";
+import CourseCard from "../components/common/CourseCard";
 import SectionHeading from "../components/common/SectionHeading";
 import SectionContainer from "../components/common/SectionContainer";
 import OverlaySection from "../features/beranda/components/OverlaySection";
