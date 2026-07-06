@@ -3,8 +3,8 @@ import SectionContainer from "../components/common/SectionContainer";
 import SectionHeading from "../components/common/SectionHeading";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CourseCard from "../components/common/CourseCard";
-import FilterSidebar from "../features/semuaPesanan/components/FilterSidebar";
-import type { FilterGroup } from "../features/semuaPesanan/components/FilterSidebar";
+import FilterSidebar from "../features/semuaProduk/components/FilterSidebar";
+import type { FilterGroup } from "../features/semuaProduk/components/FilterSidebar";
 
 const filterGroups: FilterGroup[] = [
   {
