@@ -2,7 +2,11 @@ import React from "react";
 // Import ikon yang sesuai dari lucide-react
 import { FileText, Video, File, Award, PenSquare, Globe } from "lucide-react";
 
-function CheckoutCard() {
+function CheckoutCard({
+  isCheckoutButtonDisabled = true,
+}: {
+  isCheckoutButtonDisabled?: boolean;
+}) {
   return (
     <aside className="w-full lg:w-[366px] flex flex-col p-6 gap-5 bg-white border border-[rgba(58,53,65,0.12)] rounded-[14px] lg:sticky lg:top-24 shrink-0 shadow-sm">
       {/* Title / Headline */}
@@ -14,7 +18,7 @@ function CheckoutCard() {
       <div className="flex items-center justify-between gap-2 mt-1">
         <div className="flex items-baseline gap-2">
           <span className="text-2xl font-bold text-[#22C55E]">Rp 250K</span>
-          <span className="text-base text-gray-400 line-through">Rp 500K</span>
+          <span className="text-base text-gray-400 line-through">Rp 500K</span>s
         </div>
         <span className="bg-[#FBBF24] text-white text-xs font-semibold px-2.5 py-1 rounded-md">
           Diskon 50%
@@ -27,12 +31,16 @@ function CheckoutCard() {
       </p>
 
       {/* CTA Button */}
-      <button
-        type="button"
-        className="w-full bg-[#22C55E] hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl transition-colors duration-200 text-center text-base"
-      >
-        Beli Sekarang
-      </button>
+
+      {!isCheckoutButtonDisabled ? (
+        <button
+          type="button"
+          disabled
+          className="w-full bg-[#22C55E] hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl transition-colors duration-200 text-center text-base"
+        >
+          Beli Sekarang
+        </button>
+      ) : null}
 
       {/* Features List Section */}
       <div className="flex flex-col gap-3 mt-2">

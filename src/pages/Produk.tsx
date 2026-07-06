@@ -379,7 +379,7 @@ function Produk() {
               </div>
             </Card>
           </main>
-          <CheckoutCard />
+          <CheckoutCard isCheckoutButtonDisabled={false} />
         </div>
       </SectionContainer>
       <SectionContainer>
