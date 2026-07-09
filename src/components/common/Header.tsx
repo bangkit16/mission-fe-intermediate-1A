@@ -21,7 +21,7 @@ function Header() {
         {/* Desktop */}
         <nav className="hidden md:flex items-center gap-6">
           <Link
-            to="/kategori"
+            to="/produk"
             className="text-sm text-gray-600 hover:text-black transition"
           >
             Kategori

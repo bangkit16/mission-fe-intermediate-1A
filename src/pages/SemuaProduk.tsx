@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import SectionHeading from "../components/common/SectionHeading";
@@ -180,6 +181,33 @@ const courses = [
 ];
 
 function SemuaProduk() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortOrder, setSortOrder] = useState<"default" | "termurah" | "termahal" | "rating">("default");
+  const [showSortDropdown, setShowSortDropdown] = useState(false);
+
+  // Filter course berdasarkan pencarian
+  const filteredCourses = courses.filter((course) =>
+    course.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  // Urutkan course
+  const sortedCourses = [...filteredCourses].sort((a, b) => {
+    const priceA = parseInt(a.price.replace(/[^0-9]/g, ""));
+    const priceB = parseInt(b.price.replace(/[^0-9]/g, ""));
+    if (sortOrder === "termurah") return priceA - priceB;
+    if (sortOrder === "termahal") return priceB - priceA;
+    if (sortOrder === "rating") return b.rating - a.rating;
+    return 0;
+  });
+
+  const sortLabels: Record<string, string> = {
+    default: "Urutkan",
+    termurah: "Termurah",
+    termahal: "Termahal",
+    rating: "Rating Tertinggi",
+  };
+
   return (
     <LayoutBeranda>
       <SectionContainer>
@@ -198,15 +226,39 @@ function SemuaProduk() {
             <div className="flex justify-end items-center gap-4 mb-6">
               {/* Dropdown Urutkan */}
               <div className="relative">
-                <button className="flex items-center gap-2 border border-gray-300 rounded px-4 py-2 text-sm text-gray-600 bg-white hover:bg-gray-50">
-                  Urutkan <span className="text-xs">▼</span>
+                <button
+                  onClick={() => setShowSortDropdown((prev) => !prev)}
+                  className="flex items-center gap-2 border border-gray-300 rounded px-4 py-2 text-sm text-gray-600 bg-white hover:bg-gray-50"
+                >
+                  {sortLabels[sortOrder]} <span className="text-xs">▼</span>
                 </button>
+                {showSortDropdown && (
+                  <div className="absolute right-0 top-full mt-1 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                    {(["default", "termurah", "termahal", "rating"] as const).map((opt) => (
+                      <button
+                        key={opt}
+                        onClick={() => {
+                          setSortOrder(opt);
+                          setShowSortDropdown(false);
+                        }}
+                        className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 ${sortOrder === opt ? "font-bold text-emerald-600" : "text-gray-600"}`}
+                      >
+                        {sortLabels[opt]}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
               {/* Input Pencarian */}
               <div className="relative w-full sm:w-64">
                 <input
                   type="text"
                   placeholder="Cari Kelas"
+                  value={searchTerm}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    setCurrentPage(1);
+                  }}
                   className="w-full border bg-white border-gray-300 rounded px-4 py-2 pr-10 text-sm focus:outline-none focus:border-emerald-500"
                 />
                 <span className="absolute right-3 top-2.5 text-gray-400 text-sm">
@@ -217,7 +269,7 @@ function SemuaProduk() {
 
             {/* Grid List Card Produk */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {courses.map((course, index) => (
+              {sortedCourses.map((course, index) => (
                 <CourseCard
                   key={index}
                   image={course.image}
@@ -227,15 +279,17 @@ function SemuaProduk() {
                   rating={course.rating}
                   reviewCount={course.reviewCount}
                   price={course.price}
+                  to={`/produk/${course.title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "dan").replace(/[^a-z0-9-]/g, "")}`}
                 />
               ))}
             </div>
             <div className="flex justify-center md:justify-end mt-8">
               <Pagination
-                currentPage={4}
+                currentPage={currentPage}
                 totalPages={5}
-                onPageChange={() => {}}
+                onPageChange={setCurrentPage}
               />
+              
             </div>
           </main>
         </div>

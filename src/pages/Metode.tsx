@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
@@ -79,6 +80,7 @@ const paymentCategories: PaymentCategory[] = [
 ];
 
 function Metode() {
+  const navigate = useNavigate();
   // State untuk mengontrol kategori metode pembayaran mana saja yang terbuka (bisa multi-open)
   const [openCategories, setOpenCategories] = useState<string[]>([
     "transfer-bank",
@@ -119,6 +121,8 @@ function Metode() {
                 productPrice={767500}
                 adminFee={7000}
                 total={774500}
+                buttonLabel="Lanjutkan Pembayaran"
+                onAction={() => navigate("/produk/belajar-menyenangkan/pembayaran")}
               />
             </Card>
           </main>

@@ -1,4 +1,5 @@
 import { Fragment, type ReactNode } from "react";
+import { Link } from "react-router";
 
 /* -------------------------------------------------------------------------- */
 /*  Tipe data untuk setiap item breadcrumb                                   */
@@ -57,16 +58,16 @@ function Breadcrumb({
                 )}
 
                 {isLast ? (
-                  <span className="text-gray-600 font-medium max-w-50 line-clamp-1 max-w-screen">
+                  <span className="text-gray-600 font-medium max-w-50 line-clamp-1">
                     {item.label}
                   </span>
                 ) : item.href ? (
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className="text-gray-400 hover:text-[#3ECF4C] transition-colors no-underline"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ) : (
                   <span className="text-gray-500">{item.label}</span>
                 )}

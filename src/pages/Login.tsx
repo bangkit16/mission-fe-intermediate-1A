@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import LayoutAuth from "../components/layout/LayoutAuth";
 import Button from "../components/common/Button";
 import InputField from "../components/common/InputField";
@@ -37,12 +38,12 @@ function Login() {
 
           {/* FORGOT */}
           <div className="text-right mb-6">
-            <a
-              href="#"
+            <Link
+              to="/lupa-password"
               className="text-[15px] sm:text-base text-[#707070] no-underline"
             >
               Lupa Password?
-            </a>
+            </Link>
           </div>
 
           {/* BUTTON LOGIN */}

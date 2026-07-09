@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
@@ -19,6 +20,7 @@ const changeMethodSections = [
 ];
 
 function GantiMetode() {
+  const navigate = useNavigate();
   // State untuk accordion Card 1 — metode pembayaran terpilih
   const [selectedMethod, setSelectedMethod] = useState<string>("bca");
 
@@ -56,6 +58,8 @@ function GantiMetode() {
                 sections={changeMethodSections}
                 openSectionIds={openCategories}
                 onToggleSection={toggleCategory}
+                payButtonLabel="Bayar Sekarang"
+                onPayNow={() => navigate("/produk/belajar-menyenangkan/pembayaran")}
               />
             </Card>
           </main>

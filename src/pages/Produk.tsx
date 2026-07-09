@@ -4,11 +4,12 @@ import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import BannerProduct from "../features/produk/components/BannerProduct";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
+import { InstructorCard } from "../features/produk/components/InstructorCard";
+import { ProductDescription } from "../features/produk/components/ProductDescription";
+import { SyllabusAccordion } from "../features/produk/components/SyllabusAccordion";
+import { ProductReviews } from "../features/produk/components/ProductReviews";
+import { RelatedCourses } from "../features/produk/components/RelatedCourses";
 import Card from "../components/common/Card";
-// Menambahkan Star dari lucide-react untuk seksi Rating dan Review
-import { ChevronDown, ChevronUp, PlayCircle, Clock, Star } from "lucide-react";
-import SectionHeading from "../components/common/SectionHeading";
-import CourseCard from "../components/common/CourseCard";
 
 const instructor = {
   name: "Jessica Tan",
@@ -16,6 +17,7 @@ const instructor = {
   company: "tiket.com",
   avatar: "https://i.pravatar.cc/40?img=7",
 };
+
 const courses = [
   {
     image: "https://picsum.photos/400/250?1",
@@ -143,10 +145,10 @@ function Produk() {
         <Breadcrumb
           items={[
             {
-              label: "Dashboard",
-              href: "/dashboard",
+              label: "Semua Produk",
+              href: "/produk",
             },
-            { label: "Belajar Menyenangkan Sekali hokya hokya" },
+            { label: "Belajar Menyenangkan" },
           ]}
         />
         <BannerProduct
@@ -156,29 +158,7 @@ function Produk() {
         />
         <div className="flex flex-col-reverse lg:flex-row gap-8 items-start ">
           <main className="flex-1 w-full ">
-            <Card className="p-2 md:p-4 mb-5">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <h1 className="text-xl md:text-2xl leading-tight font-bold mb-5">
-                    Deskripsi
-                  </h1>
-                  <p className="text-sm md:text-base text-gray-500">
-                    Foundations of User Experience (UX) Design adalah yang
-                    pertama dari rangkaian tujuh kursus yang akan membekali Anda
-                    dengan keterampilan yang dibutuhkan untuk melamar pekerjaan
-                    tingkat pemula dalam desain pengalaman pengguna. Desainer UX
-                    fokus pada interaksi yang dilakukan orang dengan produk
-                    situs web, aplikasi seluler, dan objek fisik. Desainer UX
-                    membuat interaksi sehari-hari itu dapat digunakan,
-                    menyenangkan, dan dapat diakses. Peran seorang desainer UX
-                    tingkat pemula mungkin termasuk berempati dengan pengguna,
-                    menentukan poin rasa sakit mereka, memunculkan ide untuk
-                    solusi desain, membuat wireframe, prototipe, dan maket, dan
-                    menguji desain untuk mendapatkan umpan balik.
-                  </p>
-                </div>
-              </div>
-            </Card>
+            <ProductDescription description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik." />
 
             <Card className="p-2 md:p-4 mb-5">
               <div className="flex flex-col gap-4">
@@ -187,60 +167,20 @@ function Produk() {
                     Beljar bersama Tutor Profesional
                   </h1>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                    <Card className="mb-5">
-                      <div className="flex items-center gap-2 mt-1 md:gap-2.5 m">
-                        <img
-                          src={instructor.avatar}
-                          alt={instructor.name}
-                          className="w-7 h-7 rounded-xl md:w-10 md:h-10"
-                        />
-                        <div className="min-w-0">
-                          <h4 className="text-[13px] font-semibold leading-tight truncate md:text-base">
-                            {instructor.name}
-                          </h4>
-                          <span className="text-[11px] text-gray-400 line-clamp-1 md:text-sm">
-                            {instructor.role}{" "}
-                            <span className="hidden md:inline ">
-                              {" di "}
-                              <span className="font-semibold text-gray-600 ">
-                                {instructor.company}{" "}
-                              </span>
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-sm md:text-base font-normal text-gray-900 mt-4">
-                        Foundations of User Experience (UX) Design adalah yang
-                        pertama dari rangkaian tujuh kursus yang akan membekali
-                      </p>
-                    </Card>
-                    <Card className="mb-5">
-                      <div className="flex items-center gap-2 mt-1 md:gap-2.5 m">
-                        <img
-                          src={instructor.avatar}
-                          alt={instructor.name}
-                          className="w-7 h-7 rounded-xl md:w-10 md:h-10"
-                        />
-                        <div className="min-w-0">
-                          <h4 className="text-[13px] font-semibold leading-tight truncate md:text-base">
-                            {instructor.name}
-                          </h4>
-                          <span className="text-[11px] text-gray-400 line-clamp-1 md:text-sm">
-                            {instructor.role}{" "}
-                            <span className="hidden md:inline ">
-                              {" di "}
-                              <span className="font-semibold text-gray-600 ">
-                                {instructor.company}{" "}
-                              </span>
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-sm md:text-base font-normal text-gray-900 mt-4">
-                        Foundations of User Experience (UX) Design adalah yang
-                        pertama dari rangkaian tujuh kursus yang akan membekali
-                      </p>
-                    </Card>
+                    <InstructorCard
+                      name={instructor.name}
+                      role={instructor.role}
+                      company={instructor.company}
+                      avatar={instructor.avatar}
+                      description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+                    />
+                    <InstructorCard
+                      name={instructor.name}
+                      role={instructor.role}
+                      company={instructor.company}
+                      avatar={instructor.avatar}
+                      description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+                    />
                   </div>
                 </div>
               </div>
@@ -250,159 +190,19 @@ function Produk() {
               <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-6">
                 Kamu akan Mempelajari
               </h2>
-
-              <div className="space-y-5">
-                {syllabusModules.map((module) => {
-                  const isOpen = openModuleId === module.id;
-
-                  return (
-                    <div
-                      key={module.id}
-                      className="border-b border-gray-50 last:border-none pb-2 last:pb-0"
-                    >
-                      {/* Accordion Trigger Header */}
-                      <button
-                        type="button"
-                        onClick={() => toggleModule(module.id)}
-                        className="w-full flex items-center justify-between text-left group py-2 focus:outline-none"
-                      >
-                        <span className="text-sm md:text-base font-semibold text-[#22C55E] group-hover:text-green-600 transition-colors duration-200 pr-4">
-                          {module.title}
-                        </span>
-                        {isOpen ? (
-                          <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                        ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                        )}
-                      </button>
-
-                      {/* Accordion Content (List Pelajaran) */}
-                      {isOpen && module.lessons.length > 0 && (
-                        <div className="mt-4 space-y-3 pl-0.5">
-                          {module.lessons.map((lesson) => (
-                            <div
-                              key={lesson.id}
-                              className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white border border-gray-200 rounded-xl hover:border-gray-300 transition-all duration-200 gap-3"
-                            >
-                              <span className="text-xs md:text-sm font-medium text-gray-800">
-                                {lesson.title}
-                              </span>
-
-                              {/* Metadata info */}
-                              <div className="flex items-center gap-4 text-xs font-medium text-gray-500 flex-shrink-0">
-                                <div className="flex items-center gap-1.5">
-                                  <PlayCircle className="w-4 h-4 text-gray-400" />
-                                  <span>{lesson.type}</span>
-                                </div>
-                                <div className="flex items-center gap-1.5">
-                                  <Clock className="w-4 h-4 text-gray-400" />
-                                  <span>{lesson.duration}</span>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+              <SyllabusAccordion
+                modules={syllabusModules}
+                openModuleId={openModuleId}
+                onToggleModule={toggleModule}
+              />
             </Card>
 
-            <Card className="p-4 md:p-6 mb-5">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">
-                Rating dan Review
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {reviews.map((review) => (
-                  <div
-                    key={review.id}
-                    className="p-5 bg-white border border-gray-200 rounded-xl flex flex-col justify-between gap-4"
-                  >
-                    <div>
-                      {/* User Header */}
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 flex items-center justify-center overflow-hidden shrink-0">
-                          <img
-                            src={review.avatar}
-                            alt={review.name}
-                            className="w-10 h-10 object-cover rounded-xl"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <h4 className="text-base font-bold text-gray-900 truncate">
-                            {review.name}
-                          </h4>
-                          <p className="text-sm text-gray-400">
-                            {review.batch}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Review Comment */}
-                      <p className="text-sm md:text-base text-gray-700 font-normal leading-relaxed mt-4">
-                        {review.comment}
-                      </p>
-                    </div>
-
-                    {/* Star Ratings */}
-                    <div className="flex items-center gap-2 mt-2">
-                      <div className="flex items-center gap-0.5">
-                        {[1, 2, 3, 4, 5].map((star) => {
-                          const isFilled = star <= Math.floor(review.rating);
-                          const isHalf =
-                            !isFilled &&
-                            star === Math.ceil(review.rating) &&
-                            review.rating % 1 !== 0;
-
-                          return (
-                            <Star
-                              key={star}
-                              className={`w-5 h-5 ${
-                                isFilled
-                                  ? "text-[#FBBF24] fill-[#FBBF24]"
-                                  : isHalf
-                                    ? "text-[#FBBF24] fill-[#FBBF24] opacity-50" // representasi simpel bintang setengah
-                                    : "text-gray-200 fill-gray-200"
-                              }`}
-                            />
-                          );
-                        })}
-                      </div>
-                      <span className="text-sm font-semibold text-gray-600 ml-1">
-                        {review.rating}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
+            <ProductReviews reviews={reviews} />
           </main>
-          <CheckoutCard isCheckoutButtonDisabled={false} />
+          <CheckoutCard checkoutLink={"/produk/belajar-menyenangkan/metode"} />
         </div>
       </SectionContainer>
-      <SectionContainer>
-        <SectionHeading
-          title="Video Pembelajaran Terkait Lainnya"
-          subtitle="Ekspansi Pengetahuan Anda dengan Rekomendasi Spesial Kami!"
-          className="mt-5"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {courses.map((course, index) => (
-            <CourseCard
-              key={index}
-              image={course.image}
-              title={course.title}
-              description={course.description}
-              instructor={course.instructor}
-              rating={course.rating}
-              reviewCount={course.reviewCount}
-              price={course.price}
-            />
-          ))}
-        </div>
-      </SectionContainer>
+      <RelatedCourses courses={courses} />
     </LayoutBeranda>
   );
 }

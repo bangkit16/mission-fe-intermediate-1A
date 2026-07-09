@@ -148,11 +148,11 @@ const courses = [
 
 /* ── Tabs ── */
 const tabs = [
-  { label: "Semua Kelas", active: true },
-  { label: "Pemasaran" },
-  { label: "Desain" },
-  { label: "Pengembangan Diri" },
-  { label: "Bisnis" },
+  { label: "Semua Kelas", active: true, href: "/produk" },
+  { label: "Pemasaran", href: "/produk?kategori=pemasaran" },
+  { label: "Desain", href: "/produk?kategori=desain" },
+  { label: "Pengembangan Diri", href: "/produk?kategori=pengembangan-diri" },
+  { label: "Bisnis", href: "/produk?kategori=bisnis" },
 ];
 
 function Beranda() {
@@ -192,7 +192,7 @@ function Beranda() {
         {/* Tabs */}
         <div className="flex gap-7 overflow-x-auto mb-8 pb-2.5">
           {tabs.map((tab) => (
-            <TabLink key={tab.label} label={tab.label} active={tab.active} />
+            <TabLink key={tab.label} label={tab.label} active={tab.active} href={tab.href ?? "#"} />
           ))}
         </div>
 
@@ -208,6 +208,7 @@ function Beranda() {
               rating={course.rating}
               reviewCount={course.reviewCount}
               price={course.price}
+              to={`/produk/${course.title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "dan").replace(/[^a-z0-9-]/g, "")}`}
             />
           ))}
         </div>

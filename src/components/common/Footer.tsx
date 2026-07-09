@@ -32,31 +32,31 @@ function Footer() {
             <h4 className="text-[16px] mb-4 font-bold text-[#111]">Kategori</h4>
             <div className="flex flex-col gap-2.5">
               <Link
-                to="#"
+                to="/produk?kategori=digital-teknologi"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Digital & Teknologi
               </Link>
               <Link
-                to="#"
+                to="/produk?kategori=pemasaran"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Pemasaran
               </Link>
               <Link
-                to="#"
+                to="/produk?kategori=manajemen-bisnis"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Manajemen Bisnis
               </Link>
               <Link
-                to="#"
+                to="/produk?kategori=pengembangan-diri"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Pengembangan Diri
               </Link>
               <Link
-                to="#"
+                to="/produk?kategori=desain"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Desain
@@ -71,31 +71,31 @@ function Footer() {
             </h4>
             <div className="flex flex-col gap-2.5">
               <Link
-                to="#"
+                to="/tentang-kami"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Tentang Kami
               </Link>
               <Link
-                to="#"
+                to="/faq"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 FAQ
               </Link>
               <Link
-                to="#"
+                to="/kebijakan-privasi"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Kebijakan Privasi
               </Link>
               <Link
-                to="#"
+                to="/ketentuan-layanan"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Ketentuan Layanan
               </Link>
               <Link
-                to="#"
+                to="/bantuan"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Bantuan
@@ -110,13 +110,13 @@ function Footer() {
             </h4>
             <div className="flex flex-col gap-2.5">
               <Link
-                to="#"
+                to="/blog/tips-sukses"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Tips Sukses
               </Link>
               <Link
-                to="#"
+                to="/blog"
                 className="text-[#555] text-[14px] hover:text-[#222] no-underline"
               >
                 Blog

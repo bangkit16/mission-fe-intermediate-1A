@@ -1,11 +1,14 @@
 import React from "react";
 // Import ikon yang sesuai dari lucide-react
 import { FileText, Video, File, Award, PenSquare, Globe } from "lucide-react";
+import { Link } from "react-router";
 
 function CheckoutCard({
   isCheckoutButtonDisabled = true,
+  checkoutLink,
 }: {
   isCheckoutButtonDisabled?: boolean;
+  checkoutLink?: string;
 }) {
   return (
     <aside className="w-full lg:w-[366px] flex flex-col p-6 gap-5 bg-white border border-[rgba(58,53,65,0.12)] rounded-[14px] lg:sticky lg:top-24 shrink-0 shadow-sm">
@@ -32,14 +35,13 @@ function CheckoutCard({
 
       {/* CTA Button */}
 
-      {!isCheckoutButtonDisabled ? (
-        <button
-          type="button"
-          disabled
-          className="w-full bg-[#22C55E] hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl transition-colors duration-200 text-center text-base"
+      {checkoutLink ? (
+        <Link
+          to={checkoutLink}
+          className="block w-full bg-[#22C55E] hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl transition-colors duration-200 text-center text-base no-underline"
         >
           Beli Sekarang
-        </button>
+        </Link>
       ) : null}
 
       {/* Features List Section */}

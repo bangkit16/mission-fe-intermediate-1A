@@ -42,7 +42,7 @@ function NavigationMenu({
     <div ref={ref as Ref<HTMLDivElement>} className={menuClass}>
       {isMobile && (
         <Link
-          to="/kategori"
+          to="/produk"
           className="block border-b border-gray-100 px-5 py-4 text-sm text-gray-700 hover:bg-gray-50"
           onClick={onClose}
         >
@@ -73,13 +73,14 @@ function NavigationMenu({
         Pesanan Saya
       </Link>
 
-      <button
+      <Link
+        to="/login"
         onClick={onClose}
-        className="flex w-full items-center gap-3 border-t border-gray-100 px-5 py-4 text-sm text-red-500 hover:bg-red-50 transition"
+        className="flex w-full items-center gap-3 border-t border-gray-100 px-5 py-4 text-sm text-red-500 hover:bg-red-50 transition no-underline"
       >
         <LogOut size={18} />
         Keluar
-      </button>
+      </Link>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export interface CourseCardProps {
   /** URL gambar thumbnail kursus */
   image: string;
@@ -18,6 +20,8 @@ export interface CourseCardProps {
   reviewCount: number;
   /** Harga dalam format Rupiah (misal: "Rp 300K") */
   price: string;
+  /** Link tujuan saat card diklik (opsional) */
+  to?: string;
 }
 
 function CourseCard({
@@ -28,11 +32,11 @@ function CourseCard({
   rating,
   reviewCount,
   price,
+  to,
 }: CourseCardProps) {
-  return (
-    /* Root Div Utama: Secara default (mobile) berbentuk baris/menyamping, di desktop berbentuk kolom ke bawah */
+  const cardContent = (
     <div
-      className="flex flex-col gap-3 p-3 
+      className="flex flex-col gap-3 p-3
     bg-white border border-[#e8e8e8] rounded-[14px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 md:gap-0 md:p-0 h-full"
     >
       <div className="flex md:flex-col gap-3 md:gap-0 h-full justify-between">
@@ -93,6 +97,16 @@ function CourseCard({
       </div>
     </div>
   );
+
+  if (to) {
+    return (
+      <Link to={to} className="block no-underline text-inherit">
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 }
 
 export default CourseCard;

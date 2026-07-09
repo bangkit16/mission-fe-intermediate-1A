@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
@@ -54,6 +55,7 @@ const guideEntries: GuideEntry[] = [
 ];
 
 function Pembayaran() {
+  const navigate = useNavigate();
   // State untuk melacak accordion panduan cara bayar mana saja yang terbuka
   const [openGuides, setOpenGuides] = useState<string[]>([
     "atm-bca",
@@ -91,6 +93,8 @@ function Pembayaran() {
                 productPrice={767500}
                 adminFee={7000}
                 total={774500}
+                onChangeMethod={() => navigate("/produk/belajar-menyenangkan/ganti-metode")}
+                onPayNow={() => navigate("/produk/belajar-menyenangkan/pembayaran-selesai")}
               />
             </Card>
 
