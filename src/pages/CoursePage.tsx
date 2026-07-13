@@ -1,5 +1,31 @@
 // LearningModulePage.tsx
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  ChevronDown,
+  PlayCircle,
+  FileText,
+  CheckSquare,
+} from "lucide-react";
 import { useEffect, useState } from "react";
+
+// Tipe data untuk item di dalam modul
+interface ContentItem {
+  id: string;
+  type: "pre-test" | "video" | "rangkuman" | "quiz";
+  title: string;
+  subtitle: string;
+  isActive?: boolean;
+  isCompleted?: boolean;
+  isDisabled?: boolean;
+}
+
+interface ModuleData {
+  id: string;
+  title: string;
+  items: ContentItem[];
+}
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -22,48 +48,155 @@ const useIsMobile = () => {
 const LearningModulePage = () => {
   const isMobile = useIsMobile();
 
-  const modules = Array.from({ length: 5 });
+  // State untuk mengontrol modul mana saja yang terbuka
+  const [openModules, setOpenModules] = useState<Record<string, boolean>>({
+    "mod-1": true, // Modul pertama default terbuka
+  });
+
+  const toggleModule = (id: string) => {
+    setOpenModules((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  // Mock data silabus terintegrasi
+  const modulesData: ModuleData[] = [
+    {
+      id: "mod-1",
+      title: "Introduction to HR",
+      items: [
+        {
+          id: "c1",
+          type: "pre-test",
+          title: "Pre-Test: Introduction to HR",
+          subtitle: "10 Pertanyaan",
+          isCompleted: true,
+        },
+        {
+          id: "c2",
+          type: "video",
+          title: "Video: Introduction to HR",
+          subtitle: "12 Menit",
+          isCompleted: true,
+        },
+        {
+          id: "c3",
+          type: "video",
+          title: "Video: Introduction to HR",
+          subtitle: "12 Menit",
+          isCompleted: true,
+        },
+        {
+          id: "c4",
+          type: "video",
+          title: "Video: Introduction to HR",
+          subtitle: "12 Menit",
+          isCompleted: true,
+        },
+        {
+          id: "c5",
+          type: "video",
+          title: "Video: Introduction to HR",
+          subtitle: "12 Menit",
+          isCompleted: true,
+        },
+        {
+          id: "c6",
+          type: "rangkuman",
+          title: "Rangkuman: Introduction to HR",
+          subtitle: "12 Menit",
+          isActive: true,
+        },
+        {
+          id: "c7",
+          type: "quiz",
+          title: "Quiz: Introduction to HR",
+          subtitle: "10 Pertanyaan",
+          isDisabled: true,
+        },
+      ],
+    },
+    {
+      id: "mod-2",
+      title: "Introduction to HR",
+      items: [],
+    },
+  ];
+
+  // Helper untuk merender ikon dengan Lucide sesuai tipe & status item
+  const renderItemIcon = (item: ContentItem) => {
+    if (item.isCompleted) {
+      return (
+        <div className="w-5 h-5 rounded-full bg-[#22c55e] text-white flex items-center justify-center text-[10px] font-bold shrink-0">
+          ✓
+        </div>
+      );
+    }
+
+    const iconClass = `w-5 h-5 shrink-0 ${
+      item.isActive
+        ? "text-gray-800"
+        : item.isDisabled
+          ? "text-gray-400"
+          : "text-gray-500"
+    }`;
+
+    switch (item.type) {
+      case "pre-test":
+      case "quiz":
+        return <CheckSquare className={iconClass} />;
+      case "video":
+        return <PlayCircle className={iconClass} />;
+      case "rangkuman":
+        return <FileText className={iconClass} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div
       className={
         isMobile
-          ? "min-h-screen bg-white flex flex-col font-sans text-[#1f2937]"
-          : "h-screen overflow-hidden bg-white flex flex-col font-sans text-[#1f2937]"
+          ? "min-h-screen bg-white flex flex-col text-[#1f2937]"
+          : "h-screen overflow-hidden bg-white flex flex-col text-[#1f2937]"
       }
     >
       {/* ================= HEADER ================= */}
-      <header className="h-16 shrink-0 bg-white border-b border-gray-100 flex items-center justify-between px-6 lg:px-12">
-        <div className="flex items-center gap-3 min-w-0">
-          <button className="text-gray-600 hover:text-gray-900 text-xl font-medium">
-            ←
-          </button>
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 md:px-28 px-5">
+        <div className=" mx-auto h-18 flex justify-between items-center">
+          <div className=" flex items-center gap-3 min-w-0">
+            <button className="text-gray-600 hover:text-gray-900 text-xl font-medium">
+              ←
+            </button>
 
-          <h1 className="font-medium text-[15px] text-gray-800 truncate">
-            Foundations of User Experience Design
-          </h1>
-        </div>
+            <h1 className="font-semibold text-[15px] text-gray-800 truncate">
+              Foundations of User Experience Design
+            </h1>
+          </div>
 
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-28 h-2 rounded-full bg-orange-100 overflow-hidden">
-              <div className="w-3/4 h-full bg-[#f59e0b] rounded-full" />
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-28 h-2 rounded-full bg-orange-100 overflow-hidden">
+                <div className="w-3/4 h-full bg-[#f59e0b] rounded-full" />
+              </div>
+
+              <span className="font-semibold text-xs text-[#22c55e] flex items-center gap-1">
+                10/12 <span className="text-[10px] text-gray-400">▼</span>
+              </span>
             </div>
 
-            <span className="font-semibold text-xs text-[#22c55e] flex items-center gap-1">
-              10/12 <span className="text-[10px] text-gray-400">▼</span>
-            </span>
-          </div>
+            <div className="hidden lg:block w-9 h-9 rounded-full overflow-hidden bg-purple-200">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-          <div className="hidden lg:block w-9 h-9 rounded-full overflow-hidden bg-purple-200">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
+            <button className="lg:hidden text-xl text-gray-600">☰</button>
           </div>
-
-          <button className="lg:hidden text-xl text-gray-600">☰</button>
         </div>
       </header>
 
@@ -81,65 +214,60 @@ const LearningModulePage = () => {
         >
           {/* VIDEO */}
           <section
-            className={`bg-[#1a1a1a] flex items-center justify-center shrink-0 relative ${
-              isMobile ? "h-[30vh]" : "h-[58vh]"
+            className={`bg-[#1a1a1a] flex items-center justify-center shrink-0 md:h-full relative md:px-28 ${
+              isMobile ? "h-[30vh]" : "max-h-[58vh]"
             }`}
           >
-            <div className="w-[72px] h-[72px] rounded-full bg-white flex items-center justify-center text-xl shadow-lg cursor-pointer pl-1 text-gray-800 hover:scale-105 transition-transform">
-              ▶
+            <div className=" w-full h-full flex items-center justify-center bg-gray-700">
+              <div className="w-[72px] h-[72px] rounded-full bg-white flex items-center justify-center text-xl shadow-lg cursor-pointer pl-1 text-gray-800 hover:scale-105 transition-transform">
+                ▶
+              </div>
             </div>
           </section>
 
           {/* DESCRIPTION */}
           <section
-            className={`bg-white p-8 lg:p-10 ${
-              isMobile ? "" : "flex-1 overflow-y-auto"
+            className={`bg-white py-8 md:px-10 ${
+              isMobile ? "max-h-52 overflow-y-auto" : " overflow-y-auto "
             }`}
           >
-            <h2 className="text-xl font-bold text-gray-900 mb-2">
-              Download Rangkuman Modul
-            </h2>
+            <div className="md:px-18 px-5 mx-auto">
+              <h2 className="text-xl font-bold text-gray-900 mb-2">
+                Download Rangkuman Modul
+              </h2>
 
-            <p className="text-gray-500 text-sm mb-6">
-              Silakan download rangkuman modul dari materi yang telah kamu
-              pelajari
-            </p>
+              <p className="text-gray-500 text-sm mb-6">
+                Silakan download rangkuman modul dari materi yang telah kamu
+                pelajari
+              </p>
 
-            <button className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-semibold hover:bg-green-50 transition-colors">
-              <span className="text-xs bg-[#22c55e] text-white rounded px-1 py-0.2">
-                ↓
-              </span>{" "}
-              Download Rangkuman
-            </button>
-
-            {/* Space Filler to show scrollability if text gets long */}
-            <div className="mt-8 space-y-4 opacity-0 pointer-events-none">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <p key={i} className="text-sm text-gray-400">
-                  Lorem ipsum dolor sit amet.
-                </p>
-              ))}
+              <button className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-bold hover:bg-green-50 transition-colors">
+                <span className="text-xs bg-[#22c55e] text-white rounded px-1 py-0.5">
+                  ↓
+                </span>{" "}
+                Download Rangkuman
+              </button>
             </div>
           </section>
 
           {/* MOBILE NAVIGATION */}
           {isMobile && (
-            <section className="bg-[#22c55e] text-white grid grid-cols-2 text-sm font-medium border-t border-green-600">
-              <button className="p-4 border-r border-green-400 text-left pl-6">
-                ‹ Foundations of User Experience Design
+            <section className="bg-[#22c55e] text-white flex justify-between text-sm font-semibold">
+              <button className="p-4 pl-6 text-nowrap flex items-center gap-1 justify-start">
+                <ChevronLeft className="w-4 h-4" /> Sebelumnya
               </button>
 
-              <button className="p-4 text-right pr-6">
-                Foundations of User Experience Design ›
+              <button className="p-4 pr-6 w-full flex items-center gap-1 justify-end">
+                Selanjutnya <ChevronRight className="w-4 h-4" />
               </button>
             </section>
           )}
         </main>
 
-        {/* ================= SIDEBAR ================= */}
+        {/* ================= SIDEBAR (ACCORDION DYNAMIC) ================= */}
         <aside
           className={`bg-white border-l border-gray-100 ${
-            isMobile ? "w-full" : "w-[380px] flex flex-col overflow-hidden"
+            isMobile ? "w-full" : "max-w-lg w-full flex flex-col overflow-hidden"
           }`}
         >
           <div className="p-5 border-b border-gray-100 shrink-0">
@@ -153,78 +281,85 @@ const LearningModulePage = () => {
               isMobile ? "" : "flex-1 overflow-y-auto"
             }`}
           >
-            {/* Accordion Header */}
-            <div>
-              <div className="flex items-center justify-between py-2 mb-3 cursor-pointer">
-                <h3 className="font-bold text-[14px] text-gray-900">
-                  Introduction to HR
-                </h3>
-                <span className="text-gray-400 text-xs">▲</span>
-              </div>
+            {modulesData.map((module) => {
+              const isOpen = !!openModules[module.id];
 
-              {/* Accordion Content */}
-              <div className="space-y-3">
-                {modules.map((_, index) => (
+              return (
+                <div
+                  key={module.id}
+                  className="border-b border-gray-50 last:border-none pb-2"
+                >
+                  {/* Accordion Header */}
                   <div
-                    key={index}
-                    className="bg-white border border-gray-100 rounded-xl p-4 flex gap-3 items-center hover:border-gray-200 transition-colors cursor-pointer"
+                    onClick={() => toggleModule(module.id)}
+                    className="flex items-center justify-between py-3 cursor-pointer select-none"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#22c55e] text-white flex items-center justify-center text-[10px] font-bold shrink-0">
-                      ✓
+                    <h3 className="font-bold text-[14px] text-gray-900">
+                      {module.title}
+                    </h3>
+                    {isOpen ? (
+                      <ChevronUp className="w-4 h-4 text-gray-400" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-gray-400" />
+                    )}
+                  </div>
+
+                  {/* Accordion Content */}
+                  {isOpen && (
+                    <div className="space-y-3 pt-1 pb-3 animate-fade">
+                      {module.items.length > 0 ? (
+                        module.items.map((item) => (
+                          <div
+                            key={item.id}
+                            className={`border rounded-xl p-4 flex gap-3 items-center transition-colors ${
+                              item.isActive
+                                ? "bg-[#f0fdf4] border-[#22c55e] cursor-pointer"
+                                : item.isDisabled
+                                  ? "bg-white border-gray-100 opacity-60 cursor-not-allowed"
+                                  : "bg-white border-gray-100 hover:border-gray-200 cursor-pointer"
+                            }`}
+                          >
+                            {/* Render Ikon */}
+                            {renderItemIcon(item)}
+
+                            <div className="min-w-0">
+                              <h4
+                                className={`font-medium text-xs truncate ${
+                                  item.isActive
+                                    ? "text-gray-900"
+                                    : item.isDisabled
+                                      ? "text-gray-500"
+                                      : "text-gray-800"
+                                }`}
+                              >
+                                {item.title}
+                              </h4>
+                              <p
+                                className={`text-[11px] mt-0.5 ${
+                                  item.isActive
+                                    ? "text-gray-500"
+                                    : "text-gray-400"
+                                }`}
+                              >
+                                {item.subtitle}
+                              </p>
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <p className="text-xs text-gray-400 italic pl-2">
+                          Tidak ada materi.
+                        </p>
+                      )}
                     </div>
-
-                    <div className="min-w-0">
-                      <h4 className="font-medium text-xs text-gray-800 truncate">
-                        Video: Introduction to HR
-                      </h4>
-                      <p className="text-[11px] text-gray-400 mt-0.5">
-                        12 Menit
-                      </p>
-                    </div>
-                  </div>
-                ))}
-
-                {/* Active / Current Item */}
-                <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4 flex gap-3 items-center cursor-pointer">
-                  <div className="w-5 h-5 rounded bg-transparent border border-gray-700 text-gray-800 flex items-center justify-center text-[10px] font-bold shrink-0">
-                    🗇
-                  </div>
-
-                  <div className="min-w-0">
-                    <h4 className="font-medium text-xs text-gray-900 truncate">
-                      Rangkuman: Introduction to HR
-                    </h4>
-                    <p className="text-[11px] text-gray-500 mt-0.5">12 Menit</p>
-                  </div>
+                  )}
                 </div>
-
-                {/* Disabled / Quiz Item */}
-                <div className="bg-white border border-gray-100 rounded-xl p-4 flex gap-3 items-center opacity-60 cursor-not-allowed">
-                  <div className="w-5 h-5 rounded text-gray-400 flex items-center justify-center text-[12px] shrink-0">
-                    📋
-                  </div>
-
-                  <div className="min-w-0">
-                    <h4 className="font-medium text-xs text-gray-500 truncate">
-                      Quiz: Introduction to HR
-                    </h4>
-                    <p className="text-[11px] text-gray-400 mt-0.5">
-                      10 Pertanyaan
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Closed Accordion Items */}
-            <div className="flex items-center justify-between py-3 border-t border-gray-50 font-bold text-[14px] text-gray-900 cursor-pointer">
-              <span>Introduction to HR</span>
-              <span className="text-gray-400 text-xs">▼</span>
-            </div>
+              );
+            })}
           </div>
 
           {/* Review Button */}
-          <button className="w-full bg-[#fbbf24] hover:bg-yellow-500 transition-colors py-4 px-6 font-semibold text-white text-sm shrink-0 flex items-center justify-center gap-2">
+          <button className="w-full bg-[#fbbf24] hover:bg-yellow-500 transition-colors py-4 px-6 font-bold text-white text-sm shrink-0 flex items-center justify-center gap-2">
             ☆ Beri Review & Rating
           </button>
         </aside>
