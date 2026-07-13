@@ -7,6 +7,7 @@ import {
   PlayCircle,
   FileText,
   CheckSquare,
+  ArrowLeft,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -168,7 +169,7 @@ const LearningModulePage = () => {
         <div className=" mx-auto h-18 flex justify-between items-center">
           <div className=" flex items-center gap-3 min-w-0">
             <button className="text-gray-600 hover:text-gray-900 text-xl font-medium">
-              ←
+              <ArrowLeft className="w-6 h-6" />
             </button>
 
             <h1 className="font-semibold text-[15px] text-gray-800 truncate">
@@ -267,7 +268,7 @@ const LearningModulePage = () => {
         {/* ================= SIDEBAR (ACCORDION DYNAMIC) ================= */}
         <aside
           className={`bg-white border-l border-gray-100 ${
-            isMobile ? "w-full" : "max-w-lg w-full flex flex-col overflow-hidden"
+            isMobile ? "w-full" : "max-w-120 w-full flex flex-col overflow-hidden"
           }`}
         >
           <div className="p-5 border-b border-gray-100 shrink-0">
