@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import Card from "../components/common/Card";
-import { ProfileHeader } from "../../features/profile/components/ProfileHeader";
-import { ProfileSidebar } from "../../features/profile/components/ProfileSidebar";
+import { ProfileHeader } from "../features/profile/components/ProfileHeader";
+import { ProfileSidebar } from "../features/profile/components/ProfileSidebar";
 import {
   ProfileForm,
   type ProfileFormData,
-} from "../../features/profile/components/ProfileForm";
+} from "../features/profile/components/ProfileForm";
 
 interface ProfileState extends ProfileFormData {
   profileImage: string;

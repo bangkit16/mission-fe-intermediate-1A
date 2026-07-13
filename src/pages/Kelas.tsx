@@ -3,13 +3,13 @@ import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import Card from "../components/common/Card";
-import { KelasSidebar } from "../../features/kelas/components/KelasSidebar";
-import { KelasFilterTabs } from "../../features/kelas/components/KelasFilterTabs";
-import { KelasSearchBar } from "../../features/kelas/components/KelasSearchBar";
+import { KelasSidebar } from "../features/kelas/components/KelasSidebar";
+import { KelasFilterTabs } from "../features/kelas/components/KelasFilterTabs";
+import { KelasSearchBar } from "../features/kelas/components/KelasSearchBar";
 import {
   CourseProgressCard,
   type CourseData,
-} from "../../features/kelas/components/CourseProgressCard";
+} from "../features/kelas/components/CourseProgressCard";
 
 const courseProgressData: CourseData[] = [
   {

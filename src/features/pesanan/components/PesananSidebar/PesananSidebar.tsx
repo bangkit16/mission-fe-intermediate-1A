@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuCard from '../../../../src/components/common/MenuCard';
+import MenuCard from '../../../../components/common/MenuCard';
 
 // ================================================
 // Interface Props

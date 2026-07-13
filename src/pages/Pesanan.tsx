@@ -3,13 +3,13 @@ import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import Card from "../components/common/Card";
-import { PesananSidebar } from "../../features/pesanan/components/PesananSidebar";
-import { PesananFilterTabs } from "../../features/pesanan/components/PesananFilterTabs";
-import { PesananSearchBar } from "../../features/pesanan/components/PesananSearchBar";
+import { PesananSidebar } from "../features/pesanan/components/PesananSidebar";
+import { PesananFilterTabs } from "../features/pesanan/components/PesananFilterTabs";
+import { PesananSearchBar } from "../features/pesanan/components/PesananSearchBar";
 import {
   OrderCard,
   type OrderData,
-} from "../../features/pesanan/components/OrderCard";
+} from "../features/pesanan/components/OrderCard";
 
 const orderData: OrderData[] = [
   {
