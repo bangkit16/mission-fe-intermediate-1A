@@ -9,7 +9,13 @@ import {
   CheckSquare,
   ArrowLeft,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useIsMobile from "../hooks/useIsMobile";
+import ReviewModal from "../components/course/ReviewModal";
+import CertificateProgressPopover from "../components/course/CertificateProgressPopover";
+import VideoScreen from "../components/course/screens/VideoScreen";
+import TryAgain from "../components/course/screens/TryAgain";
+import PreTestScreen from "../components/course/screens/PreTestScreen";
 
 // Tipe data untuk item di dalam modul
 interface ContentItem {
@@ -28,31 +34,78 @@ interface ModuleData {
   items: ContentItem[];
 }
 
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return isMobile;
-};
+const modulesData: ModuleData[] = [
+  {
+    id: "mod-1",
+    title: "Introduction to HR",
+    items: [
+      {
+        id: "c1",
+        type: "pre-test",
+        title: "Pre-Test: Introduction to HR",
+        subtitle: "10 Pertanyaan",
+        isCompleted: true,
+      },
+      {
+        id: "c2",
+        type: "video",
+        title: "Video: Introduction to HR",
+        subtitle: "12 Menit",
+        isCompleted: true,
+      },
+      {
+        id: "c3",
+        type: "video",
+        title: "Video: Introduction to HR",
+        subtitle: "12 Menit",
+        isCompleted: true,
+      },
+      {
+        id: "c4",
+        type: "video",
+        title: "Video: Introduction to HR",
+        subtitle: "12 Menit",
+        isCompleted: true,
+      },
+      {
+        id: "c5",
+        type: "video",
+        title: "Video: Introduction to HR",
+        subtitle: "12 Menit",
+        isCompleted: true,
+      },
+      {
+        id: "c6",
+        type: "rangkuman",
+        title: "Rangkuman: Introduction to HR",
+        subtitle: "12 Menit",
+        isActive: true,
+      },
+      {
+        id: "c7",
+        type: "quiz",
+        title: "Quiz: Introduction to HR",
+        subtitle: "10 Pertanyaan",
+        isDisabled: true,
+      },
+    ],
+  },
+  {
+    id: "mod-2",
+    title: "Introduction to HR",
+    items: [],
+  },
+];
 
 const LearningModulePage = () => {
   const isMobile = useIsMobile();
 
   // State untuk mengontrol modul mana saja yang terbuka
   const [openModules, setOpenModules] = useState<Record<string, boolean>>({
-    "mod-1": true, // Modul pertama default terbuka
+    "mod-1": true, // Modul pertama default terbuka`
   });
+
+  const [openModalReview, setOpenModalReview] = useState<boolean>(false);
 
   const toggleModule = (id: string) => {
     setOpenModules((prev) => ({
@@ -62,68 +115,6 @@ const LearningModulePage = () => {
   };
 
   // Mock data silabus terintegrasi
-  const modulesData: ModuleData[] = [
-    {
-      id: "mod-1",
-      title: "Introduction to HR",
-      items: [
-        {
-          id: "c1",
-          type: "pre-test",
-          title: "Pre-Test: Introduction to HR",
-          subtitle: "10 Pertanyaan",
-          isCompleted: true,
-        },
-        {
-          id: "c2",
-          type: "video",
-          title: "Video: Introduction to HR",
-          subtitle: "12 Menit",
-          isCompleted: true,
-        },
-        {
-          id: "c3",
-          type: "video",
-          title: "Video: Introduction to HR",
-          subtitle: "12 Menit",
-          isCompleted: true,
-        },
-        {
-          id: "c4",
-          type: "video",
-          title: "Video: Introduction to HR",
-          subtitle: "12 Menit",
-          isCompleted: true,
-        },
-        {
-          id: "c5",
-          type: "video",
-          title: "Video: Introduction to HR",
-          subtitle: "12 Menit",
-          isCompleted: true,
-        },
-        {
-          id: "c6",
-          type: "rangkuman",
-          title: "Rangkuman: Introduction to HR",
-          subtitle: "12 Menit",
-          isActive: true,
-        },
-        {
-          id: "c7",
-          type: "quiz",
-          title: "Quiz: Introduction to HR",
-          subtitle: "10 Pertanyaan",
-          isDisabled: true,
-        },
-      ],
-    },
-    {
-      id: "mod-2",
-      title: "Introduction to HR",
-      items: [],
-    },
-  ];
 
   // Helper untuk merender ikon dengan Lucide sesuai tipe & status item
   const renderItemIcon = (item: ContentItem) => {
@@ -164,6 +155,10 @@ const LearningModulePage = () => {
           : "h-screen overflow-hidden bg-white flex flex-col text-[#1f2937]"
       }
     >
+      <ReviewModal
+        openModal={openModalReview}
+        onClose={() => setOpenModalReview(false)}
+      />
       {/* ================= HEADER ================= */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50 md:px-28 px-5">
         <div className=" mx-auto h-18 flex justify-between items-center">
@@ -179,13 +174,16 @@ const LearningModulePage = () => {
 
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-3">
-              <div className="w-28 h-2 rounded-full bg-orange-100 overflow-hidden">
-                <div className="w-3/4 h-full bg-[#f59e0b] rounded-full" />
-              </div>
+              {!isMobile && (
+                <div className="w-28 h-2 rounded-full bg-orange-100 overflow-hidden">
+                  <div className="w-3/4 h-full bg-[#f59e0b] rounded-full" />
+                </div>
+              )}
 
-              <span className="font-semibold text-xs text-[#22c55e] flex items-center gap-1">
+              {/* <span className="font-semibold text-xs text-[#22c55e] flex items-center gap-1">
                 10/12 <span className="text-[10px] text-gray-400">▼</span>
-              </span>
+              </span> */}
+              <CertificateProgressPopover />
             </div>
 
             <div className="hidden lg:block w-9 h-9 rounded-full overflow-hidden bg-purple-200">
@@ -208,49 +206,10 @@ const LearningModulePage = () => {
         }
       >
         {/* ================= LEFT ================= */}
-        <main
-          className={
-            isMobile ? "flex flex-col" : "flex-1 flex flex-col overflow-hidden"
-          }
-        >
-          {/* VIDEO */}
-          <section
-            className={`bg-[#1a1a1a] flex items-center justify-center shrink-0 md:h-full relative md:px-28 ${
-              isMobile ? "h-[30vh]" : "max-h-[58vh]"
-            }`}
-          >
-            <div className=" w-full h-full flex items-center justify-center bg-gray-700">
-              <div className="w-[72px] h-[72px] rounded-full bg-white flex items-center justify-center text-xl shadow-lg cursor-pointer pl-1 text-gray-800 hover:scale-105 transition-transform">
-                ▶
-              </div>
-            </div>
-          </section>
-
-          {/* DESCRIPTION */}
-          <section
-            className={`bg-white py-8 md:px-10 ${
-              isMobile ? "max-h-52 overflow-y-auto" : " overflow-y-auto "
-            }`}
-          >
-            <div className="md:px-18 px-5 mx-auto">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">
-                Download Rangkuman Modul
-              </h2>
-
-              <p className="text-gray-500 text-sm mb-6">
-                Silakan download rangkuman modul dari materi yang telah kamu
-                pelajari
-              </p>
-
-              <button className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-bold hover:bg-green-50 transition-colors">
-                <span className="text-xs bg-[#22c55e] text-white rounded px-1 py-0.5">
-                  ↓
-                </span>{" "}
-                Download Rangkuman
-              </button>
-            </div>
-          </section>
-
+        <main className="flex-1 flex flex-col overflow-hidden">
+          {/* <VideoScreen /> */}
+          {/* <TryAgain /> */}
+          <PreTestScreen />
           {/* MOBILE NAVIGATION */}
           {isMobile && (
             <section className="bg-[#22c55e] text-white flex justify-between text-sm font-semibold">
@@ -268,7 +227,9 @@ const LearningModulePage = () => {
         {/* ================= SIDEBAR (ACCORDION DYNAMIC) ================= */}
         <aside
           className={`bg-white border-l border-gray-100 ${
-            isMobile ? "w-full" : "max-w-120 w-full flex flex-col overflow-hidden"
+            isMobile
+              ? "w-full"
+              : "max-w-120 w-full flex flex-col overflow-hidden"
           }`}
         >
           <div className="p-5 border-b border-gray-100 shrink-0">
@@ -360,7 +321,10 @@ const LearningModulePage = () => {
           </div>
 
           {/* Review Button */}
-          <button className="w-full bg-[#fbbf24] hover:bg-yellow-500 transition-colors py-4 px-6 font-bold text-white text-sm shrink-0 flex items-center justify-center gap-2">
+          <button
+            className="w-full bg-[#fbbf24] hover:bg-yellow-500 transition-colors py-4 px-6 font-bold text-white text-sm shrink-0 flex items-center justify-center gap-2"
+            onClick={() => setOpenModalReview(true)}
+          >
             ☆ Beri Review & Rating
           </button>
         </aside>
