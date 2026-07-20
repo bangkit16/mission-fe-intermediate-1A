@@ -13,9 +13,12 @@ import { useState } from "react";
 import useIsMobile from "../hooks/useIsMobile";
 import ReviewModal from "../components/course/ReviewModal";
 import CertificateProgressPopover from "../components/course/CertificateProgressPopover";
-import VideoScreen from "../components/course/screens/VideoScreen";
+import VideoScreen from "../components/course/screens/VideoRangkumanScreen";
 import TryAgain from "../components/course/screens/TryAgain";
 import PreTestScreen from "../components/course/screens/PreTestScreen";
+import RulesScreen from "../components/course/screens/RulesScreen";
+import CongratsScreen from "../components/course/screens/CongratsScreen";
+import VideoRangkumanScreen from "../components/course/screens/VideoRangkumanScreen";
 
 // Tipe data untuk item di dalam modul
 interface ContentItem {
@@ -208,8 +211,11 @@ const LearningModulePage = () => {
         {/* ================= LEFT ================= */}
         <main className="flex-1 flex flex-col overflow-hidden">
           {/* <VideoScreen /> */}
+          <VideoRangkumanScreen />
           {/* <TryAgain /> */}
-          <PreTestScreen />
+          {/* <RulesScreen /> */}
+          {/* <CongratsScreen /> */}
+          {/* <PreTestScreen /> */}
           {/* MOBILE NAVIGATION */}
           {isMobile && (
             <section className="bg-[#22c55e] text-white flex justify-between text-sm font-semibold">

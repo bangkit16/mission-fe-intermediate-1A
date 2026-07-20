@@ -27,7 +27,7 @@ function VideoScreen() {
       {/* DESCRIPTION */}
       <section
         className={`bg-white py-8 md:px-10 ${
-          isMobile ? "max-h-52 overflow-y-auto" : " overflow-y-auto "
+          isMobile ? "overflow-y-auto" : " overflow-y-auto "
         }`}
       >
         <div className="md:px-18 px-5 mx-auto">
