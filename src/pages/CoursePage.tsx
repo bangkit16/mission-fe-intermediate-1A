@@ -211,8 +211,8 @@ const LearningModulePage = () => {
         {/* ================= LEFT ================= */}
         <main className="flex-1 flex flex-col overflow-hidden">
           {/* <VideoScreen /> */}
-          <VideoRangkumanScreen />
-          {/* <TryAgain /> */}
+          {/* <VideoRangkumanScreen /> */}
+          <TryAgain />
           {/* <RulesScreen /> */}
           {/* <CongratsScreen /> */}
           {/* <PreTestScreen /> */}

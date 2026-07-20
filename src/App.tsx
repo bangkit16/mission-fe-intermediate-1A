@@ -13,6 +13,7 @@ import Pesanan from "./pages/Pesanan";
 import Kelas from "./pages/Kelas";
 import Profile from "./pages/Profile";
 import CoursePage from "./pages/CoursePage";
+import Sertifikat from "./pages/Sertifikat";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         />
 
         <Route path="/course" element={<CoursePage />} />
+        <Route path="/sertifikat" element={<Sertifikat />} />
       </Route>
     </Routes>
   );

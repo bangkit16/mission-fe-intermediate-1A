@@ -86,28 +86,6 @@ function CongratsScreen() {
           </div>
           {/* ========================================================================= */}
 
-          <hr className="border-gray-100 my-8" />
-
-          {/* Area Aturan (Kode Bawaan Kamu) */}
-          <div>
-            <h2 className="text-xl font-bold text-gray-900 mb-2">Aturan</h2>
-
-            <p className="text-gray-500 text-sm mb-6">
-              Kerjakan pretest dengan sebaik mungkin untuk mengukur pemahaman
-              awalmu terkait materi yang akan kamu pelajari
-            </p>
-            <p className="text-gray-500 text-sm mb-6">
-              Syarat Nilai Kelulusan: - Durasi Ujian: 5 Menit
-            </p>
-            <p className="text-gray-500 text-sm mb-6">
-              Jangan khawatir, total skor tidak akan memengaruhi kelulusan dan
-              penilaian akhirmu dalam rangkaian kelas ini
-            </p>
-
-            <button className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-bold hover:bg-green-50 transition-colors">
-              Mulai Pre-test
-            </button>
-          </div>
         </div>
       </section>
     </div>
