@@ -1,7 +1,10 @@
-import React from "react";
 import useIsMobile from "../../../hooks/useIsMobile";
 
-function RulesScreen() {
+interface RulesScreenProps {
+  onStart: () => void;
+}
+
+function RulesScreen({ onStart }: RulesScreenProps) {
   const isMobile = useIsMobile();
   return (
     <div
@@ -13,10 +16,12 @@ function RulesScreen() {
       {/* VIDEO */}
       <section
         className={`bg-[#1a1a1a] flex items-center justify-center   relative  ${
-          isMobile ? "max-h-[30vh] overflow-auto" : "max-h-[58vh]"
+          isMobile
+            ? "max-h-[30vh] overflow-auto"
+            : "max-h-[40vh] overflow-hidden"
         }`}
       >
-        <img src="try-again.png" className="w-full" alt="" />
+        <img src="rules.png" className="w-full" alt="" />
       </section>
 
       {/* DESCRIPTION */}
@@ -40,7 +45,10 @@ function RulesScreen() {
             penilaian akhirmu dalam rangkaian kelas ini
           </p>
 
-          <button className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-bold hover:bg-green-50 transition-colors">
+          <button
+            onClick={onStart}
+            className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-bold hover:bg-green-50 transition-colors"
+          >
             Mulai Pre-test
           </button>
         </div>

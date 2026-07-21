@@ -1,7 +1,10 @@
-import React from "react";
 import useIsMobile from "../../../hooks/useIsMobile";
 
-function TryAgain() {
+interface TryAgainProps {
+  onRetry: () => void;
+}
+
+function TryAgain({ onRetry }: TryAgainProps) {
   const isMobile = useIsMobile();
   return (
     <div
@@ -13,7 +16,9 @@ function TryAgain() {
       {/* VIDEO */}
       <section
         className={`bg-[#1a1a1a] flex items-center justify-center   relative  ${
-          isMobile ? "max-h-[30vh] overflow-auto" : "max-h-[58vh]"
+          isMobile
+            ? "max-h-[30vh] overflow-auto"
+            : "max-h-[40vh] overflow-hidden"
         }`}
       >
         <img src="try-again.png" className="w-full" alt="" />
@@ -86,7 +91,10 @@ function TryAgain() {
           </div>
           {/* ========================================================================= */}
 
-          <button className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-bold hover:bg-green-50 transition-colors">
+          <button
+            onClick={onRetry}
+            className="inline-flex items-center gap-2 border border-[#22c55e] rounded-xl bg-white px-5 py-2.5 text-[#22c55e] text-sm font-bold hover:bg-green-50 transition-colors"
+          >
             Ulangi Quiz
           </button>
         </div>

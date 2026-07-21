@@ -1,7 +1,10 @@
-import React from "react";
 import useIsMobile from "../../../hooks/useIsMobile";
 
-function CongratsScreen() {
+interface CongratsScreenProps {
+  onContinue: () => void;
+}
+
+function CongratsScreen({ onContinue }: CongratsScreenProps) {
   const isMobile = useIsMobile();
   return (
     <div
@@ -83,6 +86,13 @@ function CongratsScreen() {
               Pretest sudah selesai dan kami sudah mengetahui progresmu.
             </p>
             <p className="text-gray-500 text-sm mb-6">Saatnya memulai kelas!</p>
+
+            <button
+              onClick={onContinue}
+              className="inline-flex items-center gap-2 bg-[#22c55e] rounded-xl text-white px-5 py-2.5 text-sm font-bold hover:bg-green-600 transition-colors"
+            >
+              Lanjutkan
+            </button>
           </div>
           {/* ========================================================================= */}
 

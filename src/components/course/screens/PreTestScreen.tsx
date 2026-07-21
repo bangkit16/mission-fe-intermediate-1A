@@ -2,9 +2,19 @@ import { useState } from "react";
 import useIsMobile from "../../../hooks/useIsMobile";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import DonePreTestModal from "../DonePreTestModal";
+import RulesScreen from "./RulesScreen";
+import CongratsScreen from "./CongratsScreen";
+import TryAgain from "./TryAgain";
 
-function PreTestScreen() {
+type PreTestPhase = "rules" | "quiz" | "passed" | "failed";
+
+interface PreTestScreenProps {
+  onComplete: () => void;
+}
+
+function PreTestScreen({ onComplete }: PreTestScreenProps) {
   const isMobile = useIsMobile();
+  const [phase, setPhase] = useState<PreTestPhase>("rules");
 
   // State interaktif dummy
   const [currentQuestion, setCurrentQuestion] = useState(1);
@@ -27,6 +37,22 @@ function PreTestScreen() {
 
   const totalQuestions = 10;
 
+  // ── Rules phase ──
+  if (phase === "rules") {
+    return <RulesScreen onStart={() => setPhase("quiz")} />;
+  }
+
+  // ── Result: passed ──
+  if (phase === "passed") {
+    return <CongratsScreen onContinue={onComplete} />;
+  }
+
+  // ── Result: failed ──
+  if (phase === "failed") {
+    return <TryAgain onRetry={() => { setPhase("quiz"); setCurrentQuestion(1); }} />;
+  }
+
+  // ── Quiz phase ──
   return (
     <div
       className={`w-full h-full bg-white ${
@@ -161,7 +187,8 @@ function PreTestScreen() {
         onClose={() => setOpenDoneModal(false)}
         onSubmit={() => {
           setOpenDoneModal(false);
-          // handle submit pretest
+          // dummy: toggle pass / fail
+          setPhase("passed");
         }}
       />
     </div>

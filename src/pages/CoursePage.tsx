@@ -1,4 +1,4 @@
-// LearningModulePage.tsx
+// CoursePage.tsx
 import {
   ChevronLeft,
   ChevronRight,
@@ -9,15 +9,12 @@ import {
   CheckSquare,
   ArrowLeft,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useCallback, useMemo } from "react";
 import useIsMobile from "../hooks/useIsMobile";
 import ReviewModal from "../components/course/ReviewModal";
 import CertificateProgressPopover from "../components/course/CertificateProgressPopover";
-import VideoScreen from "../components/course/screens/VideoRangkumanScreen";
-import TryAgain from "../components/course/screens/TryAgain";
+import VideoScreen from "../components/course/screens/VideoScreen";
 import PreTestScreen from "../components/course/screens/PreTestScreen";
-import RulesScreen from "../components/course/screens/RulesScreen";
-import CongratsScreen from "../components/course/screens/CongratsScreen";
 import VideoRangkumanScreen from "../components/course/screens/VideoRangkumanScreen";
 
 // Tipe data untuk item di dalam modul
@@ -100,15 +97,59 @@ const modulesData: ModuleData[] = [
   },
 ];
 
+/** Flatten all items from all modules into a single ordered list for navigation */
+function flattenItems(data: ModuleData[]): ContentItem[] {
+  return data.reduce<ContentItem[]>((acc, m) => acc.concat(m.items), []);
+}
+
+/** Find the item after `id` in the flat list, or null */
+function getNextItem(id: string, all: ContentItem[]): ContentItem | null {
+  const idx = all.findIndex((i) => i.id === id);
+  if (idx === -1 || idx >= all.length - 1) return null;
+  return all[idx + 1];
+}
+
+/** Find the item before `id` in the flat list, or null */
+function getPrevItem(id: string, all: ContentItem[]): ContentItem | null {
+  const idx = all.findIndex((i) => i.id === id);
+  if (idx <= 0) return null;
+  return all[idx - 1];
+}
+
 const LearningModulePage = () => {
   const isMobile = useIsMobile();
 
   // State untuk mengontrol modul mana saja yang terbuka
   const [openModules, setOpenModules] = useState<Record<string, boolean>>({
-    "mod-1": true, // Modul pertama default terbuka`
+    "mod-1": true,
   });
 
   const [openModalReview, setOpenModalReview] = useState<boolean>(false);
+
+  // ── Active content (yang tampil di area utama) ──
+  const allItems = useMemo(() => flattenItems(modulesData), []);
+  const firstItem = allItems[0];
+  const [activeContentId, setActiveContentId] = useState<string | null>(
+    firstItem?.id ?? null,
+  );
+
+  // Item aktif sekarang
+  const activeItem = useMemo(
+    () => allItems.find((i) => i.id === activeContentId) ?? null,
+    [activeContentId, allItems],
+  );
+
+  const goNext = useCallback(() => {
+    if (!activeContentId) return;
+    const next = getNextItem(activeContentId, allItems);
+    if (next) setActiveContentId(next.id);
+  }, [activeContentId, allItems]);
+
+  const goPrev = useCallback(() => {
+    if (!activeContentId) return;
+    const prev = getPrevItem(activeContentId, allItems);
+    if (prev) setActiveContentId(prev.id);
+  }, [activeContentId, allItems]);
 
   const toggleModule = (id: string) => {
     setOpenModules((prev) => ({
@@ -116,8 +157,6 @@ const LearningModulePage = () => {
       [id]: !prev[id],
     }));
   };
-
-  // Mock data silabus terintegrasi
 
   // Helper untuk merender ikon dengan Lucide sesuai tipe & status item
   const renderItemIcon = (item: ContentItem) => {
@@ -130,7 +169,7 @@ const LearningModulePage = () => {
     }
 
     const iconClass = `w-5 h-5 shrink-0 ${
-      item.isActive
+      activeContentId === item.id
         ? "text-gray-800"
         : item.isDisabled
           ? "text-gray-400"
@@ -145,6 +184,29 @@ const LearningModulePage = () => {
         return <PlayCircle className={iconClass} />;
       case "rangkuman":
         return <FileText className={iconClass} />;
+      default:
+        return null;
+    }
+  };
+
+  // ── Render screen berdasarkan tipe item aktif ──
+  const renderContent = () => {
+    if (!activeItem) {
+      return (
+        <div className="flex-1 flex items-center justify-center text-gray-400 text-sm">
+          Pilih materi dari daftar modul
+        </div>
+      );
+    }
+
+    switch (activeItem.type) {
+      case "video":
+        return <VideoScreen />;
+      case "rangkuman":
+        return <VideoRangkumanScreen />;
+      case "pre-test":
+      case "quiz":
+        return <PreTestScreen onComplete={goNext} />;
       default:
         return null;
     }
@@ -183,9 +245,6 @@ const LearningModulePage = () => {
                 </div>
               )}
 
-              {/* <span className="font-semibold text-xs text-[#22c55e] flex items-center gap-1">
-                10/12 <span className="text-[10px] text-gray-400">▼</span>
-              </span> */}
               <CertificateProgressPopover />
             </div>
 
@@ -208,22 +267,26 @@ const LearningModulePage = () => {
           isMobile ? "flex flex-col" : "flex-1 overflow-hidden lg:flex"
         }
       >
-        {/* ================= LEFT ================= */}
+        {/* ================= LEFT (MAIN CONTENT) ================= */}
         <main className="flex-1 flex flex-col overflow-hidden">
-          {/* <VideoScreen /> */}
-          {/* <VideoRangkumanScreen /> */}
-          <TryAgain />
-          {/* <RulesScreen /> */}
-          {/* <CongratsScreen /> */}
-          {/* <PreTestScreen /> */}
+          {renderContent()}
+
           {/* MOBILE NAVIGATION */}
           {isMobile && (
             <section className="bg-[#22c55e] text-white flex justify-between text-sm font-semibold">
-              <button className="p-4 pl-6 text-nowrap flex items-center gap-1 justify-start">
+              <button
+                onClick={goPrev}
+                disabled={!activeContentId || !getPrevItem(activeContentId, allItems)}
+                className="p-4 pl-6 text-nowrap flex items-center gap-1 justify-start disabled:opacity-40"
+              >
                 <ChevronLeft className="w-4 h-4" /> Sebelumnya
               </button>
 
-              <button className="p-4 pr-6 w-full flex items-center gap-1 justify-end">
+              <button
+                onClick={goNext}
+                disabled={!activeContentId || !getNextItem(activeContentId, allItems)}
+                className="p-4 pr-6 w-full flex items-center gap-1 justify-end disabled:opacity-40"
+              >
                 Selanjutnya <ChevronRight className="w-4 h-4" />
               </button>
             </section>
@@ -276,44 +339,52 @@ const LearningModulePage = () => {
                   {isOpen && (
                     <div className="space-y-3 pt-1 pb-3 animate-fade">
                       {module.items.length > 0 ? (
-                        module.items.map((item) => (
-                          <div
-                            key={item.id}
-                            className={`border rounded-xl p-4 flex gap-3 items-center transition-colors ${
-                              item.isActive
-                                ? "bg-[#f0fdf4] border-[#22c55e] cursor-pointer"
-                                : item.isDisabled
-                                  ? "bg-white border-gray-100 opacity-60 cursor-not-allowed"
-                                  : "bg-white border-gray-100 hover:border-gray-200 cursor-pointer"
-                            }`}
-                          >
-                            {/* Render Ikon */}
-                            {renderItemIcon(item)}
+                        module.items.map((item) => {
+                          const isActiveItem = activeContentId === item.id;
+                          return (
+                            <div
+                              key={item.id}
+                              onClick={() => {
+                                if (!item.isDisabled) {
+                                  setActiveContentId(item.id);
+                                }
+                              }}
+                              className={`border rounded-xl p-4 flex gap-3 items-center transition-colors ${
+                                isActiveItem
+                                  ? "bg-[#f0fdf4] border-[#22c55e] cursor-pointer"
+                                  : item.isDisabled
+                                    ? "bg-white border-gray-100 opacity-60 cursor-not-allowed"
+                                    : "bg-white border-gray-100 hover:border-gray-200 cursor-pointer"
+                              }`}
+                            >
+                              {/* Render Ikon */}
+                              {renderItemIcon(item)}
 
-                            <div className="min-w-0">
-                              <h4
-                                className={`font-medium text-xs truncate ${
-                                  item.isActive
-                                    ? "text-gray-900"
-                                    : item.isDisabled
+                              <div className="min-w-0">
+                                <h4
+                                  className={`font-medium text-xs truncate ${
+                                    isActiveItem
+                                      ? "text-gray-900"
+                                      : item.isDisabled
+                                        ? "text-gray-500"
+                                        : "text-gray-800"
+                                  }`}
+                                >
+                                  {item.title}
+                                </h4>
+                                <p
+                                  className={`text-[11px] mt-0.5 ${
+                                    isActiveItem
                                       ? "text-gray-500"
-                                      : "text-gray-800"
-                                }`}
-                              >
-                                {item.title}
-                              </h4>
-                              <p
-                                className={`text-[11px] mt-0.5 ${
-                                  item.isActive
-                                    ? "text-gray-500"
-                                    : "text-gray-400"
-                                }`}
-                              >
-                                {item.subtitle}
-                              </p>
+                                      : "text-gray-400"
+                                  }`}
+                                >
+                                  {item.subtitle}
+                                </p>
+                              </div>
                             </div>
-                          </div>
-                        ))
+                          );
+                        })
                       ) : (
                         <p className="text-xs text-gray-400 italic pl-2">
                           Tidak ada materi.
@@ -339,12 +410,26 @@ const LearningModulePage = () => {
       {/* ================= DESKTOP FOOTER ================= */}
       {!isMobile && (
         <footer className="h-14 shrink-0 bg-[#22c55e] text-white flex items-center justify-between px-8 text-xs font-medium tracking-wide">
-          <button className="flex items-center gap-2 hover:opacity-90">
-            ‹ Foundations of User Experience Design
+          <button
+            onClick={goPrev}
+            disabled={!activeContentId || !getPrevItem(activeContentId, allItems)}
+            className="flex items-center gap-2 hover:opacity-90 disabled:opacity-40"
+          >
+            <ChevronLeft className="w-4 h-4" /> Sebelumnya
           </button>
 
-          <button className="flex items-center gap-2 hover:opacity-90">
-            Foundations of User Experience Design ›
+          <span className="text-white/80 text-[11px]">
+            {activeItem
+              ? `${activeItem.title}`
+              : "Pilih materi"}
+          </span>
+
+          <button
+            onClick={goNext}
+            disabled={!activeContentId || !getNextItem(activeContentId, allItems)}
+            className="flex items-center gap-2 hover:opacity-90 disabled:opacity-40"
+          >
+            Selanjutnya <ChevronRight className="w-4 h-4" />
           </button>
         </footer>
       )}

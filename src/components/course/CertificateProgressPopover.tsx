@@ -1,11 +1,14 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { useNavigate } from "react-router";
 
 // 1. Komponen Modal/Popover (Berdasarkan gambar)
 const CertificatePopoverCard: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white rounded-lg p-6 shadow-2xl w-96 relative border border-gray-100">
-      {/* 
+      {/*
         Segitiga panah di atas modal (menghadap ke atas menuju pemicu).
         Posisinya disesuaikan di kanan atas sesuai dengan gambar asli.
       */}
@@ -28,8 +31,8 @@ const CertificatePopoverCard: React.FC = () => {
         {/* Tombol Ambil Sertifikat */}
         <button
           type="button"
-          disabled
-          className="w-full bg-[#c0c0c0] text-[#717171] font-semibold py-3 px-6 rounded-xl text-md cursor-not-allowed transition-colors duration-200"
+          onClick={() => navigate("/sertifikat")}
+          className="w-full bg-green-400 text-white font-semibold py-3 px-6 rounded-xl text-md  transition-colors duration-200"
         >
           Ambil Sertifikat
         </button>
