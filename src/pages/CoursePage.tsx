@@ -1,120 +1,17 @@
 // CoursePage.tsx
-import {
-  ChevronLeft,
-  ChevronRight,
-  ChevronUp,
-  ChevronDown,
-  PlayCircle,
-  FileText,
-  CheckSquare,
-  ArrowLeft,
-} from "lucide-react";
 import { useState, useCallback, useMemo } from "react";
 import useIsMobile from "../hooks/useIsMobile";
 import ReviewModal from "../components/course/ReviewModal";
-import CertificateProgressPopover from "../components/course/CertificateProgressPopover";
 import VideoScreen from "../components/course/screens/VideoScreen";
 import PreTestScreen from "../components/course/screens/PreTestScreen";
 import VideoRangkumanScreen from "../components/course/screens/VideoRangkumanScreen";
 
-// Tipe data untuk item di dalam modul
-interface ContentItem {
-  id: string;
-  type: "pre-test" | "video" | "rangkuman" | "quiz";
-  title: string;
-  subtitle: string;
-  isActive?: boolean;
-  isCompleted?: boolean;
-  isDisabled?: boolean;
-}
-
-interface ModuleData {
-  id: string;
-  title: string;
-  items: ContentItem[];
-}
-
-const modulesData: ModuleData[] = [
-  {
-    id: "mod-1",
-    title: "Introduction to HR",
-    items: [
-      {
-        id: "c1",
-        type: "pre-test",
-        title: "Pre-Test: Introduction to HR",
-        subtitle: "10 Pertanyaan",
-        isCompleted: true,
-      },
-      {
-        id: "c2",
-        type: "video",
-        title: "Video: Introduction to HR",
-        subtitle: "12 Menit",
-        isCompleted: true,
-      },
-      {
-        id: "c3",
-        type: "video",
-        title: "Video: Introduction to HR",
-        subtitle: "12 Menit",
-        isCompleted: true,
-      },
-      {
-        id: "c4",
-        type: "video",
-        title: "Video: Introduction to HR",
-        subtitle: "12 Menit",
-        isCompleted: true,
-      },
-      {
-        id: "c5",
-        type: "video",
-        title: "Video: Introduction to HR",
-        subtitle: "12 Menit",
-        isCompleted: true,
-      },
-      {
-        id: "c6",
-        type: "rangkuman",
-        title: "Rangkuman: Introduction to HR",
-        subtitle: "12 Menit",
-        isActive: true,
-      },
-      {
-        id: "c7",
-        type: "quiz",
-        title: "Quiz: Introduction to HR",
-        subtitle: "10 Pertanyaan",
-        isDisabled: true,
-      },
-    ],
-  },
-  {
-    id: "mod-2",
-    title: "Introduction to HR",
-    items: [],
-  },
-];
-
-/** Flatten all items from all modules into a single ordered list for navigation */
-function flattenItems(data: ModuleData[]): ContentItem[] {
-  return data.reduce<ContentItem[]>((acc, m) => acc.concat(m.items), []);
-}
-
-/** Find the item after `id` in the flat list, or null */
-function getNextItem(id: string, all: ContentItem[]): ContentItem | null {
-  const idx = all.findIndex((i) => i.id === id);
-  if (idx === -1 || idx >= all.length - 1) return null;
-  return all[idx + 1];
-}
-
-/** Find the item before `id` in the flat list, or null */
-function getPrevItem(id: string, all: ContentItem[]): ContentItem | null {
-  const idx = all.findIndex((i) => i.id === id);
-  if (idx <= 0) return null;
-  return all[idx - 1];
-}
+import type { ContentItem } from "../../features/course/types";
+import { modulesData } from "../../features/course/data";
+import { flattenItems, getNextItem, getPrevItem } from "../../features/course/utils";
+import { CourseHeader } from "../../features/course/components/CourseHeader";
+import { CourseNavigation } from "../../features/course/components/CourseNavigation";
+import { ModuleAccordion } from "../../features/course/components/ModuleAccordion";
 
 const LearningModulePage = () => {
   const isMobile = useIsMobile();
@@ -158,35 +55,8 @@ const LearningModulePage = () => {
     }));
   };
 
-  // Helper untuk merender ikon dengan Lucide sesuai tipe & status item
-  const renderItemIcon = (item: ContentItem) => {
-    if (item.isCompleted) {
-      return (
-        <div className="w-5 h-5 rounded-full bg-[#22c55e] text-white flex items-center justify-center text-[10px] font-bold shrink-0">
-          ✓
-        </div>
-      );
-    }
-
-    const iconClass = `w-5 h-5 shrink-0 ${
-      activeContentId === item.id
-        ? "text-gray-800"
-        : item.isDisabled
-          ? "text-gray-400"
-          : "text-gray-500"
-    }`;
-
-    switch (item.type) {
-      case "pre-test":
-      case "quiz":
-        return <CheckSquare className={iconClass} />;
-      case "video":
-        return <PlayCircle className={iconClass} />;
-      case "rangkuman":
-        return <FileText className={iconClass} />;
-      default:
-        return null;
-    }
+  const handleItemClick = (item: ContentItem) => {
+    setActiveContentId(item.id);
   };
 
   // ── Render screen berdasarkan tipe item aktif ──
@@ -212,6 +82,9 @@ const LearningModulePage = () => {
     }
   };
 
+  const hasPrev = activeContentId !== null && getPrevItem(activeContentId, allItems) !== null;
+  const hasNext = activeContentId !== null && getNextItem(activeContentId, allItems) !== null;
+
   return (
     <div
       className={
@@ -224,42 +97,11 @@ const LearningModulePage = () => {
         openModal={openModalReview}
         onClose={() => setOpenModalReview(false)}
       />
-      {/* ================= HEADER ================= */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 md:px-28 px-5">
-        <div className=" mx-auto h-18 flex justify-between items-center">
-          <div className=" flex items-center gap-3 min-w-0">
-            <button className="text-gray-600 hover:text-gray-900 text-xl font-medium">
-              <ArrowLeft className="w-6 h-6" />
-            </button>
 
-            <h1 className="font-semibold text-[15px] text-gray-800 truncate">
-              Foundations of User Experience Design
-            </h1>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3">
-              {!isMobile && (
-                <div className="w-28 h-2 rounded-full bg-orange-100 overflow-hidden">
-                  <div className="w-3/4 h-full bg-[#f59e0b] rounded-full" />
-                </div>
-              )}
-
-              <CertificateProgressPopover />
-            </div>
-
-            <div className="hidden lg:block w-9 h-9 rounded-full overflow-hidden bg-purple-200">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <button className="lg:hidden text-xl text-gray-600">☰</button>
-          </div>
-        </div>
-      </header>
+      <CourseHeader
+        title="Foundations of User Experience Design"
+        isMobile={isMobile}
+      />
 
       {/* ================= CONTENT ================= */}
       <div
@@ -273,23 +115,14 @@ const LearningModulePage = () => {
 
           {/* MOBILE NAVIGATION */}
           {isMobile && (
-            <section className="bg-[#22c55e] text-white flex justify-between text-sm font-semibold">
-              <button
-                onClick={goPrev}
-                disabled={!activeContentId || !getPrevItem(activeContentId, allItems)}
-                className="p-4 pl-6 text-nowrap flex items-center gap-1 justify-start disabled:opacity-40"
-              >
-                <ChevronLeft className="w-4 h-4" /> Sebelumnya
-              </button>
-
-              <button
-                onClick={goNext}
-                disabled={!activeContentId || !getNextItem(activeContentId, allItems)}
-                className="p-4 pr-6 w-full flex items-center gap-1 justify-end disabled:opacity-40"
-              >
-                Selanjutnya <ChevronRight className="w-4 h-4" />
-              </button>
-            </section>
+            <CourseNavigation
+              activeItem={activeItem}
+              hasPrev={hasPrev}
+              hasNext={hasNext}
+              onPrev={goPrev}
+              onNext={goNext}
+              isMobile={true}
+            />
           )}
         </main>
 
@@ -312,89 +145,16 @@ const LearningModulePage = () => {
               isMobile ? "" : "flex-1 overflow-y-auto"
             }`}
           >
-            {modulesData.map((module) => {
-              const isOpen = !!openModules[module.id];
-
-              return (
-                <div
-                  key={module.id}
-                  className="border-b border-gray-50 last:border-none pb-2"
-                >
-                  {/* Accordion Header */}
-                  <div
-                    onClick={() => toggleModule(module.id)}
-                    className="flex items-center justify-between py-3 cursor-pointer select-none"
-                  >
-                    <h3 className="font-bold text-[14px] text-gray-900">
-                      {module.title}
-                    </h3>
-                    {isOpen ? (
-                      <ChevronUp className="w-4 h-4 text-gray-400" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-gray-400" />
-                    )}
-                  </div>
-
-                  {/* Accordion Content */}
-                  {isOpen && (
-                    <div className="space-y-3 pt-1 pb-3 animate-fade">
-                      {module.items.length > 0 ? (
-                        module.items.map((item) => {
-                          const isActiveItem = activeContentId === item.id;
-                          return (
-                            <div
-                              key={item.id}
-                              onClick={() => {
-                                if (!item.isDisabled) {
-                                  setActiveContentId(item.id);
-                                }
-                              }}
-                              className={`border rounded-xl p-4 flex gap-3 items-center transition-colors ${
-                                isActiveItem
-                                  ? "bg-[#f0fdf4] border-[#22c55e] cursor-pointer"
-                                  : item.isDisabled
-                                    ? "bg-white border-gray-100 opacity-60 cursor-not-allowed"
-                                    : "bg-white border-gray-100 hover:border-gray-200 cursor-pointer"
-                              }`}
-                            >
-                              {/* Render Ikon */}
-                              {renderItemIcon(item)}
-
-                              <div className="min-w-0">
-                                <h4
-                                  className={`font-medium text-xs truncate ${
-                                    isActiveItem
-                                      ? "text-gray-900"
-                                      : item.isDisabled
-                                        ? "text-gray-500"
-                                        : "text-gray-800"
-                                  }`}
-                                >
-                                  {item.title}
-                                </h4>
-                                <p
-                                  className={`text-[11px] mt-0.5 ${
-                                    isActiveItem
-                                      ? "text-gray-500"
-                                      : "text-gray-400"
-                                  }`}
-                                >
-                                  {item.subtitle}
-                                </p>
-                              </div>
-                            </div>
-                          );
-                        })
-                      ) : (
-                        <p className="text-xs text-gray-400 italic pl-2">
-                          Tidak ada materi.
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+            {modulesData.map((module) => (
+              <ModuleAccordion
+                key={module.id}
+                module={module}
+                isOpen={!!openModules[module.id]}
+                activeContentId={activeContentId}
+                onToggle={toggleModule}
+                onItemClick={handleItemClick}
+              />
+            ))}
           </div>
 
           {/* Review Button */}
@@ -409,29 +169,14 @@ const LearningModulePage = () => {
 
       {/* ================= DESKTOP FOOTER ================= */}
       {!isMobile && (
-        <footer className="h-14 shrink-0 bg-[#22c55e] text-white flex items-center justify-between px-8 text-xs font-medium tracking-wide">
-          <button
-            onClick={goPrev}
-            disabled={!activeContentId || !getPrevItem(activeContentId, allItems)}
-            className="flex items-center gap-2 hover:opacity-90 disabled:opacity-40"
-          >
-            <ChevronLeft className="w-4 h-4" /> Sebelumnya
-          </button>
-
-          <span className="text-white/80 text-[11px]">
-            {activeItem
-              ? `${activeItem.title}`
-              : "Pilih materi"}
-          </span>
-
-          <button
-            onClick={goNext}
-            disabled={!activeContentId || !getNextItem(activeContentId, allItems)}
-            className="flex items-center gap-2 hover:opacity-90 disabled:opacity-40"
-          >
-            Selanjutnya <ChevronRight className="w-4 h-4" />
-          </button>
-        </footer>
+        <CourseNavigation
+          activeItem={activeItem}
+          hasPrev={hasPrev}
+          hasNext={hasNext}
+          onPrev={goPrev}
+          onNext={goNext}
+          isMobile={false}
+        />
       )}
     </div>
   );
