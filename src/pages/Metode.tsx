@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
 import Card from "../components/common/Card";
-import CheckoutProgress from "../components/common/CheckoutProgress";
 import {
   PaymentMethodSelector,
   type PaymentCategory,
@@ -100,9 +99,8 @@ function Metode() {
   };
 
   return (
-    <LayoutBeranda isCheckoutProgress={false}>
+    <LayoutBeranda isCheckoutProgress={false} currentStep={1}>
       <SectionContainer>
-        <CheckoutProgress currentStep={2} />
         <div className="flex flex-col-reverse lg:flex-row gap-8 items-start">
           <main className="flex-1 w-full">
             <Card className="p-2 md:p-4 mb-5">

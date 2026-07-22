@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
 import Card from "../components/common/Card";
-import CheckoutProgress from "../components/common/CheckoutProgress";
 import { VirtualAccountInfo } from "../features/pembayaran/components/VirtualAccountInfo";
 import { PaymentSummary } from "../features/pembayaran/components/PaymentSummary";
 import {
@@ -70,9 +69,8 @@ function Pembayaran() {
   };
 
   return (
-    <LayoutBeranda isCheckoutProgress={false} isCheckoutTimer={true}>
+    <LayoutBeranda isCheckoutProgress={false} isCheckoutTimer={true} currentStep={2}>
       <SectionContainer>
-        <CheckoutProgress currentStep={2} />
         <div className="flex flex-col-reverse lg:flex-row gap-8 items-start mt-5">
           <main className="flex-1 w-full space-y-6">
             {/* CARD 1: METODE PEMBAYARAN & RINGKASAN PESANAN */}

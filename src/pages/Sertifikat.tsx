@@ -10,10 +10,11 @@ function Sertifikat() {
         <Breadcrumb
           items={[
             {
-              label: "Semua Produk",
+              label: "Desain",
               href: "/produk",
             },
-            { label: "Belajar Menyenangkan" },
+            { label: "Sertifikat" },
+
           ]}
         />
 
@@ -24,7 +25,7 @@ function Sertifikat() {
             {/* Area Preview Sertifikat dengan Background Hijau Muda */}
             <div className="w-full bg-[#f2f9f5] rounded-xl py-8 px-4 flex items-center justify-center overflow-hidden min-h-[300px] md:min-h-[400px]">
               <img
-                src="certificate-preview.png" // Ganti dengan asset gambar sertifikat Anda
+                src="sertifikat.jpeg" // Ganti dengan asset gambar sertifikat Anda
                 alt="Certificate of Completion"
                 className="w-full max-w-2xl h-auto object-contain rounded-lg shadow-md bg-white"
               />

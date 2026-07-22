@@ -2,8 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { Menu, X } from "lucide-react";
 import NavigationMenu from "./NavigationMenu";
+import CheckoutProgress from "./CheckoutProgress";
 
-function Header() {
+interface HeaderProps {
+  /** When set, replaces Kategori + Profile with checkout progress bar in desktop */
+  checkoutStep?: 1 | 2 | 3;
+}
+
+function Header({ checkoutStep }: HeaderProps) {
   const [profileOpen, setProfileOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -19,30 +25,36 @@ function Header() {
         </Link>
 
         {/* Desktop */}
-        <nav className="hidden md:flex items-center gap-6">
-          <Link
-            to="/produk"
-            className="text-sm text-gray-600 hover:text-black transition"
-          >
-            Kategori
-          </Link>
+        {checkoutStep ? (
+          <nav className="hidden md:flex items-center min-w-0 ml-4">
+            <CheckoutProgress currentStep={checkoutStep} compact />
+          </nav>
+        ) : (
+          <nav className="hidden md:flex items-center gap-6">
+            <Link
+              to="/produk"
+              className="text-sm text-gray-600 hover:text-black transition"
+            >
+              Kategori
+            </Link>
 
-          <div className="relative">
-            <button onClick={() => setProfileOpen((prev) => !prev)}>
-              <img
-                src="https://i.pravatar.cc/40"
-                alt="Profile"
-                className="w-10 h-10 rounded-full cursor-pointer"
+            <div className="relative">
+              <button onClick={() => setProfileOpen((prev) => !prev)}>
+                <img
+                  src="https://i.pravatar.cc/40"
+                  alt="Profile"
+                  className="w-10 h-10 rounded-full cursor-pointer"
+                />
+              </button>
+
+              <NavigationMenu
+                open={profileOpen}
+                onClose={() => setProfileOpen(false)}
+                variant="desktop"
               />
-            </button>
-
-            <NavigationMenu
-              open={profileOpen}
-              onClose={() => setProfileOpen(false)}
-              variant="desktop"
-            />
-          </div>
-        </nav>
+            </div>
+          </nav>
+        )}
 
         {/* Mobile */}
         <button
