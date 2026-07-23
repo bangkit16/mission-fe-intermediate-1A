@@ -4,10 +4,8 @@ import { FileText, Video, File, Award, PenSquare, Globe } from "lucide-react";
 import { Link } from "react-router";
 
 function CheckoutCard({
-  isCheckoutButtonDisabled = true,
   checkoutLink,
 }: {
-  isCheckoutButtonDisabled?: boolean;
   checkoutLink?: string;
 }) {
   return (
