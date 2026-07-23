@@ -1,0 +1,651 @@
+{
+  "courses": [
+    {
+      "image": "https://picsum.photos/400/250?1",
+      "title": "Full-Stack Web Development Bootcamp",
+      "description": "Kuasai JavaScript, React, dan Node.js dari dasar hingga siap kerja dalam 3 bulan. Belajar bersama mentor profesional.",
+      "instructor": {
+        "name": "Rian Hidayat",
+        "role": "Senior Software Engineer",
+        "company": "Gojek",
+        "avatar": "https://i.pravatar.cc/40?img=2"
+      },
+      "rating": 4.8,
+      "reviewCount": 342,
+      "price": 450000,
+      "originalPrice": 500000,
+      "discount": 50,
+      "category": "digital-teknologi",
+      "duration": "360 Menit",
+      "totalModules": 12,
+      "totalVideos": 49,
+      "totalDocuments": 7,
+      "hasCertificate": true,
+      "hasPretest": true,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "full-stack-web-development-bootcamp",
+      "featured": true,
+      "id": "1"
+    },
+    {
+      "image": "https://picsum.photos/400/250?3",
+      "title": "UI/UX Design Masterclass",
+      "description": "Belajar UI/UX modern menggunakan Figma dengan studi kasus proyek aplikasi nyata.",
+      "instructor": {
+        "name": "Dewi Lestari",
+        "role": "Lead Product Designer",
+        "company": "Tokopedia",
+        "avatar": "https://i.pravatar.cc/40?img=1"
+      },
+      "rating": 4.7,
+      "reviewCount": 189,
+      "price": 350000,
+      "originalPrice": 400000,
+      "discount": 12,
+      "category": "desain",
+      "duration": "240 Menit",
+      "totalModules": 8,
+      "totalVideos": 32,
+      "totalDocuments": 5,
+      "hasCertificate": true,
+      "hasPretest": true,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "uiux-design-masterclass",
+      "featured": true,
+      "id": "2"
+    },
+    {
+      "image": "https://picsum.photos/400/250?9",
+      "title": "Data Science & Machine Learning",
+      "description": "Mulai karir data analitik dengan menguasai Python, SQL, dan visualisasi data.",
+      "instructor": {
+        "name": "Budi Santoso",
+        "role": "Data Scientist Specialist",
+        "company": "Bukalapak",
+        "avatar": "https://i.pravatar.cc/40?img=3"
+      },
+      "rating": 4.5,
+      "reviewCount": 95,
+      "price": 500000,
+      "originalPrice": 650000,
+      "discount": 23,
+      "category": "digital-teknologi",
+      "duration": "480 Menit",
+      "totalModules": 16,
+      "totalVideos": 64,
+      "totalDocuments": 10,
+      "hasCertificate": true,
+      "hasPretest": true,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "data-science-machine-learning",
+      "featured": true,
+      "id": "3"
+    },
+    {
+      "image": "https://picsum.photos/400/250?2",
+      "title": "Digital Marketing Specialist",
+      "description": "Strategi jitu optimasi SEO, Google Ads, dan Copywriting untuk menaikkan penjualan.",
+      "instructor": {
+        "name": "Siti Rahma",
+        "role": "Growth Marketing Manager",
+        "company": "Shopee",
+        "avatar": "https://i.pravatar.cc/40?img=4"
+      },
+      "rating": 4.6,
+      "reviewCount": 213,
+      "price": 250000,
+      "originalPrice": 350000,
+      "discount": 28,
+      "category": "pemasaran",
+      "duration": "180 Menit",
+      "totalModules": 6,
+      "totalVideos": 24,
+      "totalDocuments": 4,
+      "hasCertificate": true,
+      "hasPretest": false,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "digital-marketing-specialist",
+      "featured": true,
+      "id": "4"
+    },
+    {
+      "image": "https://picsum.photos/400/250?4",
+      "title": "Product Management Fundamental",
+      "description": "Pelajari framework manajemen produk, riset user, hingga peluncuran fitur sukses.",
+      "instructor": {
+        "name": "Andi Wijaya",
+        "role": "Senior Product Manager",
+        "company": "Blibli",
+        "avatar": "https://i.pravatar.cc/40?img=5"
+      },
+      "rating": 4.4,
+      "reviewCount": 76,
+      "price": 300000,
+      "originalPrice": 400000,
+      "discount": 25,
+      "category": "bisnis-manajemen",
+      "duration": "300 Menit",
+      "totalModules": 10,
+      "totalVideos": 38,
+      "totalDocuments": 6,
+      "hasCertificate": true,
+      "hasPretest": true,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "product-management-fundamental",
+      "featured": false,
+      "id": "5"
+    },
+    {
+      "image": "https://picsum.photos/400/250?8",
+      "title": "Cyber Security & Ethical Hacking",
+      "description": "Pahami celah keamanan jaringan, enkripsi, dan teknik penetrasi sistem komputer.",
+      "instructor": {
+        "name": "Fahmi Idris",
+        "role": "Security Analyst",
+        "company": "Dana",
+        "avatar": "https://i.pravatar.cc/40?img=6"
+      },
+      "rating": 4.9,
+      "reviewCount": 154,
+      "price": 600000,
+      "originalPrice": 750000,
+      "discount": 20,
+      "category": "digital-teknologi",
+      "duration": "540 Menit",
+      "totalModules": 18,
+      "totalVideos": 72,
+      "totalDocuments": 12,
+      "hasCertificate": true,
+      "hasPretest": true,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "cyber-security-ethical-hacking",
+      "featured": true,
+      "id": "6"
+    },
+    {
+      "image": "https://picsum.photos/400/250?6",
+      "title": "Mobile App Development with Flutter",
+      "description": "Bangun aplikasi Android dan iOS sekaligus menggunakan satu codebase framework Flutter.",
+      "instructor": {
+        "name": "Jessica Tan",
+        "role": "Mobile Developer",
+        "company": "tiket.com",
+        "avatar": "https://i.pravatar.cc/40?img=7"
+      },
+      "rating": 4.6,
+      "reviewCount": 112,
+      "price": 400000,
+      "originalPrice": 550000,
+      "discount": 27,
+      "category": "digital-teknologi",
+      "duration": "420 Menit",
+      "totalModules": 14,
+      "totalVideos": 55,
+      "totalDocuments": 8,
+      "hasCertificate": true,
+      "hasPretest": true,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "mobile-app-development-with-flutter",
+      "featured": false,
+      "id": "7"
+    },
+    {
+      "image": "https://picsum.photos/400/250?7",
+      "title": "DevOps Engineering Roadmap",
+      "description": "Otomatisasi deploy software menggunakan Docker, Kubernetes, dan CI/CD pipeline.",
+      "instructor": {
+        "name": "Kevin Pratama",
+        "role": "DevOps Engineer",
+        "company": "Traveloka",
+        "avatar": "https://i.pravatar.cc/40?img=8"
+      },
+      "rating": 4.7,
+      "reviewCount": 88,
+      "price": 550000,
+      "originalPrice": 700000,
+      "discount": 21,
+      "category": "digital-teknologi",
+      "duration": "480 Menit",
+      "totalModules": 16,
+      "totalVideos": 60,
+      "totalDocuments": 9,
+      "hasCertificate": true,
+      "hasPretest": true,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "devops-engineering-roadmap",
+      "featured": false,
+      "id": "8"
+    },
+    {
+      "image": "https://picsum.photos/400/250?10",
+      "title": "Python for Automation & Scripting",
+      "description": "Tingkatkan produktivitas kerja dengan membuat bot dan skrip otomatisasi Python.",
+      "instructor": {
+        "name": "Eka Putri",
+        "role": "Automation Engineer",
+        "company": "Telkom",
+        "avatar": "https://i.pravatar.cc/40?img=9"
+      },
+      "rating": 4.3,
+      "reviewCount": 140,
+      "price": 200000,
+      "originalPrice": 300000,
+      "discount": 33,
+      "category": "digital-teknologi",
+      "duration": "150 Menit",
+      "totalModules": 5,
+      "totalVideos": 18,
+      "totalDocuments": 3,
+      "hasCertificate": true,
+      "hasPretest": false,
+      "hasFinalExam": true,
+      "language": "Bahasa Indonesia",
+      "slug": "python-for-automation-scripting",
+      "featured": false,
+      "id": "9"
+    }
+  ],
+  "categories": [
+    { "id": "1", "label": "Semua Kelas", "slug": "semua", "active": true },
+    { "id": "2", "label": "Pemasaran", "slug": "pemasaran" },
+    { "id": "3", "label": "Desain", "slug": "desain" },
+    { "id": "4", "label": "Pengembangan Diri", "slug": "pengembangan-diri" },
+    { "id": "5", "label": "Bisnis", "slug": "bisnis" }
+  ],
+  "course-detail": [
+    {
+      "slug": "belajar-menyenangkan",
+      "title": "Belajar Menyenangkan",
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk situs web, aplikasi seluler, dan objek fisik.",
+      "rating": 4.5,
+      "reviewCount": 200,
+      "price": 250000,
+      "originalPrice": 500000,
+      "discount": 50,
+      "promoEndsIn": "2 hari lagi",
+      "language": "Bahasa Indonesia",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "1",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "2",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ]
+    }
+  ],
+  "syllabus": [
+    {
+      "courseId": "1",
+      "modules": [
+        {
+          "id": "m1",
+          "title": "Introduction to Course 1: Foundations of User Experience Design",
+          "lessons": [
+            { "id": "l1", "title": "The basics of user experience design", "type": "Video", "duration": "12 Menit", "isActive": false, "isCompleted": false, "isDisabled": false },
+            { "id": "l2", "title": "Jobs in the field of user experience", "type": "Video", "duration": "12 Menit", "isActive": false, "isCompleted": false, "isDisabled": false },
+            { "id": "l3", "title": "The product development life cycle", "type": "Video", "duration": "12 Menit", "isActive": false, "isCompleted": false, "isDisabled": false }
+          ]
+        },
+        {
+          "id": "m2",
+          "title": "Universal design, inclusive design, and equity-focused design",
+          "lessons": []
+        },
+        {
+          "id": "m3",
+          "title": "Introduction to design sprints",
+          "lessons": []
+        },
+        {
+          "id": "m4",
+          "title": "Introduction to UX research",
+          "lessons": []
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "courseId": "1",
+      "reviews": [
+        {
+          "id": "r1",
+          "name": "Gregorius Edrik Lawanto",
+          "batch": "Alumni Batch 2",
+          "avatar": "https://i.pravatar.cc/40?img=12",
+          "comment": "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
+          "rating": 3.5
+        },
+        {
+          "id": "r2",
+          "name": "Gregorius Edrik Lawanto",
+          "batch": "Alumni Batch 4",
+          "avatar": "https://i.pravatar.cc/40?img=12",
+          "comment": "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
+          "rating": 3.5
+        }
+      ]
+    }
+  ],
+  "payment-methods": [
+    {
+      "id": "1",
+      "categories": [
+        {
+          "id": "transfer-bank",
+          "name": "Transfer Bank",
+          "methods": [
+            { "id": "bca", "name": "Bank BCA", "logo": "https://placehold.co/40x40?text=BCA" },
+            { "id": "bni", "name": "Bank BNI", "logo": "https://placehold.co/40x40?text=BNI" },
+            { "id": "bri", "name": "Bank BRI", "logo": "https://placehold.co/40x40?text=BRI" },
+            { "id": "mandiri", "name": "Bank Mandiri", "logo": "https://placehold.co/40x40?text=Mandiri" }
+          ]
+        },
+        {
+          "id": "e-wallet",
+          "name": "E-Wallet",
+          "methods": [
+            { "id": "dana", "name": "Dana", "logo": "https://placehold.co/40x40?text=Dana" },
+            { "id": "ovo", "name": "OVO", "logo": "https://placehold.co/40x40?text=OVO" },
+            { "id": "linkaja", "name": "LinkAja", "logo": "https://placehold.co/40x40?text=LinkAja" },
+            { "id": "shopeepay", "name": "Shopee Pay", "logo": "https://placehold.co/40x40?text=SPay" }
+          ]
+        },
+        {
+          "id": "credit-card",
+          "name": "Kartu Kredit/Debit",
+          "methods": [
+            {
+              "id": "cc-group",
+              "name": "Mastercard / Visa / JCB",
+              "isLogosOnly": true,
+              "logos": [
+                "https://placehold.co/50x30?text=Mastercard",
+                "https://placehold.co/50x30?text=Visa",
+                "https://placehold.co/50x30?text=JCB"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "invoice": "HEL/VI/10062023-1",
+      "date": "10 Juni 2023, 14.17",
+      "status": "Berhasil",
+      "title": "Belajar Microsoft Office dan Google Workspace untuk Pemula",
+      "image": "https://picsum.photos/150/100?workspace",
+      "price": 300000,
+      "total": 300000,
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "invoice": "HEL/VI/10062023-2",
+      "date": "10 Juni 2023, 14.17",
+      "status": "Gagal",
+      "title": "Belajar Microsoft Office dan Google Workspace untuk Pemula",
+      "image": "https://picsum.photos/150/100?workspace",
+      "price": 300000,
+      "total": 300000,
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "invoice": "HEL/VI/10062023-3",
+      "date": "10 Juni 2023, 14.17",
+      "status": "Belum Bayar",
+      "title": "Belajar Microsoft Office dan Google Workspace untuk Pemula",
+      "image": "https://picsum.photos/150/100?workspace",
+      "price": 300000,
+      "total": 300000,
+      "userId": "1"
+    },
+    {
+      "id": "4",
+      "invoice": "HEL/VI/10062023-4",
+      "date": "10 Juni 2023, 14.17",
+      "status": "Berhasil",
+      "title": "Belajar Microsoft Office dan Google Workspace untuk Pemula",
+      "image": "https://picsum.photos/150/100?workspace",
+      "price": 300000,
+      "total": 300000,
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "invoice": "HEL/VI/10062023-5",
+      "date": "10 Juni 2023, 14.17",
+      "status": "Berhasil",
+      "title": "Belajar Microsoft Office dan Google Workspace untuk Pemula",
+      "image": "https://picsum.photos/150/100?workspace",
+      "price": 300000,
+      "total": 300000,
+      "userId": "1"
+    }
+  ],
+  "my-classes": [
+    {
+      "id": "1",
+      "completedModules": 12,
+      "totalModules": 12,
+      "status": "Selesai",
+      "title": "Big 4 Auditor Financial Analyst",
+      "description": "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
+      "image": "https://picsum.photos/150/100?coffee",
+      "instructor": {
+        "name": "Jenna Ortega",
+        "role": "Senior Accountant di Gojek",
+        "avatar": "https://i.pravatar.cc/100?img=33"
+      },
+      "duration": "360 Menit",
+      "progress": 100,
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "completedModules": 2,
+      "totalModules": 12,
+      "status": "Sedang Berjalan",
+      "title": "Big 4 Auditor Financial Analyst",
+      "description": "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
+      "image": "https://picsum.photos/150/100?coffee",
+      "instructor": {
+        "name": "Jenna Ortega",
+        "role": "Senior Accountant di Gojek",
+        "avatar": "https://i.pravatar.cc/100?img=33"
+      },
+      "duration": "360 Menit",
+      "progress": 28,
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "completedModules": 2,
+      "totalModules": 12,
+      "status": "Sedang Berjalan",
+      "title": "Big 4 Auditor Financial Analyst",
+      "description": "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
+      "image": "https://picsum.photos/150/100?coffee",
+      "instructor": {
+        "name": "Jenna Ortega",
+        "role": "Senior Accountant di Gojek",
+        "avatar": "https://i.pravatar.cc/100?img=33"
+      },
+      "duration": "360 Menit",
+      "progress": 28,
+      "userId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "fullName": "Jennie Ruby Jane",
+      "email": "rubyjane@gmail.com",
+      "password": "password123",
+      "gender": "Wanita",
+      "countryCode": "+62",
+      "phoneNumber": "81234567890",
+      "profileImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      "createdAt": "2024-01-15T10:00:00Z"
+    }
+  ],
+  "course-content": [
+    {
+      "courseId": "1",
+      "courseTitle": "Foundations of User Experience Design",
+      "modules": [
+        {
+          "id": "mod-1",
+          "title": "Introduction to HR",
+          "items": [
+            { "id": "c1", "type": "pre-test", "title": "Pre-Test: Introduction to HR", "subtitle": "10 Pertanyaan", "isCompleted": true, "isActive": false, "isDisabled": false },
+            { "id": "c2", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
+            { "id": "c3", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
+            { "id": "c4", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
+            { "id": "c5", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
+            { "id": "c6", "type": "rangkuman", "title": "Rangkuman: Introduction to HR", "subtitle": "12 Menit", "isCompleted": false, "isActive": true, "isDisabled": false },
+            { "id": "c7", "type": "quiz", "title": "Quiz: Introduction to HR", "subtitle": "10 Pertanyaan", "isCompleted": false, "isActive": false, "isDisabled": true }
+          ]
+        },
+        {
+          "id": "mod-2",
+          "title": "Introduction to HR",
+          "items": []
+        }
+      ],
+      "preTest": {
+        "durationMinutes": 5,
+        "passingScore": 80,
+        "totalQuestions": 10,
+        "questions": [
+          {
+            "id": "q1",
+            "question": "Memikirkan dan mengantisipasi secara teliti adanya user secara tidak sengaja mengutak-atik konfigurasi, namun dapat diatasi dengan membuat default yang mengurangi kepanikan pada user adalah pengertian dari ...",
+            "options": [
+              { "id": "A", "text": "Memikirkan tentang default *" },
+              { "id": "B", "text": "Mempertimbangkan page layout berdasarkan suatu tujuan tertentu" },
+              { "id": "C", "text": "Memastikan bahwa sistem berjalan sesuai dengan apa yang terjadi saat itu juga" },
+              { "id": "D", "text": "Menciptakan konsistensi dan menggunakan elemen UI umum" }
+            ],
+            "correctAnswer": "A"
+          }
+        ]
+      }
+    }
+  ],
+  "payment-guide": [
+    {
+      "methodId": "bca",
+      "guides": [
+        {
+          "id": "atm-bca",
+          "title": "ATM BCA",
+          "steps": [
+            "Masukkan kartu ATM dan PIN BCA Anda",
+            "Di menu utama, pilih \"Transaksi Lainnya\". Pilih \"Transfer\". Pilih \"Ke BCA Virtual Account\"",
+            "Masukkan nomor Virtual Account",
+            "Pastikan data Virtual Account Anda benar, kemudian masukkan angka yang perlu Anda bayarkan, kemudian pilih \"Benar\"",
+            "Cek dan perhatikan konfirmasi pembayaran dari layar ATM, jika sudah benar pilih \"Ya\", atau pilih \"Tidak\" jika data di layar masih salah",
+            "Transaksi Anda sudah selesai. Pilih \"Tidak\" untuk tidak melanjutkan transaksi lain"
+          ]
+        },
+        {
+          "id": "mobile-bca",
+          "title": "Mobile Banking BCA",
+          "steps": [
+            "Buka Aplikasi BCA Mobile",
+            "Pilih \"m-BCA\", kemudian pilih \"m-Transfer\"",
+            "Pilih \"BCA Virtual Account\"",
+            "Masukkan nomor Virtual Account, lalu pilih \"OK\"",
+            "Klik tombol \"Send\" yang berada di sudut kanan atas aplikasi untuk melakukan transfer",
+            "Klik \"OK\" untuk melanjutkan pembayaran",
+            "Masukkan PIN Anda untuk meng-otorisasi transaksi",
+            "Transaksi Anda telah selesai"
+          ]
+        },
+        {
+          "id": "internet-bca",
+          "title": "Internet Banking BCA",
+          "steps": [
+            "Login ke KlikBCA Individual",
+            "Pilih \"Transfer\", kemudian pilih \"Transfer ke BCA Virtual Account\"",
+            "Masukkan nomor Virtual Account",
+            "Pilih \"Lanjutkan\" untuk melanjutkan pembayaran",
+            "Masukkan \"RESPON KEYBCA APPLI 1\" yang muncul pada Token BCA Anda, lalu klik tombol \"Kirim\"",
+            "Pembayaran telah selesai"
+          ]
+        }
+      ]
+    }
+  ],
+  "checkout": [
+    {
+      "id": "1",
+      "productName": "Video Learning: Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.",
+      "productPrice": 767500,
+      "adminFee": 7000,
+      "total": 774500,
+      "paymentMethodId": "bca",
+      "paymentMethodName": "Bank BCA",
+      "virtualAccount": {
+        "bankName": "BCA",
+        "bankLogoUrl": "https://placehold.co/120x40?text=BCA",
+        "vaDisplay": "11739 081234567890",
+        "vaFull": "11739081234567890"
+      },
+      "timerSeconds": 3055,
+      "status": "pending",
+      "userId": "1",
+      "courseId": "1",
+      "createdAt": "2023-06-10T14:17:00Z",
+      "expiresAt": "2023-06-10T15:08:55Z"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "1",
+      "courseTitle": "Big 4 Auditor Financial Analyst",
+      "courseDescription": "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
+      "instructorName": "Jenna Ortega",
+      "instructorRole": "Senior Accountant di Gojek",
+      "instructorAvatar": "avatar-jenna.png",
+      "rating": 3.5,
+      "reviewCount": 86,
+      "imageUrl": "sertifikat.jpeg",
+      "userId": "1",
+      "completedAt": "2023-09-23T10:20:00Z"
+    }
+  ]
+}
