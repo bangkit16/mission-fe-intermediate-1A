@@ -1,22 +1,37 @@
 import { api } from "../../lib/axios";
 
-/* ── Type ──────────────────────────────────── */
+/* ── Types ─────────────────────────────────── */
 
-export interface Order {
+export type MyClassStatus = "Selesai" | "Sedang Berjalan";
+
+export interface MyClassInstructor {
+  name: string;
+  role: string;
+  avatar: string;
+}
+
+export interface MyClass {
   id: string;
-  invoice: string;
-  date: string;
-  status: "Berhasil" | "Gagal" | "Belum Bayar";
+  completedModules: number;
+  totalModules: number;
+  status: MyClassStatus;
   title: string;
+  description: string;
   image: string;
-  price: number;
-  total: number;
+  instructor: MyClassInstructor;
+  duration: string;
+  progress: number;
   userId: string;
 }
 
 /* ── API functions ─────────────────────────── */
 
-export const getAllMyClasses = async (): Promise<Order[]> => {
-  const response = await api.get("/orders.json");
-  return response.data as Order[];
+export const getAllMyClasses = async (): Promise<MyClass[]> => {
+  const response = await api.get("/my-classes.json");
+  return response.data as MyClass[];
+};
+
+export const getMyClassById = async (id: string): Promise<MyClass> => {
+  const response = await api.get(`/my-classes/${id}.json`);
+  return response.data as MyClass;
 };
