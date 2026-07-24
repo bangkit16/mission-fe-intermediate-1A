@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
@@ -9,6 +10,7 @@ import {
   type PaymentCategory,
 } from "../features/metode/components/PaymentMethodSelector";
 import { OrderSummary } from "../features/metode/components/OrderSummary";
+import { getCourseById, type Course } from "../services/api/courseService";
 
 // Struktur data list metode pembayaran berdasarkan gambar image_c24ae3.png
 const paymentCategories: PaymentCategory[] = [
@@ -79,16 +81,33 @@ const paymentCategories: PaymentCategory[] = [
 ];
 
 function Metode() {
+  const [selectedMethod, setSelectedMethod] = useState<string>("bca");
+  const { id } = useParams();
+  const [course, setCourse] = useState<Course | null>(null);
   const navigate = useNavigate();
-  // State untuk mengontrol kategori metode pembayaran mana saja yang terbuka (bisa multi-open)
+
+  useEffect(() => {
+    if (!id) return;
+    getCourseById(id).then(setCourse);
+  }, [id]);
+
   const [openCategories, setOpenCategories] = useState<string[]>([
     "transfer-bank",
     "e-wallet",
     "credit-card",
   ]);
 
+  if (!course) {
+    return (
+      <LayoutBeranda>
+        <SectionContainer>
+          <p className="py-20 text-center text-gray-500">Memuat...</p>
+        </SectionContainer>
+      </LayoutBeranda>
+    );
+  }
+
   // State untuk metode pembayaran terpilih (default: bca sesuai gambar)
-  const [selectedMethod, setSelectedMethod] = useState<string>("bca");
 
   const toggleCategory = (categoryId: string) => {
     setOpenCategories((prev) =>
@@ -116,15 +135,18 @@ function Metode() {
             <Card className="p-2 md:p-4 mb-5">
               <OrderSummary
                 productName="Video Learning: Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager."
-                productPrice={767500}
+                productPrice={course.price}
                 adminFee={7000}
-                total={774500}
+                total={course.price + 7000}
                 buttonLabel="Lanjutkan Pembayaran"
-                onAction={() => navigate("/produk/belajar-menyenangkan/pembayaran")}
+                onAction={() => navigate(`/produk/${id}/pembayaran`)}
               />
             </Card>
           </main>
-          <CheckoutCard />
+          <CheckoutCard
+            course={course}
+            // checkoutLink={`/produk/${id}/pembayaran`}
+          />
         </div>
       </SectionContainer>
     </LayoutBeranda>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
@@ -6,69 +6,23 @@ import Card from "../components/common/Card";
 import { PesananSidebar } from "../features/pesanan/components/PesananSidebar";
 import { PesananFilterTabs } from "../features/pesanan/components/PesananFilterTabs";
 import { PesananSearchBar } from "../features/pesanan/components/PesananSearchBar";
-import {
-  OrderCard,
-  type OrderData,
-} from "../features/pesanan/components/OrderCard";
+import { OrderCard } from "../features/pesanan/components/OrderCard";
+import { getAllOrders, type Order } from "../services/api/ordersService";
 
-const orderData: OrderData[] = [
-  {
-    id: 1,
-    invoice: "HEL/VI/10062023",
-    date: "10 Juni 2023, 14.17",
-    status: "Berhasil",
-    title: "Belajar Microsoft Office dan Google Workspace untuk Pemula",
-    image: "https://picsum.photos/150/100?workspace",
-    price: "Rp 300.000",
-    total: "Rp 300.000",
-  },
-  {
-    id: 2,
-    invoice: "HEL/VI/10062023",
-    date: "10 Juni 2023, 14.17",
-    status: "Gagal",
-    title: "Belajar Microsoft Office dan Google Workspace untuk Pemula",
-    image: "https://picsum.photos/150/100?workspace",
-    price: "Rp 300.000",
-    total: "Rp 300.000",
-  },
-  {
-    id: 3,
-    invoice: "HEL/VI/10062023",
-    date: "10 Juni 2023, 14.17",
-    status: "Belum Bayar",
-    title: "Belajar Microsoft Office dan Google Workspace untuk Pemula",
-    image: "https://picsum.photos/150/100?workspace",
-    price: "Rp 300.000",
-    total: "Rp 300.000",
-  },
-  {
-    id: 4,
-    invoice: "HEL/VI/10062023",
-    date: "10 Juni 2023, 14.17",
-    status: "Berhasil",
-    title: "Belajar Microsoft Office dan Google Workspace untuk Pemula",
-    image: "https://picsum.photos/150/100?workspace",
-    price: "Rp 300.000",
-    total: "Rp 300.000",
-  },
-  {
-    id: 5,
-    invoice: "HEL/VI/10062023",
-    date: "10 Juni 2023, 14.17",
-    status: "Berhasil",
-    title: "Belajar Microsoft Office dan Google Workspace untuk Pemula",
-    image: "https://picsum.photos/150/100?workspace",
-    price: "Rp 300.000",
-    total: "Rp 300.000",
-  },
-];
+const tabs = ["Semua Pesanan", "Menunggu", "Berhasil", "Gagal"];
 
 function Pesanan() {
+  const [orders, setOrders] = useState<Order[]>([]);
   const [activeTab, setActiveTab] = useState("Semua Pesanan");
-  const tabs = ["Semua Pesanan", "Menunggu", "Berhasil", "Gagal"];
 
-  // Helper styling untuk label status transaksi
+  useEffect(() => {
+    getAllOrders().then(setOrders);
+  }, []);
+
+  const filteredOrders = activeTab === "Semua Pesanan"
+    ? orders
+    : orders.filter((o) => o.status.toLowerCase().includes(activeTab.toLowerCase()));
+
   const getStatusStyle = (status: string) => {
     switch (status) {
       case "Berhasil":
@@ -100,7 +54,7 @@ function Pesanan() {
               </div>
 
               <div className="space-y-4 pt-5">
-                {orderData.map((order) => (
+                {filteredOrders.map((order) => (
                   <OrderCard
                     key={order.id}
                     order={order}

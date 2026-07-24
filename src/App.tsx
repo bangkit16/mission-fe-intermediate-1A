@@ -28,12 +28,12 @@ function App() {
         <Route path="/profile" element={<Profile />} />
 
         <Route path="/produk" element={<SemuaProduk />} />
-        <Route path="/produk/:slug" element={<Produk />} />
-        <Route path="/produk/:slug/metode" element={<Metode />} />
-        <Route path="/produk/:slug/pembayaran" element={<Pembayaran />} />
-        <Route path="/produk/:slug/ganti-metode" element={<GantiMetode />} />
+        <Route path="/produk/:id" element={<Produk />} />
+        <Route path="/produk/:id/metode" element={<Metode />} />
+        <Route path="/produk/:id/pembayaran" element={<Pembayaran />} />
+        <Route path="/produk/:id/ganti-metode" element={<GantiMetode />} />
         <Route
-          path="/produk/:slug/pembayaran-selesai"
+          path="/produk/:id/pembayaran-selesai"
           element={<SelesaiPembayaran />}
         />
 

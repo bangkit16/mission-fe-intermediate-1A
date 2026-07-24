@@ -18,8 +18,8 @@ export interface CourseCardProps {
   rating: number;
   /** Jumlah ulasan */
   reviewCount: number;
-  /** Harga dalam format Rupiah (misal: "Rp 300K") */
-  price: string;
+  /** Harga dalam angka (contoh: 450000) */
+  price: number;
   /** Link tujuan saat card diklik (opsional) */
   to?: string;
 }
@@ -92,7 +92,11 @@ function CourseCard({
           </span>
         </div>
         <div className="text-lg font-extrabold text-[#2ecc71] md:text-3xl">
-          {price}
+          {price >= 1000000
+            ? `${(price / 1000000).toFixed(1)}M`
+            : price >= 1000
+              ? `Rp ${(price / 1000).toFixed(0)}K`
+              : `Rp ${price}`}
         </div>
       </div>
     </div>

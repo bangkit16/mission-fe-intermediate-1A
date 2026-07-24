@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
@@ -10,6 +10,7 @@ import {
   PaymentGuide,
   type GuideEntry,
 } from "../features/pembayaran/components/PaymentGuide";
+import { getCourseById, type Course } from "../services/api/courseService";
 
 // Data panduan pembayaran
 const guideEntries: GuideEntry[] = [
@@ -54,7 +55,15 @@ const guideEntries: GuideEntry[] = [
 ];
 
 function Pembayaran() {
+  const { id } = useParams();
+  const [course, setCourse] = useState<Course | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!id) return;
+    getCourseById(id).then(setCourse);
+  }, [id]);
+
   // State untuk melacak accordion panduan cara bayar mana saja yang terbuka
   const [openGuides, setOpenGuides] = useState<string[]>([
     "atm-bca",
@@ -68,8 +77,22 @@ function Pembayaran() {
     );
   };
 
+  if (!course) {
+    return (
+      <LayoutBeranda>
+        <SectionContainer>
+          <p className="py-20 text-center text-gray-500">Memuat...</p>
+        </SectionContainer>
+      </LayoutBeranda>
+    );
+  }
+
   return (
-    <LayoutBeranda isCheckoutProgress={false} isCheckoutTimer={true} currentStep={2}>
+    <LayoutBeranda
+      isCheckoutProgress={false}
+      isCheckoutTimer={true}
+      currentStep={2}
+    >
       <SectionContainer>
         <div className="flex flex-col-reverse lg:flex-row gap-8 items-start mt-5">
           <main className="flex-1 w-full space-y-6">
@@ -87,12 +110,13 @@ function Pembayaran() {
               />
 
               <PaymentSummary
-                productName="Video Learning: Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager."
-                productPrice={767500}
+                // productName="Video Learning: Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager."
+                productName={`Video Learning: ${course?.title}`}
+                productPrice={course?.price}
                 adminFee={7000}
-                total={774500}
-                onChangeMethod={() => navigate("/produk/belajar-menyenangkan/ganti-metode")}
-                onPayNow={() => navigate("/produk/belajar-menyenangkan/pembayaran-selesai")}
+                total={course?.price + 7000}
+                onChangeMethod={() => navigate(`/produk/${id}/ganti-metode`)}
+                onPayNow={() => navigate(`/produk/${id}/pembayaran-selesai`)}
               />
             </Card>
 
@@ -103,7 +127,10 @@ function Pembayaran() {
               onToggleGuide={toggleGuide}
             />
           </main>
-          <CheckoutCard />
+          <CheckoutCard
+            course={course}
+            // checkoutLink="/produk/belajar-menyenangkan/metode"
+          />
         </div>
       </SectionContainer>
     </LayoutBeranda>

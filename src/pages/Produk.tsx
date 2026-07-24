@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import Breadcrumb from "../components/common/Breadcrumb";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
@@ -10,6 +11,11 @@ import { SyllabusAccordion } from "../features/produk/components/SyllabusAccordi
 import { ProductReviews } from "../features/produk/components/ProductReviews";
 import { RelatedCourses } from "../features/produk/components/RelatedCourses";
 import Card from "../components/common/Card";
+import {
+  getCourseById,
+  getAllCourses,
+  type Course,
+} from "../services/api/courseService";
 
 const instructor = {
   name: "Jessica Tan",
@@ -18,55 +24,6 @@ const instructor = {
   avatar: "https://i.pravatar.cc/40?img=7",
 };
 
-const courses = [
-  {
-    image: "https://picsum.photos/400/250?1",
-    title: "Full-Stack Web Development Bootcamp",
-    description:
-      "Kuasai JavaScript, React, dan Node.js dari dasar hingga siap kerja dalam 3 bulan. Belajar bersama mentor profesional. lorem ipsum dolor sit amet",
-    instructor: {
-      name: "Rian Hidayat",
-      role: "Senior Software Engineer",
-      company: "Gojek",
-      avatar: "https://i.pravatar.cc/40?img=2",
-    },
-    rating: 4.8,
-    reviewCount: 342,
-    price: "Rp 450K",
-  },
-  {
-    image: "https://picsum.photos/400/250?3",
-    title: "UI/UX Design Masterclass",
-    description:
-      "Belajar UI/UX modern menggunakan Figma dengan studi kasus proyek aplikasi nyata.",
-    instructor: {
-      name: "Dewi Lestari",
-      role: "Lead Product Designer",
-      company: "Tokopedia",
-      avatar: "https://i.pravatar.cc/40?img=1",
-    },
-    rating: 4.7,
-    reviewCount: 189,
-    price: "Rp 350K",
-  },
-  {
-    image: "https://picsum.photos/400/250?9",
-    title: "Data Science & Machine Learning",
-    description:
-      "Mulai karir data analitik dengan menguasai Python, SQL, dan visualisasi data.",
-    instructor: {
-      name: "Budi Santoso",
-      role: "Data Scientist Specialist",
-      company: "Bukalapak",
-      avatar: "https://i.pravatar.cc/40?img=3",
-    },
-    rating: 4.5,
-    reviewCount: 95,
-    price: "Rp 500K",
-  },
-];
-
-// Mock data untuk silabus materi berdasarkan gambar image_c161e5.png
 const syllabusModules = [
   {
     id: "m1",
@@ -97,19 +54,10 @@ const syllabusModules = [
     title: "Universal design, inclusive design, and equity-focused design",
     lessons: [],
   },
-  {
-    id: "m3",
-    title: "Introduction to design sprints",
-    lessons: [],
-  },
-  {
-    id: "m4",
-    title: "Introduction to UX research",
-    lessons: [],
-  },
+  { id: "m3", title: "Introduction to design sprints", lessons: [] },
+  { id: "m4", title: "Introduction to UX research", lessons: [] },
 ];
 
-// Mock data untuk seksi Rating dan Review berdasarkan gambar image_c1d9e0.png
 const reviews = [
   {
     id: "r1",
@@ -131,40 +79,83 @@ const reviews = [
   },
 ];
 
+interface RelatedItem {
+  image: string;
+  title: string;
+  description: string;
+  instructor: { name: string; role: string; company: string; avatar: string };
+  rating: number;
+  reviewCount: number;
+  price: string;
+}
+
 function Produk() {
-  // State untuk mengontrol modul mana yang sedang terbuka (default: modul pertama)
+  const { id } = useParams();
+  const [course, setCourse] = useState<Course | null>(null);
+  const [relatedCourses, setRelatedCourses] = useState<RelatedItem[]>([]);
   const [openModuleId, setOpenModuleId] = useState<string | null>("m1");
+
+  useEffect(() => {
+    if (!id) return;
+    getCourseById(id).then(setCourse);
+    getAllCourses().then((all) => {
+      setRelatedCourses(
+        all
+          .filter((c) => c.id !== id)
+          .slice(0, 3)
+          .map((c) => ({
+            image: c.image,
+            title: c.title,
+            description: c.description,
+            instructor: c.instructor,
+            rating: c.rating,
+            reviewCount: c.reviewCount,
+            price:
+              c.price >= 1000000
+                ? `Rp ${(c.price / 1000000).toFixed(1)}M`
+                : `Rp ${(c.price / 1000).toFixed(0)}K`,
+          })),
+      );
+    });
+  }, [id]);
 
   const toggleModule = (id: string) => {
     setOpenModuleId(openModuleId === id ? null : id);
   };
+
+  if (!course) {
+    return (
+      <LayoutBeranda>
+        <SectionContainer>
+          <p className="py-20 text-center text-gray-500">Memuat...</p>
+        </SectionContainer>
+      </LayoutBeranda>
+    );
+  }
 
   return (
     <LayoutBeranda>
       <SectionContainer>
         <Breadcrumb
           items={[
-            {
-              label: "Semua Produk",
-              href: "/produk",
-            },
-            { label: "Belajar Menyenangkan" },
+            { label: "Semua Produk", href: "/produk" },
+            { label: course.title },
           ]}
         />
         <BannerProduct
           bgImage="https://picsum.photos/1400/800?education"
-          title="Belajar Menyenangkan"
-          description="Temukan ilmu baru yang menarik dan mendalam melalui koleksi video pembelajaran berkualitas tinggi."
+          title={course.title}
+          description={course.description}
         />
         <div className="flex flex-col-reverse lg:flex-row gap-8 items-start ">
           <main className="flex-1 w-full ">
-            <ProductDescription description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk situs web, aplikasi seluler, dan objek fisik. Desainer UX membuat interaksi sehari-hari itu dapat digunakan, menyenangkan, dan dapat diakses. Peran seorang desainer UX tingkat pemula mungkin termasuk berempati dengan pengguna, menentukan poin rasa sakit mereka, memunculkan ide untuk solusi desain, membuat wireframe, prototipe, dan maket, dan menguji desain untuk mendapatkan umpan balik." />
+            <ProductDescription description={course.description} />
 
             <Card className="p-2 md:p-4 mb-5">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <h1 className="text-xl md:text-2xl leading-tight font-bold mb-5">
-                    Beljar bersama Tutor Profesional
+                    Belajar bersama Tutor Profesional
                   </h1>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                     <InstructorCard
@@ -199,10 +190,10 @@ function Produk() {
 
             <ProductReviews reviews={reviews} />
           </main>
-          <CheckoutCard checkoutLink={"/produk/belajar-menyenangkan/metode"} />
+          <CheckoutCard course={course} checkoutLink={`/produk/${id}/metode`} />
         </div>
       </SectionContainer>
-      <RelatedCourses courses={courses} />
+      <RelatedCourses courses={relatedCourses} />
     </LayoutBeranda>
   );
 }

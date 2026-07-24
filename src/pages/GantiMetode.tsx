@@ -1,15 +1,13 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
 import Card from "../components/common/Card";
-import {
-  PaymentMethodSelector,
-  
-} from "../features/ganti-metode/components/PaymentMethodSelector";
+import { PaymentMethodSelector } from "../features/ganti-metode/components/PaymentMethodSelector";
 import { ChangeMethodAccordion } from "../features/ganti-metode/components/ChangeMethodAccordion";
 import { paymentCategories } from "../features/ganti-metode/data/paymentCategories";
+import { getCourseById, type Course } from "../services/api/courseService";
 
 // Data accordion untuk ubah metode pembayaran
 const changeMethodSections = [
@@ -19,7 +17,15 @@ const changeMethodSections = [
 ];
 
 function GantiMetode() {
+  const { id } = useParams();
+  const [course, setCourse] = useState<Course | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!id) return;
+    getCourseById(id).then(setCourse);
+  }, [id]);
+
   // State untuk accordion Card 1 — metode pembayaran terpilih
   const [selectedMethod, setSelectedMethod] = useState<string>("bca");
 
@@ -33,6 +39,16 @@ function GantiMetode() {
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
+
+  if (!course) {
+    return (
+      <LayoutBeranda>
+        <SectionContainer>
+          <p className="py-20 text-center text-gray-500">Memuat...</p>
+        </SectionContainer>
+      </LayoutBeranda>
+    );
+  }
 
   return (
     <LayoutBeranda isCheckoutProgress={false} currentStep={2}>
@@ -57,11 +73,14 @@ function GantiMetode() {
                 openSectionIds={openCategories}
                 onToggleSection={toggleCategory}
                 payButtonLabel="Bayar Sekarang"
-                onPayNow={() => navigate("/produk/belajar-menyenangkan/pembayaran")}
+                onPayNow={() => navigate(`/produk/${id}/pembayaran`)}
               />
             </Card>
           </main>
-          <CheckoutCard />
+          <CheckoutCard
+            course={course}
+            // checkoutLink={`/produk/${id}/metode`}
+          />
         </div>
       </SectionContainer>
     </LayoutBeranda>

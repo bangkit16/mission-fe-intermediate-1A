@@ -1,22 +1,11 @@
-import React from 'react';
+import type { Order } from "../../../api/ordersService";
 
 // ================================================
 // Interface Props
 // ================================================
-export interface OrderData {
-  id: number;
-  invoice: string;
-  date: string;
-  status: string;
-  title: string;
-  image: string;
-  price: string;
-  total: string;
-}
-
 export interface OrderCardProps {
   /** Data order yang akan ditampilkan */
-  order: OrderData;
+  order: Order;
   /** Fungsi utility untuk mendapatkan style status berdasarkan status order */
   getStatusStyle: (status: string) => string;
   /** Handler saat nomor invoice diklik */
@@ -28,6 +17,13 @@ export interface OrderCardProps {
 // ================================================
 // Component
 // ================================================
+const fmt = (n: number) =>
+  n >= 1000000
+    ? `Rp ${(n / 1000000).toFixed(1)}M`
+    : n >= 1000
+      ? `Rp ${(n / 1000).toFixed(0)}K`
+      : `Rp ${n}`;
+
 export const OrderCard: React.FC<OrderCardProps> = ({
   order,
   getStatusStyle,
@@ -79,7 +75,7 @@ export const OrderCard: React.FC<OrderCardProps> = ({
         {/* Info Detail Harga Produk */}
         <div className="text-left sm:text-right w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-50 shrink-0">
           <span className="text-xs text-gray-400 block mb-0.5">Harga</span>
-          <span className="text-sm font-bold text-gray-900">{order.price}</span>
+          <span className="text-sm font-bold text-gray-900">{fmt(order.price)}</span>
         </div>
       </div>
 
@@ -87,8 +83,8 @@ export const OrderCard: React.FC<OrderCardProps> = ({
       <div className="px-4 py-3 bg-green-50/50 border-t border-gray-50 flex items-center justify-between">
         <span className="text-xs md:text-sm text-gray-500">Total Pembayaran</span>
         <span className="text-sm md:text-base font-bold text-[#22C55E]">
-          {order.total}
-        </span>
+            {fmt(order.total)}
+          </span>
       </div>
     </div>
   );
