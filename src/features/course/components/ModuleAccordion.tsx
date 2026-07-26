@@ -1,92 +1,67 @@
-import {
-  ChevronUp,
-  ChevronDown,
-  PlayCircle,
-  FileText,
-  CheckSquare,
-} from "lucide-react";
-import type { CourseModule, ContentItem } from "../types";
+import React from "react";
+import { ChevronUp, ChevronDown } from "lucide-react";
+import type { ModuleData, ContentItem } from "../types";
+import { ModuleItemCard } from "./ModuleItemCard";
 
-interface ModuleAccordionProps {
-  module: CourseModule;
+// ================================================
+// Interface Props
+// ================================================
+export interface ModuleAccordionProps {
+  module: ModuleData;
   isOpen: boolean;
   activeContentId: string | null;
   onToggle: (id: string) => void;
   onItemClick: (item: ContentItem) => void;
 }
 
-export function ModuleAccordion({
+// ================================================
+// Component
+// ================================================
+export const ModuleAccordion: React.FC<ModuleAccordionProps> = ({
   module,
   isOpen,
   activeContentId,
   onToggle,
   onItemClick,
-}: ModuleAccordionProps) {
-  const renderIcon = (type: ContentItem["type"], isActive?: boolean) => {
-    const iconColor = isActive ? "text-emerald-600" : "text-gray-500";
-    switch (type) {
-      case "pre-test":
-      case "quiz":
-        return <CheckSquare className={`w-6 h-6 ${iconColor}`} />;
-      case "video":
-        return <PlayCircle className={`w-6 h-6 ${iconColor}`} />;
-      case "rangkuman":
-        return <FileText className={`w-6 h-6 ${iconColor}`} />;
-      default:
-        return null;
-    }
-  };
-
+}) => {
   return (
-    <div>
-      <button
+    <div className="border-b border-gray-50 last:border-none pb-2">
+      {/* Accordion Header */}
+      <div
         onClick={() => onToggle(module.id)}
-        className="w-full flex justify-between items-center py-2 text-left focus:outline-none"
+        className="flex items-center justify-between py-3 cursor-pointer select-none"
       >
-        <span className="text-[15px] font-bold text-gray-800">
+        <h3 className="font-bold text-[14px] text-gray-900">
           {module.title}
-        </span>
+        </h3>
         {isOpen ? (
-          <ChevronUp className="w-5 h-5 text-gray-600" />
+          <ChevronUp className="w-4 h-4 text-gray-400" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-gray-600" />
+          <ChevronDown className="w-4 h-4 text-gray-400" />
         )}
-      </button>
+      </div>
 
-      {isOpen && module.items.length > 0 && (
-        <div className="flex flex-col gap-2 mt-1">
-          {module.items.map((item) => {
-            const active = item.id === activeContentId;
-            return (
-              <div
+      {/* Accordion Content */}
+      {isOpen && (
+        <div className="space-y-3 pt-1 pb-3 animate-fade">
+          {module.items.length > 0 ? (
+            module.items.map((item) => (
+              <ModuleItemCard
                 key={item.id}
-                className={`flex items-start gap-3 p-3 rounded-xl border transition-all cursor-pointer ${
-                  active
-                    ? "border-emerald-500 bg-emerald-50/50"
-                    : "border-gray-200 bg-white hover:border-gray-300"
-                }`}
-                onClick={() => onItemClick(item)}
-              >
-                <div className="mt-0.5 flex-shrink-0">
-                  {renderIcon(item.type, active)}
-                </div>
-                <div className="flex flex-col">
-                  <span
-                    className={`font-semibold text-sm ${
-                      active ? "text-gray-900" : "text-gray-600"
-                    }`}
-                  >
-                    {item.title}
-                  </span>
-                  <span className="text-xs text-gray-400 mt-0.5">
-                    {item.subtitle}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+                item={item}
+                isActive={activeContentId === item.id}
+                onClick={onItemClick}
+              />
+            ))
+          ) : (
+            <p className="text-xs text-gray-400 italic pl-2">
+              Tidak ada materi.
+            </p>
+          )}
         </div>
       )}
     </div>
   );
-}
+};
+
+ModuleAccordion.displayName = "ModuleAccordion";

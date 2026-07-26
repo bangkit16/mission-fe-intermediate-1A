@@ -6,16 +6,16 @@ import VideoScreen from "../components/course/screens/VideoScreen";
 import QuizScreen from "../components/course/screens/QuizScreen";
 import VideoRangkumanScreen from "../components/course/screens/VideoRangkumanScreen";
 
-import type { ContentItem } from "../../features/course/types";
-import { modulesData } from "../../features/course/data";
+import type { ContentItem } from "../features/course/types";
+import { modulesData } from "../features/course/data";
 import {
   flattenItems,
   getNextItem,
   getPrevItem,
-} from "../../features/course/utils";
-import { CourseHeader } from "../../features/course/components/CourseHeader";
-import { CourseNavigation } from "../../features/course/components/CourseNavigation";
-import { ModuleAccordion } from "../../features/course/components/ModuleAccordion";
+} from "../features/course/utils";
+import { CourseHeader } from "../features/course/components/CourseHeader";
+import { CourseNavigation } from "../features/course/components/CourseNavigation";
+import { ModuleAccordion } from "../features/course/components/ModuleAccordion";
 
 const LearningModulePage = () => {
   const isMobile = useIsMobile();
