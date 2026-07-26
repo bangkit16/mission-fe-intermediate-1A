@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
@@ -10,64 +10,35 @@ import {
   CourseProgressCard,
   type CourseData,
 } from "../features/kelas/components/CourseProgressCard";
-
-const courseProgressData: CourseData[] = [
-  {
-    id: 1,
-    completedModules: 12,
-    totalModules: 12,
-    status: "Selesai",
-    title: "Big 4 Auditor Financial Analyst",
-    description:
-      "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-    image: "https://picsum.photos/150/100?coffee",
-    instructor: {
-      name: "Jenna Ortega",
-      role: "Senior Accountant di Gojek",
-      avatar: "https://i.pravatar.cc/100?img=33",
-    },
-    duration: "360 Menit",
-    progress: 100,
-  },
-  {
-    id: 2,
-    completedModules: 2,
-    totalModules: 12,
-    status: "Sedang Berjalan",
-    title: "Big 4 Auditor Financial Analyst",
-    description:
-      "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-    image: "https://picsum.photos/150/100?coffee",
-    instructor: {
-      name: "Jenna Ortega",
-      role: "Senior Accountant di Gojek",
-      avatar: "https://i.pravatar.cc/100?img=33",
-    },
-    duration: "360 Menit",
-    progress: 28,
-  },
-  {
-    id: 3,
-    completedModules: 2,
-    totalModules: 12,
-    status: "Sedang Berjalan",
-    title: "Big 4 Auditor Financial Analyst",
-    description:
-      "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
-    image: "https://picsum.photos/150/100?coffee",
-    instructor: {
-      name: "Jenna Ortega",
-      role: "Senior Accountant di Gojek",
-      avatar: "https://i.pravatar.cc/100?img=33",
-    },
-    duration: "360 Menit",
-    progress: 28,
-  },
-];
+import { getAllMyClasses } from "../services/api/myClassService";
 
 function Kelas() {
   const [activeTab, setActiveTab] = useState("Semua Kelas");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [courses, setCourses] = useState<CourseData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const tabs = ["Semua Kelas", "Sedang Berjalan", "Selesai"];
+
+  useEffect(() => {
+    getAllMyClasses()
+      .then((data) => {
+        setCourses(data.map((c) => ({ ...c, id: Number(c.id) })));
+      })
+      .catch((err) => {
+        setError(err.message || "Gagal memuat data kelas");
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  const filteredCourses = courses.filter((c) => {
+    const matchTab =
+      activeTab === "Semua Kelas" || c.status === activeTab;
+    const matchSearch = c.title
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    return matchTab && matchSearch;
+  });
 
   // Helper styling untuk label status transaksi
   const getStatusStyle = (status: string) => {
@@ -90,17 +61,32 @@ function Kelas() {
                   activeTab={activeTab}
                   onTabChange={setActiveTab}
                 />
-                <KelasSearchBar />
+                <KelasSearchBar
+                  searchValue={searchQuery}
+                  onSearchChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
 
               <div className="space-y-4 pt-5">
-                {courseProgressData.map((course) => (
-                  <CourseProgressCard
-                    key={course.id}
-                    course={course}
-                    getStatusStyle={getStatusStyle}
-                  />
-                ))}
+                {loading ? (
+                  <p className="text-center text-gray-400 py-10">
+                    Memuat data...
+                  </p>
+                ) : error ? (
+                  <p className="text-center text-red-500 py-10">{error}</p>
+                ) : filteredCourses.length === 0 ? (
+                  <p className="text-center text-gray-400 py-10">
+                    Belum ada kelas tersedia.
+                  </p>
+                ) : (
+                  filteredCourses.map((course) => (
+                    <CourseProgressCard
+                      key={course.id}
+                      course={course}
+                      getStatusStyle={getStatusStyle}
+                    />
+                  ))
+                )}
               </div>
 
               <div className="pt-4 flex justify-end">

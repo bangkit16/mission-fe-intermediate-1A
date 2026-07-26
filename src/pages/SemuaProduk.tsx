@@ -167,7 +167,7 @@ function SemuaProduk() {
                   rating={course.rating}
                   reviewCount={course.reviewCount}
                   price={course.price}
-                  to={`/produk/${course.id}`}
+                  to={`/produk/${index}`}
                 />
               ))}
             </div>

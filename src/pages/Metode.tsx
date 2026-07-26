@@ -11,91 +11,34 @@ import {
 } from "../features/metode/components/PaymentMethodSelector";
 import { OrderSummary } from "../features/metode/components/OrderSummary";
 import { getCourseById, type Course } from "../services/api/courseService";
-
-// Struktur data list metode pembayaran berdasarkan gambar image_c24ae3.png
-const paymentCategories: PaymentCategory[] = [
-  {
-    id: "transfer-bank",
-    name: "Transfer Bank",
-    methods: [
-      {
-        id: "bca",
-        name: "Bank BCA",
-        logo: "https://placehold.co/40x40?text=BCA",
-      },
-      {
-        id: "bni",
-        name: "Bank BNI",
-        logo: "https://placehold.co/40x40?text=BNI",
-      },
-      {
-        id: "bri",
-        name: "Bank BRI",
-        logo: "https://placehold.co/40x40?text=BRI",
-      },
-      {
-        id: "mandiri",
-        name: "Bank Mandiri",
-        logo: "https://placehold.co/40x40?text=Mandiri",
-      },
-    ],
-  },
-  {
-    id: "e-wallet",
-    name: "E-Wallet",
-    methods: [
-      {
-        id: "dana",
-        name: "Dana",
-        logo: "https://placehold.co/40x40?text=Dana",
-      },
-      { id: "ovo", name: "OVO", logo: "https://placehold.co/40x40?text=OVO" },
-      {
-        id: "linkaja",
-        name: "LinkAja",
-        logo: "https://placehold.co/40x40?text=LinkAja",
-      },
-      {
-        id: "shopeepay",
-        name: "Shopee Pay",
-        logo: "https://placehold.co/40x40?text=SPay",
-      },
-    ],
-  },
-  {
-    id: "credit-card",
-    name: "Kartu Kredit/Debit",
-    methods: [
-      {
-        id: "cc-group",
-        name: "Mastercard / Visa / JCB",
-        isLogosOnly: true,
-        logos: [
-          "https://placehold.co/50x30?text=Mastercard",
-          "https://placehold.co/50x30?text=Visa",
-          "https://placehold.co/50x30?text=JCB",
-        ],
-      },
-    ],
-  },
-];
+import {
+  getAllPaymentMethods,
+} from "../services/api/paymentMethodsService";
 
 function Metode() {
-  const [selectedMethod, setSelectedMethod] = useState<string>("bca");
+  const [selectedMethod, setSelectedMethod] = useState<string>("");
+  const [paymentCategories, setPaymentCategories] = useState<PaymentCategory[]>([]);
+  const [openCategories, setOpenCategories] = useState<string[]>([]);
   const { id } = useParams();
   const [course, setCourse] = useState<Course | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    getAllPaymentMethods().then((groups) => {
+      const cats = groups[0]?.categories ?? [];
+      setPaymentCategories(cats as PaymentCategory[]);
+      // default ke metode pertama
+      const first = cats[0]?.methods[0]?.id;
+      if (first) setSelectedMethod(first);
+      // buka semua kategori
+      setOpenCategories(cats.map((c: any) => c.id));
+    });
+  }, []);
+
+  useEffect(() => {
     if (!id) return;
     getCourseById(id).then(setCourse);
   }, [id]);
-
-  const [openCategories, setOpenCategories] = useState<string[]>([
-    "transfer-bank",
-    "e-wallet",
-    "credit-card",
-  ]);
 
   if (!course) {
     return (

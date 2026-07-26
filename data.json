@@ -1,6 +1,7 @@
 {
   "courses": [
     {
+      "id": "452bd406-7b59-4a2c-8305-1fe1bb4f7523",
       "image": "https://picsum.photos/400/250?1",
       "title": "Full-Stack Web Development Bootcamp",
       "description": "Kuasai JavaScript, React, dan Node.js dari dasar hingga siap kerja dalam 3 bulan. Belajar bersama mentor profesional.",
@@ -26,9 +27,105 @@
       "language": "Bahasa Indonesia",
       "slug": "full-stack-web-development-bootcamp",
       "featured": true,
-      "id": "1"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "b4f535a4-7933-4508-a16f-60367d282492",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "7d81ae15-ad28-48b3-b717-918357c142df",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "549e50b9-5056-49ec-9e72-6603d9206999",
+          "name": "Gregorius Edrik Lawanto",
+          "batch": "Alumni Batch 2",
+          "avatar": "https://i.pravatar.cc/40?img=12",
+          "comment": "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
+          "rating": 3.5
+        },
+        {
+          "id": "1f6bc4d0-c637-44c6-b7ac-c0af6f4bbdbf",
+          "name": "Gregorius Edrik Lawanto",
+          "batch": "Alumni Batch 4",
+          "avatar": "https://i.pravatar.cc/40?img=12",
+          "comment": "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
+          "rating": 3.5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "82864232-ebe5-4f5e-8a13-2888bc7d8b7e",
+          "title": "Introduction to Course 1: Foundations of User Experience Design",
+          "lessons": [
+            {
+              "id": "8ed9e685-6ad0-44ec-84e2-8843557c4161",
+              "title": "The basics of user experience design",
+              "type": "Video",
+              "duration": "12 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "d44c5910-ee80-4a7a-b4d6-57bbec6ebff6",
+              "title": "Jobs in the field of user experience",
+              "type": "Video",
+              "duration": "12 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "e101c490-a87c-453b-8f87-9c98a96b86eb",
+              "title": "The product development life cycle",
+              "type": "Video",
+              "duration": "12 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "18a5a311-1848-450e-88d3-7e957597354a",
+          "title": "Universal design, inclusive design, and equity-focused design",
+          "lessons": []
+        },
+        {
+          "id": "68ad8c70-f9da-499d-9116-50c28f84d6f2",
+          "title": "Introduction to design sprints",
+          "lessons": []
+        },
+        {
+          "id": "3158ccd7-e2e6-4805-8016-34b6f59950a4",
+          "title": "Introduction to UX research",
+          "lessons": []
+        }
+      ]
     },
     {
+      "id": "6ed4aec9-7f4d-4125-9780-6d5d357f845a",
       "image": "https://picsum.photos/400/250?3",
       "title": "UI/UX Design Masterclass",
       "description": "Belajar UI/UX modern menggunakan Figma dengan studi kasus proyek aplikasi nyata.",
@@ -54,9 +151,387 @@
       "language": "Bahasa Indonesia",
       "slug": "uiux-design-masterclass",
       "featured": true,
-      "id": "2"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "b025c66b-dd30-4faa-8184-d50ec52805b8",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "2ba46887-e8b7-49aa-ae31-f752c75bd13e",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "7c2e49f7-a2b3-4369-9f66-a419e1fde7c7",
+          "name": "Nadia Putri",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=21",
+          "comment": "Saya benar-benar belajar UI/UX dari nol. Sekarang sudah bisa membuat prototype interaktif di Figma dan mendapat freelance pertama.",
+          "rating": 5
+        },
+        {
+          "id": "8d3bf11f-1fd9-4adc-a198-74840b207bf4",
+          "name": "Fajar Nugroho",
+          "batch": "Alumni Batch 5",
+          "avatar": "https://i.pravatar.cc/40?img=22",
+          "comment": "Materinya runtut mulai dari design thinking sampai handoff ke developer. Sangat cocok untuk pemula.",
+          "rating": 4.9
+        },
+        {
+          "id": "3188d7aa-6acb-402a-9ac5-f232d5101fd8",
+          "name": "Kevin Pratama",
+          "batch": "Alumni Batch 8",
+          "avatar": "https://i.pravatar.cc/40?img=23",
+          "comment": "Project akhirnya benar-benar seperti studi kasus startup sehingga portfolio saya jadi jauh lebih menarik.",
+          "rating": 5
+        },
+        {
+          "id": "a4e53ac3-5984-428e-aec8-9465e3f48d83",
+          "name": "Salsa Amalia",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=24",
+          "comment": "Penjelasan mengenai Auto Layout dan Design System sangat mudah dipahami.",
+          "rating": 4.8
+        },
+        {
+          "id": "18866f62-2907-4acc-a690-c4cf01c9858b",
+          "name": "Rizky Maulana",
+          "batch": "Alumni Batch 9",
+          "avatar": "https://i.pravatar.cc/40?img=25",
+          "comment": "Mentor memberikan banyak insight mengenai workflow UI/UX di perusahaan teknologi.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "fe228a38-264f-42fc-9741-0d0ad5500f3a",
+          "title": "Pengenalan UI/UX Design",
+          "lessons": [
+            {
+              "id": "5b42e8de-5084-47f3-94a4-5b480fc297b9",
+              "title": "Selamat Datang",
+              "type": "Video",
+              "duration": "8 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "7fa4f1e4-d175-4279-b306-55b83465c27b",
+              "title": "Roadmap UI/UX Designer",
+              "type": "Video",
+              "duration": "15 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "21a4cb28-affc-4e53-9f5c-ba15c446ab7f",
+              "title": "Tools yang Digunakan",
+              "type": "Document",
+              "duration": "8 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "4c43014e-c96e-4d8d-a9af-175afeca1c96",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "ef89aed1-5dcb-4826-915e-d3ab2d6edf89",
+          "title": "Design Thinking",
+          "lessons": [
+            {
+              "id": "9b100c6a-77af-4668-b302-57aa1d473d73",
+              "title": "Empathize",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "ccaebd5c-b220-4d94-a76d-963340a5f906",
+              "title": "Define Problem",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "ffab1193-1d0f-49dc-a516-0332c1c446fc",
+              "title": "Ideation",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "5cffc70c-73e0-47ef-bc39-613169e5e524",
+              "title": "Mini Case Study",
+              "type": "Assignment",
+              "duration": "40 Menit"
+            }
+          ]
+        },
+        {
+          "id": "035add88-eb50-41b5-9f60-f93c2fb153b3",
+          "title": "User Research",
+          "lessons": [
+            {
+              "id": "5242785f-57c9-4480-a7f3-e957cde05dc9",
+              "title": "User Persona",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "31493df3-c978-4568-a814-19b1b864ac1a",
+              "title": "Empathy Map",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "eb019baf-9d12-4d68-ab9a-97b10ad46142",
+              "title": "Customer Journey Map",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "1b567404-afe0-4452-a9e8-d908e46ea784",
+              "title": "Research Assignment",
+              "type": "Assignment",
+              "duration": "50 Menit"
+            }
+          ]
+        },
+        {
+          "id": "1df3d8ba-8b7b-44c1-a837-ca3fca0d396e",
+          "title": "Wireframing",
+          "lessons": [
+            {
+              "id": "d9156f40-dc93-4fbe-926f-6cf30816da0d",
+              "title": "Low Fidelity Wireframe",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "e5b96b90-e852-41f9-9d6c-4bc86101aa0f",
+              "title": "High Fidelity Wireframe",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "bc6434e7-27ed-4f56-be09-a522803f003d",
+              "title": "Information Architecture",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "fccc270e-3d32-497c-8fd4-8437da3582be",
+              "title": "Wireframe Challenge",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
+        },
+        {
+          "id": "998b2376-fd51-4b21-931a-3939eba0f177",
+          "title": "Figma Fundamental",
+          "lessons": [
+            {
+              "id": "7a81e60b-531c-4a42-a3a9-b3a3941ee4fd",
+              "title": "Workspace Figma",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "69687654-3b33-4222-b764-77a0686ef0b9",
+              "title": "Frame & Layout",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "ef7befa1-dbd5-41c3-859e-eef5640bbd9c",
+              "title": "Auto Layout",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "4b6f430f-e714-4547-af1c-d08117596467",
+              "title": "Components",
+              "type": "Video",
+              "duration": "32 Menit"
+            }
+          ]
+        },
+        {
+          "id": "6fa31cd5-2208-4ae1-849e-6d43bb19a568",
+          "title": "Design System",
+          "lessons": [
+            {
+              "id": "1e5c3384-003b-47a9-80d2-0d6acb782a53",
+              "title": "Typography",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "e30b4def-6398-4553-843b-97706844b236",
+              "title": "Color System",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "3f4f9d81-ce66-44ec-967b-13264bf2c37d",
+              "title": "Spacing & Grid",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "1c56bc53-6aad-45f0-a76b-14cf7711c99b",
+              "title": "Iconography",
+              "type": "Video",
+              "duration": "16 Menit"
+            }
+          ]
+        },
+        {
+          "id": "f719bad4-6151-4c83-9f94-45aab06a4784",
+          "title": "Interactive Prototype",
+          "lessons": [
+            {
+              "id": "dcaf932c-1007-4ffd-aac0-fda2da87688d",
+              "title": "Prototype Connection",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "3303ee71-02d5-4c5a-9ba9-8e429c0afae0",
+              "title": "Animation",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "9dba34da-2b88-4a08-981d-a5831c29ffc2",
+              "title": "Smart Animate",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "f7565645-fd44-479c-9b8c-9271ca0f2e92",
+              "title": "Interactive Component",
+              "type": "Video",
+              "duration": "26 Menit"
+            }
+          ]
+        },
+        {
+          "id": "406d86fb-18ef-4a49-a94c-9a296bd85484",
+          "title": "Usability Testing",
+          "lessons": [
+            {
+              "id": "036f72e4-d7d1-4454-abd7-2fba885c091e",
+              "title": "Planning User Testing",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "427cb0ec-6268-4e30-ba8a-a16011e85597",
+              "title": "Conduct Interview",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "0f0451c2-3635-4dc8-b4ab-e5b3834c51c4",
+              "title": "Analyze Feedback",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "264efda9-f95c-44b0-b4fe-835744b5b7fa",
+              "title": "Improve Design",
+              "type": "Assignment",
+              "duration": "45 Menit"
+            }
+          ]
+        },
+        {
+          "id": "ad8c02f4-fefa-4b3e-be1d-f975e1a8ddfa",
+          "title": "Developer Handoff",
+          "lessons": [
+            {
+              "id": "1c96ba6c-c5f0-4128-b5ae-9851e97556b8",
+              "title": "Inspect Panel",
+              "type": "Video",
+              "duration": "16 Menit"
+            },
+            {
+              "id": "c9fdde95-5131-4179-a988-b561baf5e0e0",
+              "title": "Export Assets",
+              "type": "Video",
+              "duration": "15 Menit"
+            },
+            {
+              "id": "dd189888-e887-45e0-8c7d-6b869578998a",
+              "title": "Design Documentation",
+              "type": "Document",
+              "duration": "12 Menit"
+            }
+          ]
+        },
+        {
+          "id": "494e50ac-25df-4925-9221-7fd654881b42",
+          "title": "Capstone Project",
+          "lessons": [
+            {
+              "id": "137aa063-cd0a-4544-a3eb-cfd413cab6e3",
+              "title": "Brief Project",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "251d4dc8-e73a-4545-8afa-fea365528c4e",
+              "title": "Mendesain Aplikasi Mobile",
+              "type": "Assignment",
+              "duration": "180 Menit"
+            },
+            {
+              "id": "1350528c-499e-48e6-8734-c8382d21c5c3",
+              "title": "Presentasi Portfolio",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            },
+            {
+              "id": "52fbda1d-010f-4e30-9ab2-9fe1d87cc58f",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "45 Menit"
+            }
+          ]
+        }
+      ]
     },
     {
+      "id": "525f1d2a-ff78-4ae2-a949-f6e3bdd4a160",
       "image": "https://picsum.photos/400/250?9",
       "title": "Data Science & Machine Learning",
       "description": "Mulai karir data analitik dengan menguasai Python, SQL, dan visualisasi data.",
@@ -82,9 +557,411 @@
       "language": "Bahasa Indonesia",
       "slug": "data-science-machine-learning",
       "featured": true,
-      "id": "3"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "ae59c9d1-ef79-4907-9e4f-43d171a8795d",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "a943d59b-1696-4d60-9fc1-dbd79f0ad11b",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "fe1484f7-5ffb-48ac-a278-8034f75a7df5",
+          "name": "Aditya Ramadhan",
+          "batch": "Alumni Batch 5",
+          "avatar": "https://i.pravatar.cc/40?img=31",
+          "comment": "Materi Python dan Machine Learning dijelaskan dari dasar hingga implementasi project. Sangat cocok untuk pemula.",
+          "rating": 5
+        },
+        {
+          "id": "6d011c96-e0a3-41ed-918c-09558b305c22",
+          "name": "Cindy Maharani",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=32",
+          "comment": "Bagian data visualization menggunakan Matplotlib dan Seaborn sangat membantu pekerjaan saya sebagai Data Analyst.",
+          "rating": 4.9
+        },
+        {
+          "id": "8e1de16a-b2af-4b85-896b-642080609381",
+          "name": "Rendy Saputra",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=33",
+          "comment": "Project prediksi harga rumah dan klasifikasi gambar sangat menarik dan bisa langsung masuk portfolio.",
+          "rating": 5
+        },
+        {
+          "id": "820aa7c0-c60f-406e-848f-8804acc60d92",
+          "name": "Intan Permata",
+          "batch": "Alumni Batch 8",
+          "avatar": "https://i.pravatar.cc/40?img=34",
+          "comment": "Mentor menjelaskan konsep statistik dengan cara yang mudah dipahami meskipun saya bukan lulusan matematika.",
+          "rating": 4.8
+        },
+        {
+          "id": "9457d2c2-3ce9-4920-a2c5-2fe5ef0a63d5",
+          "name": "Yoga Prakoso",
+          "batch": "Alumni Batch 9",
+          "avatar": "https://i.pravatar.cc/40?img=35",
+          "comment": "Materinya lengkap mulai dari Python, SQL, hingga deployment model Machine Learning menggunakan Streamlit.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "9887cafc-ea2c-4add-b962-8ca321c6930b",
+          "title": "Pengenalan Data Science",
+          "lessons": [
+            {
+              "id": "c1195361-269a-47ef-af90-5ecbb7fdb0e5",
+              "title": "Selamat Datang",
+              "type": "Video",
+              "duration": "8 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "4b166331-f4d3-4398-9d88-e93a3a8c7fc6",
+              "title": "Roadmap Data Scientist",
+              "type": "Video",
+              "duration": "16 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "16126672-7124-402b-a151-8ccaa8246185",
+              "title": "Instalasi Python & VS Code",
+              "type": "Document",
+              "duration": "12 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "08e9b68a-391f-4b95-a63d-83cb50047767",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "1e9d013d-8ab4-4e86-932b-800a38c5056c",
+          "title": "Python Programming",
+          "lessons": [
+            {
+              "id": "a26d8dd8-b1fc-441f-8708-6288500bcb64",
+              "title": "Variable & Data Type",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "47e3013e-2424-48f1-a4e8-8adc427b1b50",
+              "title": "Function & Loop",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "5d768cd1-6d49-42ab-908e-0d99536fd9c3",
+              "title": "Object Oriented Programming",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "c736fa03-2801-431e-9516-033ccd0f2846",
+              "title": "Mini Project Python",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
+        },
+        {
+          "id": "459b1926-7a2a-4fa7-9eb7-5cda37050461",
+          "title": "NumPy & Pandas",
+          "lessons": [
+            {
+              "id": "a75849bd-f3a6-47ae-a9c9-97deee6f90e8",
+              "title": "NumPy Array",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "c84a0964-31b4-40c8-a367-0131b6d429ab",
+              "title": "Pandas DataFrame",
+              "type": "Video",
+              "duration": "32 Menit"
+            },
+            {
+              "id": "ecdd9608-ef87-4a9c-84a1-b6767586fe9d",
+              "title": "Cleaning Data",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "7f3c98b7-a090-46df-b3c6-67d843669034",
+              "title": "Data Transformation",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "83f07c51-8e83-42ee-9ca9-442e4083e729",
+          "title": "SQL for Data Analysis",
+          "lessons": [
+            {
+              "id": "0dd95a64-908e-47ee-9da4-926c9f0fb332",
+              "title": "Basic SQL",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "3288323b-6709-4f5a-a9b4-0643cbec6f0a",
+              "title": "JOIN & Aggregate",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "50e47261-5afc-41f8-8d40-42116546778a",
+              "title": "Window Function",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "ff47dcd2-3150-4440-8e51-4bd95ab250d1",
+              "title": "Case Study SQL",
+              "type": "Assignment",
+              "duration": "50 Menit"
+            }
+          ]
+        },
+        {
+          "id": "32684878-f021-4699-a574-9868b2372adc",
+          "title": "Exploratory Data Analysis",
+          "lessons": [
+            {
+              "id": "fe09ea55-e74c-41a0-8d1e-84c56b4774d7",
+              "title": "EDA Workflow",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "55f49cdb-42cf-4e7d-b58b-54ae35654be3",
+              "title": "Missing Value",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "24efa336-80fb-44db-b89f-a6664a91fa13",
+              "title": "Outlier Detection",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "85dd932a-52be-4c7a-af98-e440e58aefd9",
+              "title": "Feature Engineering",
+              "type": "Video",
+              "duration": "28 Menit"
+            }
+          ]
+        },
+        {
+          "id": "14020777-ad99-429b-b152-3047e5619538",
+          "title": "Data Visualization",
+          "lessons": [
+            {
+              "id": "4e201c22-a02b-4ca0-8b48-c9b380545f54",
+              "title": "Matplotlib",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "4742437b-ee52-45a1-ab2b-f2a742d930b0",
+              "title": "Seaborn",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "6d6a31fa-7434-47b7-ae6c-3fa5afa94e69",
+              "title": "Interactive Chart",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "f3c3bfa3-259c-4e39-ba16-6b532dce3344",
+              "title": "Dashboard Project",
+              "type": "Assignment",
+              "duration": "70 Menit"
+            }
+          ]
+        },
+        {
+          "id": "e185fe8d-f8b5-4f77-97a5-45fe35857d4b",
+          "title": "Statistics for Machine Learning",
+          "lessons": [
+            {
+              "id": "01ef93cc-b063-4b55-b9e7-a024a30c58f7",
+              "title": "Descriptive Statistics",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "e62bac84-3268-4617-b3be-87d4a53be544",
+              "title": "Probability",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "eea0dd67-903c-4ce0-933e-318deb92da99",
+              "title": "Hypothesis Testing",
+              "type": "Video",
+              "duration": "30 Menit"
+            }
+          ]
+        },
+        {
+          "id": "b876e303-78d4-416d-9306-e8f609c01a5a",
+          "title": "Machine Learning Fundamental",
+          "lessons": [
+            {
+              "id": "f10a693e-b8f6-4b35-bf5d-3a0bc1bed753",
+              "title": "Supervised Learning",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "71fdba3a-1973-4cca-867c-c5d345b68c9a",
+              "title": "Unsupervised Learning",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "da6d51cf-3ae0-4411-ad85-0065279e5252",
+              "title": "Model Evaluation",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "24582c3d-692a-4eac-b3ef-1e6366085fa5",
+              "title": "Cross Validation",
+              "type": "Video",
+              "duration": "22 Menit"
+            }
+          ]
+        },
+        {
+          "id": "ac5854de-9a84-4c3c-bdf4-c309b52c6744",
+          "title": "Scikit-Learn",
+          "lessons": [
+            {
+              "id": "f9c0bc49-55ce-4512-af66-e5d6a92aa633",
+              "title": "Linear Regression",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "ffb996f2-337a-4409-ba4b-965dfad8c0c7",
+              "title": "Decision Tree",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "e5f00bab-76bd-46a7-9bdb-1532e5926481",
+              "title": "Random Forest",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "674468bc-d844-4d6e-94f1-ea953c18925b",
+              "title": "Classification Project",
+              "type": "Assignment",
+              "duration": "90 Menit"
+            }
+          ]
+        },
+        {
+          "id": "3739e7d1-e5f2-41ba-a132-72451c398c37",
+          "title": "Deep Learning",
+          "lessons": [
+            {
+              "id": "5f1ae5bc-88ca-4c3e-9eda-b6b323a37b92",
+              "title": "Artificial Neural Network",
+              "type": "Video",
+              "duration": "35 Menit"
+            },
+            {
+              "id": "59382806-87c2-4720-a3e7-e7429bbdf146",
+              "title": "TensorFlow & Keras",
+              "type": "Video",
+              "duration": "38 Menit"
+            },
+            {
+              "id": "23575edc-1756-4d3e-8d16-c32bb23554de",
+              "title": "Image Classification",
+              "type": "Video",
+              "duration": "40 Menit"
+            }
+          ]
+        },
+        {
+          "id": "0ab833af-2445-4066-864e-32948e9177bd",
+          "title": "Deployment Machine Learning",
+          "lessons": [
+            {
+              "id": "1de5a761-d54a-46e3-b54d-7412b0a891a8",
+              "title": "Membuat API dengan FastAPI",
+              "type": "Video",
+              "duration": "32 Menit"
+            },
+            {
+              "id": "cb9eb989-5606-4760-b77f-ec460b844c62",
+              "title": "Deploy Streamlit",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "bc82e99d-308d-4fab-8cc9-c5b33c616ee7",
+              "title": "Final Capstone Project",
+              "type": "Assignment",
+              "duration": "240 Menit"
+            },
+            {
+              "id": "0e6702a0-feb0-4cbc-abd4-075043107d93",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "60 Menit"
+            }
+          ]
+        }
+      ]
     },
     {
+      "id": "0da076f8-a8c9-4f0a-9ee4-fdfb685f6315",
       "image": "https://picsum.photos/400/250?2",
       "title": "Digital Marketing Specialist",
       "description": "Strategi jitu optimasi SEO, Google Ads, dan Copywriting untuk menaikkan penjualan.",
@@ -110,9 +987,336 @@
       "language": "Bahasa Indonesia",
       "slug": "digital-marketing-specialist",
       "featured": true,
-      "id": "4"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "471d42c5-f6db-4e6e-8dc7-bd71ead591fb",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "4dc89219-34a7-4bcc-ab1f-5e770234cf77",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "b9549149-677b-4957-a4e1-4b57fe029e94",
+          "name": "Dewi Lestari",
+          "batch": "Alumni Batch 4",
+          "avatar": "https://i.pravatar.cc/40?img=41",
+          "comment": "Setelah mengikuti course ini saya berhasil meningkatkan penjualan UMKM keluarga melalui Instagram Ads dan Google Ads.",
+          "rating": 5
+        },
+        {
+          "id": "3cecf2b6-c8f0-434f-9443-5cfe49bdefe5",
+          "name": "Muhammad Arif",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=42",
+          "comment": "Materinya sangat lengkap mulai dari SEO, social media marketing hingga analytics.",
+          "rating": 4.9
+        },
+        {
+          "id": "13b53eda-0ab5-4462-85c7-db11150bb069",
+          "name": "Siska Wulandari",
+          "batch": "Alumni Batch 5",
+          "avatar": "https://i.pravatar.cc/40?img=43",
+          "comment": "Saya jadi memahami cara membuat strategi marketing berdasarkan data, bukan sekadar posting konten.",
+          "rating": 5
+        },
+        {
+          "id": "06fbc91e-218c-4d4f-8f6a-3274b9df3c26",
+          "name": "Rafi Prakoso",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=44",
+          "comment": "Penjelasan Meta Ads dan Google Ads sangat mudah dipahami bahkan untuk pemula.",
+          "rating": 4.8
+        },
+        {
+          "id": "3dd22359-029c-45c5-9a4e-e907b2a12849",
+          "name": "Aulia Rahman",
+          "batch": "Alumni Batch 8",
+          "avatar": "https://i.pravatar.cc/40?img=45",
+          "comment": "Capstone project membantu saya membangun digital marketing plan yang siap dipresentasikan ke klien.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "87a1426c-cd9b-406e-91ac-93d106e71239",
+          "title": "Introduction to Digital Marketing",
+          "lessons": [
+            {
+              "id": "8c5e926f-2f47-47ff-9513-71ad063ed67d",
+              "title": "Welcome & Course Overview",
+              "type": "Video",
+              "duration": "8 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "8bc6c24d-c446-44d3-a238-30553e7343b2",
+              "title": "Digital Marketing Roadmap",
+              "type": "Video",
+              "duration": "15 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "bd62abec-304a-4cbc-bf91-b2b186ea0293",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "0c7c75e0-601e-4576-8015-cb2e5c13bdc6",
+          "title": "Marketing Strategy",
+          "lessons": [
+            {
+              "id": "c47dc754-f49c-4340-a753-6c51bb72dff5",
+              "title": "Market Research",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "c2937b06-4973-4dab-bf43-181d99315b0d",
+              "title": "Target Audience",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "f5288cac-b3e1-439d-bb45-ba928d4bf595",
+              "title": "Customer Persona",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "14e8d076-55bb-40dc-9054-9d44074c2c0a",
+              "title": "Marketing Funnel",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "aae48bc6-01e0-48a8-b534-ebc8973ef4b2",
+          "title": "Content Marketing",
+          "lessons": [
+            {
+              "id": "e46cedba-981c-454c-b7ff-50b22cdc82b0",
+              "title": "Content Planning",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "273addfa-7d96-430a-b624-56bc908cfb25",
+              "title": "Copywriting",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "79f514e1-8287-4170-b75a-658a49010b77",
+              "title": "Storytelling",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "46fd861d-8643-4b4a-8fad-2642e01c4cce",
+              "title": "Content Calendar",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
+        },
+        {
+          "id": "c56388aa-29ad-4920-b690-5efb2750a4be",
+          "title": "Social Media Marketing",
+          "lessons": [
+            {
+              "id": "d6df1dfc-19f6-4b1f-84e1-990178847671",
+              "title": "Instagram Marketing",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "71a115c4-1921-4e13-929b-c81d4237e37c",
+              "title": "TikTok Marketing",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "70b695ea-cf95-4d11-869b-8dacca0a7cc7",
+              "title": "LinkedIn Marketing",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "a429c929-7763-40b0-b389-9f8bfb3a6830",
+              "title": "Scheduling Content",
+              "type": "Video",
+              "duration": "16 Menit"
+            }
+          ]
+        },
+        {
+          "id": "9cd4ef55-7435-4ff7-a712-dbf0e2d660a3",
+          "title": "Search Engine Optimization",
+          "lessons": [
+            {
+              "id": "bb432f92-84b2-4162-8819-785ce07f5c9b",
+              "title": "SEO Fundamental",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "d6d6efe3-6d32-4c91-8457-4b01214a4f44",
+              "title": "Keyword Research",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "efca6f5d-6ab7-4155-a06b-1e10f465c900",
+              "title": "On-Page SEO",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "cd7a6353-0a49-4e7f-91f6-38ec3c18dbd6",
+              "title": "Technical SEO",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "65602cae-68df-4587-bde7-ebafa9371782",
+          "title": "Paid Advertising",
+          "lessons": [
+            {
+              "id": "ab98722a-ed34-4637-92bd-aa499f9dc251",
+              "title": "Google Ads",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "7d8589d4-1db9-4c40-a496-a586fd2c9d26",
+              "title": "Meta Ads",
+              "type": "Video",
+              "duration": "32 Menit"
+            },
+            {
+              "id": "1bf02f9d-d8a6-4732-b465-d884f9726792",
+              "title": "Campaign Optimization",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "ba65f045-e27a-4dd8-b396-8cfc12900e69",
+              "title": "A/B Testing",
+              "type": "Video",
+              "duration": "18 Menit"
+            }
+          ]
+        },
+        {
+          "id": "b8b3a872-2906-488e-ac4b-b8a06ec0832e",
+          "title": "Email Marketing & Automation",
+          "lessons": [
+            {
+              "id": "ff0e656a-8389-48f9-a601-6534a6c7bd20",
+              "title": "Email Campaign",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "e311143b-1f89-4f75-ac43-b52f8eb06819",
+              "title": "Customer Segmentation",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "855b9857-d5c2-440f-b797-4dd82290ba8d",
+              "title": "Marketing Automation",
+              "type": "Video",
+              "duration": "28 Menit"
+            }
+          ]
+        },
+        {
+          "id": "92bfb0f2-5aa9-4f27-97a4-888d8a2ac253",
+          "title": "Analytics & Reporting",
+          "lessons": [
+            {
+              "id": "ca30bcc8-a051-483b-86d6-77aab754b9fe",
+              "title": "Google Analytics 4",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "405ffae6-896e-45dd-90a6-bbc3ee3f29e0",
+              "title": "Conversion Tracking",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "1e78b9e9-256a-45c4-b39c-37e9544a22ad",
+              "title": "Campaign Report",
+              "type": "Assignment",
+              "duration": "90 Menit"
+            }
+          ]
+        },
+        {
+          "id": "ebfe71a6-9bfe-4e07-a7d1-ffdc98216d58",
+          "title": "Capstone Project",
+          "lessons": [
+            {
+              "id": "d1961a10-fd4d-45f6-9b18-0766340a0d5d",
+              "title": "Digital Marketing Strategy",
+              "type": "Assignment",
+              "duration": "180 Menit"
+            },
+            {
+              "id": "b0fb1200-d91c-4329-91a2-c8b9f52b10ec",
+              "title": "Campaign Presentation",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            },
+            {
+              "id": "0ff8bd86-883a-48cc-8c19-c684bd4bc0fd",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "45 Menit"
+            }
+          ]
+        }
+      ]
     },
     {
+      "id": "77468fa8-a673-4079-96b8-f118f82993b7",
       "image": "https://picsum.photos/400/250?4",
       "title": "Product Management Fundamental",
       "description": "Pelajari framework manajemen produk, riset user, hingga peluncuran fitur sukses.",
@@ -138,9 +1342,375 @@
       "language": "Bahasa Indonesia",
       "slug": "product-management-fundamental",
       "featured": false,
-      "id": "5"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "6a3162db-3ba4-4ddf-96bc-6b2b79fbac30",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "cbec1dd9-7261-4a3c-a1c4-2b5f298c06bd",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "387e4c71-f583-4074-ba64-db713ba47b3d",
+          "name": "Raka Prasetyo",
+          "batch": "Alumni Batch 3",
+          "avatar": "https://i.pravatar.cc/40?img=51",
+          "comment": "Course ini membuka wawasan saya tentang bagaimana sebuah produk digital dikembangkan dari ide hingga dirilis ke pengguna.",
+          "rating": 5
+        },
+        {
+          "id": "12fa9a19-3f5d-4f1f-aa4e-8d47ad949fa7",
+          "name": "Nabila Putri",
+          "batch": "Alumni Batch 5",
+          "avatar": "https://i.pravatar.cc/40?img=52",
+          "comment": "Materi product discovery dan product roadmap sangat mudah dipahami. Sangat cocok untuk calon Product Manager.",
+          "rating": 4.9
+        },
+        {
+          "id": "bdbd1d25-8485-41cb-8101-fff356a74f11",
+          "name": "Fahri Ramadhan",
+          "batch": "Alumni Batch 4",
+          "avatar": "https://i.pravatar.cc/40?img=53",
+          "comment": "Capstone project membuat saya lebih percaya diri saat interview Product Manager.",
+          "rating": 5
+        },
+        {
+          "id": "fcd3bdbe-c54f-445f-8fbc-9f7a0cec2d05",
+          "name": "Sinta Maharani",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=54",
+          "comment": "Belajar Agile, Scrum, hingga KPI produk dalam satu course yang sangat lengkap.",
+          "rating": 4.8
+        },
+        {
+          "id": "311a5883-6abd-4e49-96e3-ae3db53943b8",
+          "name": "Yoga Saputra",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=55",
+          "comment": "Materinya sangat relevan dengan workflow Product Manager di startup maupun perusahaan besar.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "35866279-b482-4f65-a0f0-55d1e411b1e7",
+          "title": "Introduction to Product Management",
+          "lessons": [
+            {
+              "id": "d77816c9-672e-48ec-b309-079624c04379",
+              "title": "Welcome to Product Management",
+              "type": "Video",
+              "duration": "8 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "9b42a4c7-1e88-4d58-a96a-96eb7be8fa02",
+              "title": "Role of Product Manager",
+              "type": "Video",
+              "duration": "18 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "efc848a6-85ea-4f93-b382-68cff2d62835",
+              "title": "Roadmap Product Manager",
+              "type": "Document",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "07b83279-2950-42e6-8e62-af1de8d90519",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "061176e6-2045-4234-8911-08f240e1a882",
+          "title": "Product Discovery",
+          "lessons": [
+            {
+              "id": "494ea5e8-ceba-4462-b1ea-5d38f7735926",
+              "title": "Problem Identification",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "15d712b9-95ce-4d2f-a521-789a7f41673b",
+              "title": "Market Research",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "4ee97860-9747-4681-a0cd-7ba76f9dacb4",
+              "title": "Customer Interview",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "13b3538b-dd42-4cf8-bb65-672fa9c90708",
+              "title": "Product Discovery Assignment",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
+        },
+        {
+          "id": "65db74f6-203d-4ac6-9353-b95a0c2216bd",
+          "title": "User Research",
+          "lessons": [
+            {
+              "id": "f70516e5-1226-4b0e-bdbf-ef5ac35ce0a7",
+              "title": "User Persona",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "5473e25c-cf27-421a-b463-16edbd743273",
+              "title": "Customer Journey Map",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "6a84d0c0-cdb4-444c-a22c-3f011cf9900a",
+              "title": "Empathy Mapping",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "ca6e1cb2-e79b-4420-8c73-e4d15bce452c",
+              "title": "Research Report",
+              "type": "Assignment",
+              "duration": "50 Menit"
+            }
+          ]
+        },
+        {
+          "id": "38393472-7e4b-407f-b3dd-430439acc6f8",
+          "title": "Product Strategy",
+          "lessons": [
+            {
+              "id": "04ad2648-bdd6-482e-8f1b-ed7a0481f3e3",
+              "title": "Vision & Mission",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "38fd5ea2-09fb-4b2e-8d3c-e1cc2263d344",
+              "title": "Value Proposition",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "7464d8eb-ef5d-4abf-84cb-2abc91aa78f7",
+              "title": "Business Model Canvas",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "044508ad-1744-4380-b811-3768159800b0",
+              "title": "Go-To-Market Strategy",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "05ffb9e2-7fb1-43e9-8294-f68f23f88836",
+          "title": "Product Roadmap",
+          "lessons": [
+            {
+              "id": "249e4b1c-c06b-4ba7-83d2-2c7551fc013a",
+              "title": "Roadmap Planning",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "e1df2adb-573d-4786-a709-0c47f76dc3cd",
+              "title": "Prioritization Framework",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "7eda37e7-4175-4ea5-a90e-addf080aaff8",
+              "title": "RICE & MoSCoW",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "9429742a-7f42-43d5-a68b-0eb8c53af321",
+              "title": "Roadmap Exercise",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
+        },
+        {
+          "id": "2c4c8eaf-0789-46a6-900b-171bf7dc584b",
+          "title": "Agile & Scrum",
+          "lessons": [
+            {
+              "id": "d5c49c2e-04b8-4a3b-9fff-eec5af78a687",
+              "title": "Agile Manifesto",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "e82cfaad-8c84-44c3-968c-4af448d2e646",
+              "title": "Scrum Framework",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "97c014a1-c9b3-4f65-a204-40efbec824f8",
+              "title": "Sprint Planning",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "97fb4b5b-8845-4a68-9775-92c7c266fa5e",
+              "title": "Sprint Review",
+              "type": "Video",
+              "duration": "18 Menit"
+            }
+          ]
+        },
+        {
+          "id": "22f8e86b-3dfd-4598-8f6e-99344ba65bb2",
+          "title": "Product Metrics",
+          "lessons": [
+            {
+              "id": "736dd296-b8e1-404e-8d27-a8a5d22f0388",
+              "title": "North Star Metric",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "6460aecd-23f2-4115-83fb-956778e2c472",
+              "title": "OKR & KPI",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "9a4de38d-c82b-4d3f-89e1-18cb96689951",
+              "title": "AARRR Funnel",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "f4419e46-4095-4d49-b9bb-891135c7fe78",
+              "title": "Product Analytics",
+              "type": "Video",
+              "duration": "22 Menit"
+            }
+          ]
+        },
+        {
+          "id": "5407a740-5ce1-4b12-b811-3cb5df4da3c4",
+          "title": "Stakeholder Management",
+          "lessons": [
+            {
+              "id": "3af497bd-e602-4dbf-a250-9a7c5269a0b4",
+              "title": "Working with Designers",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "bfc1f590-8164-4ab9-83ea-d0d071349adc",
+              "title": "Working with Engineers",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "774b99c0-0d92-4b37-aaf9-47ce68e96fa1",
+              "title": "Communication Skills",
+              "type": "Video",
+              "duration": "18 Menit"
+            }
+          ]
+        },
+        {
+          "id": "39aa7774-9ced-4315-8623-43164d33dc23",
+          "title": "Product Launch",
+          "lessons": [
+            {
+              "id": "8ac71f00-f038-40b7-bf7d-0e583d2cbd7c",
+              "title": "Release Planning",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "a82ff3c5-91ae-48d0-9efc-87105b9db984",
+              "title": "Launch Checklist",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "9faeeb3f-877d-4156-9533-ad5015760a1e",
+              "title": "Post Launch Evaluation",
+              "type": "Video",
+              "duration": "18 Menit"
+            }
+          ]
+        },
+        {
+          "id": "880d9e05-57c6-4333-b5a7-1ea9fd8f1395",
+          "title": "Capstone Project",
+          "lessons": [
+            {
+              "id": "e1985db4-ac0f-4512-bde5-9f0cfd3f9299",
+              "title": "Build Product Requirement Document (PRD)",
+              "type": "Assignment",
+              "duration": "180 Menit"
+            },
+            {
+              "id": "031fd923-3b91-492a-872c-fb8068df9750",
+              "title": "Pitching Product Idea",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            },
+            {
+              "id": "e4e32b55-62c4-40d6-afe7-0d8cd6f38bfb",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "45 Menit"
+            }
+          ]
+        }
+      ]
     },
     {
+      "id": "7bf66791-ce65-4ada-bdb6-845e2a3599b5",
       "image": "https://picsum.photos/400/250?8",
       "title": "Cyber Security & Ethical Hacking",
       "description": "Pahami celah keamanan jaringan, enkripsi, dan teknik penetrasi sistem komputer.",
@@ -166,9 +1736,351 @@
       "language": "Bahasa Indonesia",
       "slug": "cyber-security-ethical-hacking",
       "featured": true,
-      "id": "6"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "7d409b3f-fca3-4a4e-8bff-80963f70ec4f",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "07ec88e4-1d93-485f-a579-eb045497d174",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "9882f2d4-b8b6-4672-954d-83df62805552",
+          "name": "Fikri Ramadhan",
+          "batch": "Alumni Batch 4",
+          "avatar": "https://i.pravatar.cc/40?img=61",
+          "comment": "Materi disusun sangat sistematis, mulai dari networking hingga penetration testing. Sangat cocok untuk pemula yang ingin menjadi Ethical Hacker.",
+          "rating": 5
+        },
+        {
+          "id": "138fb981-87b7-412b-bd4b-ded91ebe00ae",
+          "name": "Naufal Pratama",
+          "batch": "Alumni Batch 5",
+          "avatar": "https://i.pravatar.cc/40?img=62",
+          "comment": "Lab praktik menggunakan Kali Linux dan Burp Suite membuat saya lebih memahami proses penetration testing di dunia nyata.",
+          "rating": 4.9
+        },
+        {
+          "id": "551d6049-957e-40f1-8f9a-e2bdb1e051a6",
+          "name": "Dimas Saputra",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=63",
+          "comment": "OWASP Top 10 dijelaskan dengan contoh yang mudah dipahami beserta cara mitigasinya.",
+          "rating": 5
+        },
+        {
+          "id": "86d175f2-122c-4d21-845b-73ef22f85898",
+          "name": "Kevin Mahardika",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=64",
+          "comment": "Capstone project penetration testing memberikan pengalaman seperti menjadi security consultant.",
+          "rating": 4.8
+        },
+        {
+          "id": "83669b07-061d-4c3a-9978-68d64b382a2e",
+          "name": "Andika Putra",
+          "batch": "Alumni Batch 8",
+          "avatar": "https://i.pravatar.cc/40?img=65",
+          "comment": "Sangat direkomendasikan untuk yang ingin mengambil sertifikasi CEH atau Security+.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "c329fc31-b241-4357-912c-8e5fca5bf9ab",
+          "title": "Introduction to Cyber Security",
+          "lessons": [
+            {
+              "id": "71434f69-2b5e-487b-acf2-ef863a82528c",
+              "title": "Welcome to Cyber Security",
+              "type": "Video",
+              "duration": "10 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "17041c09-abb0-4097-8865-1717a34fab46",
+              "title": "Cyber Security Career Path",
+              "type": "Video",
+              "duration": "18 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "cb9a8c74-8ced-4b0e-8ce1-bb39371a6170",
+              "title": "CIA Triad",
+              "type": "Video",
+              "duration": "20 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "dc0b9018-6849-4f98-8f4a-e5b494798537",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "1463eda5-887e-4b2e-a7e9-4dfeec3f981e",
+          "title": "Networking Fundamental",
+          "lessons": [
+            {
+              "id": "f5d60631-9e20-4fd3-a926-bdef0d3c3c7a",
+              "title": "OSI Model",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "05306601-4d09-4ef4-a7fc-f5fe12620bbc",
+              "title": "TCP/IP",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "a5b6fe8b-8b4c-4649-96c6-0d42dc7c766f",
+              "title": "Subnetting",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "0d761f78-f068-4dd3-a400-2e452da36892",
+              "title": "Network Lab",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
+        },
+        {
+          "id": "31898b53-d3f2-4c98-97a3-c0364b3011ea",
+          "title": "Linux for Ethical Hacker",
+          "lessons": [
+            {
+              "id": "0c6f1775-8db8-44fa-a16c-f6ac4d7a8798",
+              "title": "Linux Command Line",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "4b0f0738-b066-49eb-acc5-55e8213ea41a",
+              "title": "File Permission",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "b62b1508-8e5d-49e7-8821-4c7c71ed422b",
+              "title": "Bash Scripting",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "addf4474-ffa9-4cce-ab79-1fdb8b9ae5a4",
+              "title": "Linux Practice",
+              "type": "Assignment",
+              "duration": "70 Menit"
+            }
+          ]
+        },
+        {
+          "id": "e194734f-a2e8-4449-8fdd-7a37dee952ee",
+          "title": "Web Security",
+          "lessons": [
+            {
+              "id": "6bdb9009-061b-4ae6-ab68-dd48f37d5d77",
+              "title": "HTTP & HTTPS",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "68ea74f5-222a-4f18-81ff-961d347f2a3d",
+              "title": "Cookie & Session",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "2e85e640-d9de-4ed0-9d96-682bb233ed51",
+              "title": "Authentication",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "07e32d91-d7b6-401f-9701-f27af7fab404",
+              "title": "Common Vulnerabilities",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "84e746b3-edf0-42f5-9fe4-6a1539736180",
+          "title": "OWASP Top 10",
+          "lessons": [
+            {
+              "id": "8a7ac509-efb0-4ed1-841d-26911b7aa206",
+              "title": "SQL Injection",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "bdd0c04b-5d20-4e34-8b6a-da21ad67b800",
+              "title": "Cross Site Scripting (XSS)",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "6e9255ad-95c3-4198-aa68-74acb9735e6c",
+              "title": "Broken Authentication",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "54a2bcad-b20a-4f72-959c-e1e8cdc9e07c",
+              "title": "Access Control",
+              "type": "Video",
+              "duration": "20 Menit"
+            }
+          ]
+        },
+        {
+          "id": "9b17cefe-6111-42af-92a0-6c20a27013ee",
+          "title": "Security Tools",
+          "lessons": [
+            {
+              "id": "c3225096-fcee-4422-9877-7495ce8a93ac",
+              "title": "Nmap",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "eb82fffa-90e8-43c5-9ea9-a2bf3b443fd1",
+              "title": "Wireshark",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "721cdcbe-f830-4732-8211-cb0f243f140a",
+              "title": "Burp Suite",
+              "type": "Video",
+              "duration": "35 Menit"
+            },
+            {
+              "id": "18cc69c3-17a9-46bf-8878-b401fd964aa6",
+              "title": "Metasploit Framework",
+              "type": "Video",
+              "duration": "40 Menit"
+            }
+          ]
+        },
+        {
+          "id": "a17e8f36-36a5-4d78-91e7-ac837de375a0",
+          "title": "Penetration Testing",
+          "lessons": [
+            {
+              "id": "a1cc66fc-5a49-4a4e-93e6-896b2af62da5",
+              "title": "Reconnaissance",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "53a2f3ac-3a04-4041-a64d-11a65dbc37e6",
+              "title": "Scanning",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "cfecebcd-6651-4769-a93f-cfaf35eaf568",
+              "title": "Exploitation",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "54174698-d109-45dc-b8a2-c3d6778a0419",
+              "title": "Privilege Escalation",
+              "type": "Video",
+              "duration": "26 Menit"
+            }
+          ]
+        },
+        {
+          "id": "5f751b5d-7773-4496-b711-03431f12982d",
+          "title": "Incident Response",
+          "lessons": [
+            {
+              "id": "884f1724-8ed3-40fb-af6c-0d141456cfc2",
+              "title": "Incident Handling",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "a317c9d2-276a-474e-9414-53af1334c46f",
+              "title": "Digital Forensics",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "9653131e-4bf5-4b2a-ad9d-87525a56aab1",
+              "title": "Log Analysis",
+              "type": "Video",
+              "duration": "20 Menit"
+            }
+          ]
+        },
+        {
+          "id": "14004cb9-84a1-43c5-9412-6189ece0a7f1",
+          "title": "Capstone Project",
+          "lessons": [
+            {
+              "id": "2060fc8a-70bb-403b-a512-3fa68944ba9f",
+              "title": "Web Penetration Testing",
+              "type": "Assignment",
+              "duration": "240 Menit"
+            },
+            {
+              "id": "9faf33ef-7121-42d7-91f3-09372997c4d6",
+              "title": "Security Assessment Report",
+              "type": "Assignment",
+              "duration": "90 Menit"
+            },
+            {
+              "id": "f5d5489b-fc5f-4cfe-8c53-2514bcb80d4e",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "60 Menit"
+            }
+          ]
+        }
+      ]
     },
     {
+      "id": "8ee9ad6a-cedc-424e-8eea-ec4dce26b4e3",
       "image": "https://picsum.photos/400/250?6",
       "title": "Mobile App Development with Flutter",
       "description": "Bangun aplikasi Android dan iOS sekaligus menggunakan satu codebase framework Flutter.",
@@ -194,9 +2106,369 @@
       "language": "Bahasa Indonesia",
       "slug": "mobile-app-development-with-flutter",
       "featured": false,
-      "id": "7"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "f1e6289e-c40c-44a4-a4d9-76b1384c8bf1",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "e1113f50-6bb1-4947-9183-8a63db5651bc",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "f1f6fda5-ad74-4138-a83a-29752d7a885a",
+          "name": "Bagas Pratama",
+          "batch": "Alumni Batch 8",
+          "avatar": "https://i.pravatar.cc/40?img=71",
+          "comment": "Course ini benar-benar membantu saya membangun aplikasi Flutter dari nol hingga publish ke Play Store. Materinya sangat lengkap.",
+          "rating": 5
+        },
+        {
+          "id": "dbba2a1b-59f4-410e-a158-e8dd510ff38c",
+          "name": "Siti Maharani",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=72",
+          "comment": "State management menggunakan Riverpod dijelaskan dengan sangat jelas. Sekarang saya jauh lebih percaya diri membuat aplikasi Flutter.",
+          "rating": 4.9
+        },
+        {
+          "id": "65295e4f-3edf-419f-9a3f-3431f138e9e6",
+          "name": "Muhammad Rizky",
+          "batch": "Alumni Batch 9",
+          "avatar": "https://i.pravatar.cc/40?img=73",
+          "comment": "Project akhirnya benar-benar seperti aplikasi production lengkap dengan authentication, REST API, dan Firebase.",
+          "rating": 5
+        },
+        {
+          "id": "118ee195-0b00-4757-be8b-7b6ef8dac2ce",
+          "name": "Anisa Putri",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=74",
+          "comment": "Saya berhasil membuat aplikasi kasir untuk UMKM setelah mengikuti bootcamp ini.",
+          "rating": 4.8
+        },
+        {
+          "id": "af56aa68-e6de-46e3-97e9-7e23a75c0951",
+          "name": "Yoga Saputra",
+          "batch": "Alumni Batch 10",
+          "avatar": "https://i.pravatar.cc/40?img=75",
+          "comment": "Sangat cocok bagi developer yang ingin berpindah dari Android native ke Flutter.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "eb395785-9aa5-461f-b55d-8f81a6b47849",
+          "title": "Introduction to Flutter",
+          "lessons": [
+            {
+              "id": "9ce9577d-b9bd-4ad1-be40-faaa5d21b059",
+              "title": "Welcome to Flutter",
+              "type": "Video",
+              "duration": "8 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "79b4bc13-f493-41de-ae92-d8fb309dc4ed",
+              "title": "Flutter Roadmap",
+              "type": "Video",
+              "duration": "15 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "b6d9e626-5b58-4299-8b48-0f2973213897",
+              "title": "Setup Android Studio & VS Code",
+              "type": "Document",
+              "duration": "12 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "64be6afa-b3dc-4d07-81bf-8f8cf0a5b068",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "bba4e276-8ffd-4ef1-af2f-15252a9220da",
+          "title": "Dart Programming",
+          "lessons": [
+            {
+              "id": "d9185127-2390-4ec4-99d7-9bddbc348189",
+              "title": "Variable & Data Type",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "db764946-ab85-4b2e-8680-8708f6750cbc",
+              "title": "Function & Class",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "3d5d358a-cd16-4845-96bd-43c7ad446a71",
+              "title": "Null Safety",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "a65f5b12-aebf-4a4f-85f8-100bc5c531c8",
+              "title": "Mini Project Dart",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
+        },
+        {
+          "id": "85361a91-f090-4a1d-ab1f-5d75e0feeec9",
+          "title": "Flutter Widget",
+          "lessons": [
+            {
+              "id": "faead9f6-3a55-49bf-9672-5297f10ed4b3",
+              "title": "Stateless Widget",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "db1532f1-36e3-4f55-b811-f7be78a5ca50",
+              "title": "Stateful Widget",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "44d2134d-6850-45a2-ad85-5d90b0917cd8",
+              "title": "Layout & Navigation",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "92b6612f-a0e0-4c7d-b8b6-04c6cafe50df",
+              "title": "Responsive UI",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "455d2c66-6240-47bf-98af-a5b1ad365630",
+          "title": "State Management",
+          "lessons": [
+            {
+              "id": "539e2f0a-0baf-4eb4-a888-6efd43e8860f",
+              "title": "Provider",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "be4b38b3-dd6b-4901-a34f-b02e99a0256b",
+              "title": "Riverpod",
+              "type": "Video",
+              "duration": "32 Menit"
+            },
+            {
+              "id": "2b20e9de-4e97-4ace-88ea-ec5fe9037539",
+              "title": "Bloc Overview",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "1112e91d-17bc-4828-9fcf-3d30fe283658",
+              "title": "State Management Practice",
+              "type": "Assignment",
+              "duration": "70 Menit"
+            }
+          ]
+        },
+        {
+          "id": "bf959c04-fd71-40ae-8e61-ec9734032593",
+          "title": "Networking & REST API",
+          "lessons": [
+            {
+              "id": "a24a216d-9fa1-467a-a222-ce8afdb33b48",
+              "title": "HTTP Package",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "26faf110-95ee-4e69-bd7c-d781466c37be",
+              "title": "JSON Parsing",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "99efe388-035d-4447-80eb-032c29124456",
+              "title": "Authentication JWT",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "3cd73f49-1b58-49c7-b24a-37ae6048b763",
+              "title": "Pagination API",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "95788bdb-0ff5-4f31-90f2-6c23e8cef6a8",
+          "title": "Firebase Integration",
+          "lessons": [
+            {
+              "id": "e7047413-5520-4099-ba0f-9be053419fbc",
+              "title": "Firebase Authentication",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "1e9cfe81-ffd2-4050-b466-6de610393e29",
+              "title": "Cloud Firestore",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "8dd3065d-30f0-4ae2-9cb9-efcfe7569580",
+              "title": "Firebase Storage",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "6a5e6c19-c8a9-4d2f-969e-b3475df810c8",
+              "title": "Push Notification (FCM)",
+              "type": "Video",
+              "duration": "26 Menit"
+            }
+          ]
+        },
+        {
+          "id": "f49a42c5-bd48-4ec3-8817-3bf4b8f7fd54",
+          "title": "Local Database",
+          "lessons": [
+            {
+              "id": "8df8415b-dd9d-463c-8805-708b129393cf",
+              "title": "Shared Preferences",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "a9532a6d-22e6-47e3-8306-4f9cfe109ebe",
+              "title": "Hive Database",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "1b7334e4-6b05-42e6-8b84-54f2c54c20a4",
+              "title": "Offline First",
+              "type": "Video",
+              "duration": "20 Menit"
+            }
+          ]
+        },
+        {
+          "id": "aa586d9b-4d23-4d36-b781-c251572156a6",
+          "title": "Clean Architecture",
+          "lessons": [
+            {
+              "id": "5542ee7c-15f5-4caa-9c2f-03a1f3cf4771",
+              "title": "Folder Structure",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "34b1dc1e-bd74-4982-af77-836469ee2312",
+              "title": "Repository Pattern",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "4c2f70e6-1e71-4916-9c05-d86f513763fb",
+              "title": "Dependency Injection",
+              "type": "Video",
+              "duration": "22 Menit"
+            }
+          ]
+        },
+        {
+          "id": "cd63eecc-10c7-4b08-abda-42e7b91db2b0",
+          "title": "Publish Application",
+          "lessons": [
+            {
+              "id": "733060d2-8eee-4b8e-be5e-c313e2c18a1c",
+              "title": "Generate APK & AAB",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "223db8e1-a000-4951-8440-de5c9fe1058c",
+              "title": "Play Store Publishing",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "e0fcdb4f-29fb-4400-a299-400098f7f9e0",
+              "title": "App Signing",
+              "type": "Video",
+              "duration": "16 Menit"
+            }
+          ]
+        },
+        {
+          "id": "a61db7c7-6b2e-4572-b456-7f0ba11909ff",
+          "title": "Capstone Project",
+          "lessons": [
+            {
+              "id": "1c17cc29-dc7f-48c6-ba28-8289fe4f20f7",
+              "title": "Build E-Commerce App",
+              "type": "Assignment",
+              "duration": "300 Menit"
+            },
+            {
+              "id": "27437200-ce8f-40fc-ae0a-3b14ec5a5c7d",
+              "title": "Code Review",
+              "type": "Video",
+              "duration": "45 Menit"
+            },
+            {
+              "id": "3fdddd42-edfd-4809-907b-b6f62bf1b75d",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "60 Menit"
+            }
+          ]
+        }
+      ]
     },
     {
+      "id": "fcbef943-2363-427d-ac5b-b66bc6f73624",
       "image": "https://picsum.photos/400/250?7",
       "title": "DevOps Engineering Roadmap",
       "description": "Otomatisasi deploy software menggunakan Docker, Kubernetes, dan CI/CD pipeline.",
@@ -222,9 +2494,375 @@
       "language": "Bahasa Indonesia",
       "slug": "devops-engineering-roadmap",
       "featured": false,
-      "id": "8"
+      "bgImage": "https://picsum.photos/1400/800?education",
+      "promoEndsIn": "2 hari lagi",
+      "checkoutLink": "/produk/belajar-menyenangkan/metode",
+      "features": {
+        "hasFinalExam": true,
+        "totalVideos": 49,
+        "totalDocuments": 7,
+        "hasCertificate": true,
+        "hasPretest": true
+      },
+      "instructors": [
+        {
+          "id": "d2cda948-867c-4697-b932-ee482345a6ef",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        },
+        {
+          "id": "d5765a77-d9ad-4f43-9f54-be9dd1e7141c",
+          "name": "Jessica Tan",
+          "role": "Mobile Developer",
+          "company": "tiket.com",
+          "avatar": "https://i.pravatar.cc/40?img=7",
+          "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "15e6dbf1-c760-4ab4-bd18-9103b949b206",
+          "name": "Ardiansyah Putra",
+          "batch": "Alumni Batch 4",
+          "avatar": "https://i.pravatar.cc/40?img=81",
+          "comment": "Bootcamp ini benar-benar mengubah cara saya melakukan deployment. Sekarang saya menggunakan Docker dan CI/CD di pekerjaan sehari-hari.",
+          "rating": 5
+        },
+        {
+          "id": "df43db7b-2127-4c49-ab38-e3170208dc3d",
+          "name": "Nabila Salsabila",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=82",
+          "comment": "Materi Kubernetes dijelaskan dari nol hingga deployment production. Sangat mudah dipahami.",
+          "rating": 4.9
+        },
+        {
+          "id": "93c94e56-b406-489d-ac50-6f4d635736c6",
+          "name": "Rizki Maulana",
+          "batch": "Alumni Batch 5",
+          "avatar": "https://i.pravatar.cc/40?img=83",
+          "comment": "Saya berhasil mengotomatisasi deployment menggunakan GitHub Actions setelah mengikuti course ini.",
+          "rating": 5
+        },
+        {
+          "id": "6fa951b1-2206-4ba2-98d0-fe5dda13a83c",
+          "name": "Fajar Hidayat",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=84",
+          "comment": "Lab praktiknya sangat realistis seperti environment perusahaan.",
+          "rating": 4.8
+        },
+        {
+          "id": "37600e31-461e-4a95-9fc7-887ac35a4454",
+          "name": "Kevin Saputra",
+          "batch": "Alumni Batch 8",
+          "avatar": "https://i.pravatar.cc/40?img=85",
+          "comment": "Capstone project deployment microservice menjadi pengalaman terbaik selama mengikuti bootcamp.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "7b4695ae-2d03-42bf-808c-231795d1b59d",
+          "title": "Introduction to DevOps",
+          "lessons": [
+            {
+              "id": "9eb98bb1-41b5-4ae3-b36d-70454b9a1d78",
+              "title": "Welcome to DevOps",
+              "type": "Video",
+              "duration": "10 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "d2cb661b-f22d-42e7-9978-6c500aac59e3",
+              "title": "DevOps Culture",
+              "type": "Video",
+              "duration": "18 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "83e13bd5-660e-4d9a-91dd-2efe6ac1f428",
+              "title": "Roadmap DevOps Engineer",
+              "type": "Document",
+              "duration": "12 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "9efa6ea2-a884-414c-a9e4-f4ed33e48879",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
+          ]
+        },
+        {
+          "id": "910f44a9-ec7f-435c-8a30-67c4c2596515",
+          "title": "Linux Administration",
+          "lessons": [
+            {
+              "id": "fb33f434-99d2-44cd-9c59-20fe3627c171",
+              "title": "Linux Command Line",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "35297ed9-d19a-4fce-bd82-0c07de0e2b02",
+              "title": "User & Permission",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "190587d3-0eee-41d1-929a-9c2e74029733",
+              "title": "Shell Scripting",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "cacdddd8-2deb-47d4-81df-83b1eff84d9d",
+              "title": "Linux Practice",
+              "type": "Assignment",
+              "duration": "70 Menit"
+            }
+          ]
+        },
+        {
+          "id": "51987547-5f66-42b0-8465-09bd01a1b972",
+          "title": "Git & GitHub",
+          "lessons": [
+            {
+              "id": "1b29aa10-5283-4094-ba97-9c98226099d3",
+              "title": "Git Fundamental",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "745a3071-a2e1-426d-a054-b67693230eaf",
+              "title": "Branching Strategy",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "7532904d-a6f4-4ad8-8d4d-32c512a40284",
+              "title": "Pull Request Workflow",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "14c1a284-59e8-4c49-90d1-c28004abe3c0",
+              "title": "Git Collaboration",
+              "type": "Assignment",
+              "duration": "50 Menit"
+            }
+          ]
+        },
+        {
+          "id": "d652bb01-1199-4b50-a9f8-fe3998865ca1",
+          "title": "Docker",
+          "lessons": [
+            {
+              "id": "d2480685-3b19-4341-871c-33cee47f36ff",
+              "title": "Docker Installation",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "ef93afc0-a93c-43cd-910f-5abec61667c6",
+              "title": "Docker Image",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "317a28f2-be60-43c1-992e-a6e7861f5a08",
+              "title": "Docker Container",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "d3977879-a6ab-4894-88c5-d947063e5aea",
+              "title": "Docker Compose",
+              "type": "Video",
+              "duration": "35 Menit"
+            }
+          ]
+        },
+        {
+          "id": "5cc8c751-31a2-4d56-aaa3-7b06cac4ddef",
+          "title": "CI/CD Pipeline",
+          "lessons": [
+            {
+              "id": "9f785ac0-0b16-4412-939f-93571f2d2910",
+              "title": "Introduction to CI/CD",
+              "type": "Video",
+              "duration": "18 Menit"
+            },
+            {
+              "id": "a908929a-8734-44f8-a0df-dadd58753dc6",
+              "title": "GitHub Actions",
+              "type": "Video",
+              "duration": "35 Menit"
+            },
+            {
+              "id": "2c491bbc-3138-4cf2-a187-ef3b2171c742",
+              "title": "Build Automation",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "9d8ebbeb-2d33-4b02-96f6-b4eb57f83b1b",
+              "title": "Deployment Workflow",
+              "type": "Assignment",
+              "duration": "90 Menit"
+            }
+          ]
+        },
+        {
+          "id": "58be3d11-9f84-4e9a-8a74-4392148f6e16",
+          "title": "Cloud Computing",
+          "lessons": [
+            {
+              "id": "bd57d97e-0586-4927-9394-748c410d887e",
+              "title": "AWS Fundamentals",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "cc93a51e-9c3a-485f-9981-350a411633b5",
+              "title": "EC2",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "ad6ed801-5073-469a-922c-f276070d7448",
+              "title": "S3 Storage",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "e7fbdab4-fcd4-4ca7-8c6c-d4b9f1e0eebd",
+              "title": "RDS Database",
+              "type": "Video",
+              "duration": "26 Menit"
+            }
+          ]
+        },
+        {
+          "id": "5091354f-c5d2-4510-a88f-8d991f5807bd",
+          "title": "Kubernetes",
+          "lessons": [
+            {
+              "id": "cb7e42eb-5ffc-4d04-9237-b391c5a80afe",
+              "title": "Kubernetes Architecture",
+              "type": "Video",
+              "duration": "35 Menit"
+            },
+            {
+              "id": "ca3590cc-0f45-4902-aebb-c0bc6f00017c",
+              "title": "Pod & Deployment",
+              "type": "Video",
+              "duration": "32 Menit"
+            },
+            {
+              "id": "f3494cd2-bb8e-4469-9a4a-dd8b45032040",
+              "title": "Service & Ingress",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "ec9390ce-7f19-4aa0-b502-9e09d05f916c",
+              "title": "Helm Chart",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "f60225da-d5de-4232-aad8-352ca4d1a2c7",
+          "title": "Monitoring & Logging",
+          "lessons": [
+            {
+              "id": "1a8c235f-08f4-4d31-8dec-0dde8c323776",
+              "title": "Prometheus",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "a332aa0a-3411-412a-a8bf-94026ca79538",
+              "title": "Grafana",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "38efbb1a-dc64-4dc7-8c71-a5278e0fce94",
+              "title": "Centralized Logging",
+              "type": "Video",
+              "duration": "22 Menit"
+            }
+          ]
+        },
+        {
+          "id": "d7962312-b590-41ee-b01e-ad62b73545ff",
+          "title": "Infrastructure as Code",
+          "lessons": [
+            {
+              "id": "b1a89194-5308-4ca9-b350-8c2b0056582d",
+              "title": "Terraform Fundamentals",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "141bbd34-c1d2-4c93-aa9d-c7ae19e726d4",
+              "title": "Provision Infrastructure",
+              "type": "Video",
+              "duration": "35 Menit"
+            },
+            {
+              "id": "44e4ec84-390d-4e99-b9ea-8f55123741bd",
+              "title": "Terraform Best Practice",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "b2442dae-fc46-451d-8200-fcc9c85f9621",
+          "title": "Capstone Project",
+          "lessons": [
+            {
+              "id": "0dab378c-681b-4c23-af72-984f3ff70230",
+              "title": "Deploy Full-Stack Application",
+              "type": "Assignment",
+              "duration": "300 Menit"
+            },
+            {
+              "id": "61fdd115-d3d2-4184-aab9-a29428f57020",
+              "title": "Infrastructure Review",
+              "type": "Assignment",
+              "duration": "90 Menit"
+            },
+            {
+              "id": "143fd997-11e5-4fed-b32a-2fa278e8cf11",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "60 Menit"
+            }
+          ]
+        }
+      ]
     },
     {
+      "id": "c499ef61-e5ea-43be-91e4-05047e36c923",
       "image": "https://picsum.photos/400/250?10",
       "title": "Python for Automation & Scripting",
       "description": "Tingkatkan produktivitas kerja dengan membuat bot dan skrip otomatisasi Python.",
@@ -250,29 +2888,8 @@
       "language": "Bahasa Indonesia",
       "slug": "python-for-automation-scripting",
       "featured": false,
-      "id": "9"
-    }
-  ],
-  "categories": [
-    { "id": "1", "label": "Semua Kelas", "slug": "semua", "active": true },
-    { "id": "2", "label": "Pemasaran", "slug": "pemasaran" },
-    { "id": "3", "label": "Desain", "slug": "desain" },
-    { "id": "4", "label": "Pengembangan Diri", "slug": "pengembangan-diri" },
-    { "id": "5", "label": "Bisnis", "slug": "bisnis" }
-  ],
-  "course-detail": [
-    {
-      "slug": "belajar-menyenangkan",
-      "title": "Belajar Menyenangkan",
       "bgImage": "https://picsum.photos/1400/800?education",
-      "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali Anda dengan keterampilan yang dibutuhkan untuk melamar pekerjaan tingkat pemula dalam desain pengalaman pengguna. Desainer UX fokus pada interaksi yang dilakukan orang dengan produk situs web, aplikasi seluler, dan objek fisik.",
-      "rating": 4.5,
-      "reviewCount": 200,
-      "price": 250000,
-      "originalPrice": 500000,
-      "discount": 50,
       "promoEndsIn": "2 hari lagi",
-      "language": "Bahasa Indonesia",
       "checkoutLink": "/produk/belajar-menyenangkan/metode",
       "features": {
         "hasFinalExam": true,
@@ -283,7 +2900,7 @@
       },
       "instructors": [
         {
-          "id": "1",
+          "id": "fde78419-ddd8-429a-83da-3e8701d39ea1",
           "name": "Jessica Tan",
           "role": "Mobile Developer",
           "company": "tiket.com",
@@ -291,100 +2908,444 @@
           "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
         },
         {
-          "id": "2",
+          "id": "7136bebb-ba96-45ad-b500-2fb60db6506e",
           "name": "Jessica Tan",
           "role": "Mobile Developer",
           "company": "tiket.com",
           "avatar": "https://i.pravatar.cc/40?img=7",
           "description": "Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
         }
-      ]
-    }
-  ],
-  "syllabus": [
-    {
-      "courseId": "1",
-      "modules": [
+      ],
+      "reviews": [
         {
-          "id": "m1",
-          "title": "Introduction to Course 1: Foundations of User Experience Design",
+          "id": "a5ebaa27-8009-4989-88cc-e9a543b6ff65",
+          "name": "Alvin Wijaya",
+          "batch": "Alumni Batch 6",
+          "avatar": "https://i.pravatar.cc/40?img=91",
+          "comment": "Saya sebelumnya belum pernah menggunakan Python. Setelah mengikuti bootcamp ini, saya berhasil membuat automation script dan chatbot AI sederhana.",
+          "rating": 5
+        },
+        {
+          "id": "192ad77a-fc19-47a8-9e18-a993f1f8893a",
+          "name": "Nadia Putri",
+          "batch": "Alumni Batch 5",
+          "avatar": "https://i.pravatar.cc/40?img=92",
+          "comment": "Materinya lengkap mulai dari Python dasar, automation, web scraping hingga integrasi OpenAI API.",
+          "rating": 4.9
+        },
+        {
+          "id": "a093a1e8-08a5-48be-a562-8bcd094e7776",
+          "name": "Rizal Hidayat",
+          "batch": "Alumni Batch 7",
+          "avatar": "https://i.pravatar.cc/40?img=93",
+          "comment": "Project AI Assistant menggunakan LangChain dan OpenAI API menjadi portfolio terbaik saya.",
+          "rating": 5
+        },
+        {
+          "id": "0fa62612-4cfe-422d-84aa-f8c50b1f889c",
+          "name": "Salsa Maharani",
+          "batch": "Alumni Batch 8",
+          "avatar": "https://i.pravatar.cc/40?img=94",
+          "comment": "Saya jadi bisa membuat bot untuk otomatis mengolah Excel dan mengirim email setiap hari.",
+          "rating": 4.8
+        },
+        {
+          "id": "149b75a2-e4dc-47df-989b-93f348a53fc1",
+          "name": "Bagus Ramadhan",
+          "batch": "Alumni Batch 9",
+          "avatar": "https://i.pravatar.cc/40?img=95",
+          "comment": "Sangat cocok untuk programmer yang ingin mulai masuk ke dunia AI dan automation.",
+          "rating": 5
+        }
+      ],
+      "syllabus": [
+        {
+          "id": "c27a5fca-9fa9-4b95-b028-191ac569a021",
+          "title": "Introduction to Python",
           "lessons": [
-            { "id": "l1", "title": "The basics of user experience design", "type": "Video", "duration": "12 Menit", "isActive": false, "isCompleted": false, "isDisabled": false },
-            { "id": "l2", "title": "Jobs in the field of user experience", "type": "Video", "duration": "12 Menit", "isActive": false, "isCompleted": false, "isDisabled": false },
-            { "id": "l3", "title": "The product development life cycle", "type": "Video", "duration": "12 Menit", "isActive": false, "isCompleted": false, "isDisabled": false }
+            {
+              "id": "0e48554f-1c3b-4555-9223-5a7a3830a198",
+              "title": "Welcome to Python",
+              "type": "Video",
+              "duration": "10 Menit",
+              "isActive": true,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "7c3df15e-23f3-4de5-931e-089c5f5cd643",
+              "title": "Install Python & VS Code",
+              "type": "Video",
+              "duration": "15 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "a993f0c5-85e7-4758-b135-0d1cb8b167a8",
+              "title": "Python Roadmap",
+              "type": "Document",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            },
+            {
+              "id": "397c31e8-e2bc-46c9-b3aa-4d9edbb2fd8a",
+              "title": "Quiz Fundamental",
+              "type": "Quiz",
+              "duration": "10 Menit",
+              "isActive": false,
+              "isCompleted": false,
+              "isDisabled": false
+            }
           ]
         },
         {
-          "id": "m2",
-          "title": "Universal design, inclusive design, and equity-focused design",
-          "lessons": []
+          "id": "892fcf0b-b969-42d5-bdb1-047c87b023c9",
+          "title": "Python Fundamental",
+          "lessons": [
+            {
+              "id": "4a6ae059-76fb-4ac7-b143-f70ba857b8c6",
+              "title": "Variables & Data Types",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "9543642d-7a32-4388-9162-e27cc48d178c",
+              "title": "Conditional & Loop",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "d78471b2-0518-415e-a4aa-92ec36993a3f",
+              "title": "Function",
+              "type": "Video",
+              "duration": "25 Menit"
+            },
+            {
+              "id": "f01f024d-94e7-4f58-b2e8-e655a1570ab5",
+              "title": "Mini Project Python",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            }
+          ]
         },
         {
-          "id": "m3",
-          "title": "Introduction to design sprints",
-          "lessons": []
+          "id": "c5cb0d3a-ed0b-4fb0-afc8-5d66f52e3736",
+          "title": "Object Oriented Programming",
+          "lessons": [
+            {
+              "id": "969cfd77-d7fc-4395-b50f-440b69ffb2d6",
+              "title": "Class & Object",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "39653e9b-127d-418c-8848-52f7ecfcc5ee",
+              "title": "Inheritance",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "fd5a42a4-d0ce-408e-89a7-c107579e7b09",
+              "title": "Polymorphism",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "b2192225-b127-4cad-82ac-cf0de2fe3037",
+              "title": "OOP Practice",
+              "type": "Assignment",
+              "duration": "70 Menit"
+            }
+          ]
         },
         {
-          "id": "m4",
-          "title": "Introduction to UX research",
-          "lessons": []
+          "id": "31209fd5-787e-4504-b4d0-d4cfda1acfd6",
+          "title": "Automation with Python",
+          "lessons": [
+            {
+              "id": "3eeb6b10-375d-48fe-9c33-751ed822b0da",
+              "title": "Working with Files",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "8cdbc257-0548-4541-9d18-120a3f4ce6cf",
+              "title": "Excel Automation",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "ff3eab46-5145-41f6-8c47-c30c9782e761",
+              "title": "Email Automation",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "49ea860f-96a1-432a-8990-3da5c4237207",
+              "title": "Scheduling Automation",
+              "type": "Video",
+              "duration": "22 Menit"
+            }
+          ]
+        },
+        {
+          "id": "0afe3433-cc9e-4c03-b3cf-f3a8440cffee",
+          "title": "Web Scraping",
+          "lessons": [
+            {
+              "id": "725ab818-de26-46da-aef0-8be5edccfe8c",
+              "title": "BeautifulSoup",
+              "type": "Video",
+              "duration": "26 Menit"
+            },
+            {
+              "id": "978e3bc8-242f-460e-81d6-5ad1ba17b9a3",
+              "title": "Requests",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "36e24b53-b56a-478f-8e4c-3c32e7b791d6",
+              "title": "Scraping Dynamic Website",
+              "type": "Video",
+              "duration": "32 Menit"
+            },
+            {
+              "id": "bda913f6-51b4-4768-bad5-8b3a79206f8d",
+              "title": "Web Scraping Project",
+              "type": "Assignment",
+              "duration": "90 Menit"
+            }
+          ]
+        },
+        {
+          "id": "70ecfdd9-6117-40e6-8b32-243f8a0944d4",
+          "title": "REST API Development",
+          "lessons": [
+            {
+              "id": "bb5661cf-25d5-4524-8db8-956e68d42b00",
+              "title": "FastAPI Introduction",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "edf35d97-fe5d-4c3b-82dc-91243ded84f5",
+              "title": "CRUD API",
+              "type": "Video",
+              "duration": "35 Menit"
+            },
+            {
+              "id": "dbb202a1-c5a1-49c8-991b-faba16bd2b1d",
+              "title": "Authentication JWT",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "6fcc40f3-d73e-4c70-8159-4c09d51d0ae5",
+              "title": "Deploy FastAPI",
+              "type": "Video",
+              "duration": "22 Menit"
+            }
+          ]
+        },
+        {
+          "id": "ebfc1330-953e-4697-87e9-e2cb8b7a8b7c",
+          "title": "Artificial Intelligence",
+          "lessons": [
+            {
+              "id": "94ab4e9b-e7f6-4aab-88ea-fb062861451f",
+              "title": "Introduction to LLM",
+              "type": "Video",
+              "duration": "22 Menit"
+            },
+            {
+              "id": "23f3a7a2-b411-4f8a-bcd7-53166ef6c306",
+              "title": "Prompt Engineering",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "8718567f-56db-4116-928b-1049c0c9a73f",
+              "title": "OpenAI API",
+              "type": "Video",
+              "duration": "35 Menit"
+            },
+            {
+              "id": "ecbf21db-1f76-48dd-9c04-26e5a06d199e",
+              "title": "Building AI Chatbot",
+              "type": "Assignment",
+              "duration": "120 Menit"
+            }
+          ]
+        },
+        {
+          "id": "8a9a2719-0d71-4077-882d-a5fa2261958e",
+          "title": "LangChain & AI Workflow",
+          "lessons": [
+            {
+              "id": "4d67113f-f4bb-4440-beec-7f53f504f07a",
+              "title": "LangChain Basics",
+              "type": "Video",
+              "duration": "30 Menit"
+            },
+            {
+              "id": "6b41124a-3b3d-4f6c-960d-ebd06d085805",
+              "title": "RAG Introduction",
+              "type": "Video",
+              "duration": "28 Menit"
+            },
+            {
+              "id": "f7b0c795-3a3a-47c0-a98a-8de0d3824084",
+              "title": "Memory & Tools",
+              "type": "Video",
+              "duration": "24 Menit"
+            }
+          ]
+        },
+        {
+          "id": "edb34a9d-5815-464a-8be1-1943ef43a4c2",
+          "title": "Deploy AI Application",
+          "lessons": [
+            {
+              "id": "5fced0ec-61d2-45a3-887f-00c625fee6dd",
+              "title": "Deploy with Docker",
+              "type": "Video",
+              "duration": "24 Menit"
+            },
+            {
+              "id": "5859ae1f-1de9-4616-8447-f62512f86509",
+              "title": "Deploy to Railway",
+              "type": "Video",
+              "duration": "20 Menit"
+            },
+            {
+              "id": "89da72f1-0df6-4f7c-a59f-4e1b14e10d03",
+              "title": "Environment Variables",
+              "type": "Video",
+              "duration": "16 Menit"
+            }
+          ]
+        },
+        {
+          "id": "b55cb38f-8215-4f9f-98bc-1f7bcc3ccf54",
+          "title": "Capstone Project",
+          "lessons": [
+            {
+              "id": "653eb632-6883-40b3-8718-3a62e9df382e",
+              "title": "Build AI Assistant",
+              "type": "Assignment",
+              "duration": "300 Menit"
+            },
+            {
+              "id": "cdd68ea9-94ba-46f3-93c2-52d6bc05faa2",
+              "title": "Project Presentation",
+              "type": "Assignment",
+              "duration": "60 Menit"
+            },
+            {
+              "id": "bf47154c-cffb-43a6-adc3-3c7ffbe07dc1",
+              "title": "Final Assessment",
+              "type": "Quiz",
+              "duration": "60 Menit"
+            }
+          ]
         }
       ]
     }
   ],
-  "reviews": [
+  "categories": [
     {
-      "courseId": "1",
-      "reviews": [
-        {
-          "id": "r1",
-          "name": "Gregorius Edrik Lawanto",
-          "batch": "Alumni Batch 2",
-          "avatar": "https://i.pravatar.cc/40?img=12",
-          "comment": "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
-          "rating": 3.5
-        },
-        {
-          "id": "r2",
-          "name": "Gregorius Edrik Lawanto",
-          "batch": "Alumni Batch 4",
-          "avatar": "https://i.pravatar.cc/40?img=12",
-          "comment": "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
-          "rating": 3.5
-        }
-      ]
+      "id": "3eb5ee84-835b-40ad-9c8c-7177e1e32e0f",
+      "label": "Semua Kelas",
+      "slug": "all",
+      "active": true
+    },
+    {
+      "id": "05268ae5-7e25-4ef5-bddb-3c6172fe5245",
+      "label": "Pemasaran",
+      "slug": "pemasaran"
+    },
+    {
+      "id": "d0e858a5-1ec1-4f36-9358-14fc2eeb5fab",
+      "label": "Desain",
+      "slug": "desain"
+    },
+    {
+      "id": "6569de10-2776-4c39-8ecc-0d4fa59b5d3c",
+      "label": "Pengembangan Diri",
+      "slug": "pengembangan-diri"
+    },
+    {
+      "id": "696c4e0d-0a63-452e-9dcb-3dab367b7fe3",
+      "label": "Bisnis",
+      "slug": "bisnis"
     }
   ],
   "payment-methods": [
     {
-      "id": "1",
+      "id": "8d39e48a-9820-4bcb-9e7c-a90b876ca06f",
       "categories": [
         {
-          "id": "transfer-bank",
+          "id": "63076095-8ac2-4712-abf8-a30bcb7beb05",
           "name": "Transfer Bank",
           "methods": [
-            { "id": "bca", "name": "Bank BCA", "logo": "https://placehold.co/40x40?text=BCA" },
-            { "id": "bni", "name": "Bank BNI", "logo": "https://placehold.co/40x40?text=BNI" },
-            { "id": "bri", "name": "Bank BRI", "logo": "https://placehold.co/40x40?text=BRI" },
-            { "id": "mandiri", "name": "Bank Mandiri", "logo": "https://placehold.co/40x40?text=Mandiri" }
+            {
+              "id": "1a26c8cc-9991-4419-a8ce-b7c968c1046c",
+              "name": "Bank BCA",
+              "logo": "https://placehold.co/40x40?text=BCA"
+            },
+            {
+              "id": "7a7ccbc0-0202-4a68-882a-49ec581cf128",
+              "name": "Bank BNI",
+              "logo": "https://placehold.co/40x40?text=BNI"
+            },
+            {
+              "id": "684cb975-4012-4ef5-bca8-740c84136e05",
+              "name": "Bank BRI",
+              "logo": "https://placehold.co/40x40?text=BRI"
+            },
+            {
+              "id": "0488ccc7-6f61-47b1-b44e-4e7e426ddbd6",
+              "name": "Bank Mandiri",
+              "logo": "https://placehold.co/40x40?text=Mandiri"
+            }
           ]
         },
         {
-          "id": "e-wallet",
+          "id": "757cd16e-76ad-4c36-9fa8-84f7afbca63f",
           "name": "E-Wallet",
           "methods": [
-            { "id": "dana", "name": "Dana", "logo": "https://placehold.co/40x40?text=Dana" },
-            { "id": "ovo", "name": "OVO", "logo": "https://placehold.co/40x40?text=OVO" },
-            { "id": "linkaja", "name": "LinkAja", "logo": "https://placehold.co/40x40?text=LinkAja" },
-            { "id": "shopeepay", "name": "Shopee Pay", "logo": "https://placehold.co/40x40?text=SPay" }
+            {
+              "id": "0c2b1188-01b3-4005-9c8a-b36b4409810d",
+              "name": "Dana",
+              "logo": "https://placehold.co/40x40?text=Dana"
+            },
+            {
+              "id": "cbe621f7-1898-49c6-8161-a193352dec40",
+              "name": "OVO",
+              "logo": "https://placehold.co/40x40?text=OVO"
+            },
+            {
+              "id": "96417b0f-8bb7-4db7-b61e-d1e19b5c7f0b",
+              "name": "LinkAja",
+              "logo": "https://placehold.co/40x40?text=LinkAja"
+            },
+            {
+              "id": "edef27c5-fc2c-40b6-a3ee-df8532f171f0",
+              "name": "Shopee Pay",
+              "logo": "https://placehold.co/40x40?text=SPay"
+            }
           ]
         },
         {
-          "id": "credit-card",
+          "id": "37300565-9cf2-4c53-a4d0-bcb842a5cc27",
           "name": "Kartu Kredit/Debit",
           "methods": [
             {
-              "id": "cc-group",
+              "id": "73516cbb-88fa-47c1-89da-a7dcac452e4b",
               "name": "Mastercard / Visa / JCB",
               "isLogosOnly": true,
               "logos": [
@@ -400,7 +3361,7 @@
   ],
   "orders": [
     {
-      "id": "1",
+      "id": "1a16e865-bdb7-4ad8-8f98-7a89365593dd",
       "invoice": "HEL/VI/10062023-1",
       "date": "10 Juni 2023, 14.17",
       "status": "Berhasil",
@@ -408,10 +3369,10 @@
       "image": "https://picsum.photos/150/100?workspace",
       "price": 300000,
       "total": 300000,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     },
     {
-      "id": "2",
+      "id": "bb5b1c28-9f4e-4365-9a55-47540159f798",
       "invoice": "HEL/VI/10062023-2",
       "date": "10 Juni 2023, 14.17",
       "status": "Gagal",
@@ -419,10 +3380,10 @@
       "image": "https://picsum.photos/150/100?workspace",
       "price": 300000,
       "total": 300000,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     },
     {
-      "id": "3",
+      "id": "114f0340-62dc-4342-905b-dae8317ce862",
       "invoice": "HEL/VI/10062023-3",
       "date": "10 Juni 2023, 14.17",
       "status": "Belum Bayar",
@@ -430,10 +3391,10 @@
       "image": "https://picsum.photos/150/100?workspace",
       "price": 300000,
       "total": 300000,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     },
     {
-      "id": "4",
+      "id": "680ec7c9-b247-43dc-bb98-a65ab5b9ed9d",
       "invoice": "HEL/VI/10062023-4",
       "date": "10 Juni 2023, 14.17",
       "status": "Berhasil",
@@ -441,10 +3402,10 @@
       "image": "https://picsum.photos/150/100?workspace",
       "price": 300000,
       "total": 300000,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     },
     {
-      "id": "5",
+      "id": "42f0cd80-a5f3-4d1d-ad85-1ff080958d6c",
       "invoice": "HEL/VI/10062023-5",
       "date": "10 Juni 2023, 14.17",
       "status": "Berhasil",
@@ -452,12 +3413,12 @@
       "image": "https://picsum.photos/150/100?workspace",
       "price": 300000,
       "total": 300000,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     }
   ],
   "my-classes": [
     {
-      "id": "1",
+      "id": "b189bde9-26e0-4b03-b945-66722858f20f",
       "completedModules": 12,
       "totalModules": 12,
       "status": "Selesai",
@@ -471,10 +3432,10 @@
       },
       "duration": "360 Menit",
       "progress": 100,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     },
     {
-      "id": "2",
+      "id": "d360aea2-b84d-49e3-b312-9ccc28703655",
       "completedModules": 2,
       "totalModules": 12,
       "status": "Sedang Berjalan",
@@ -488,10 +3449,10 @@
       },
       "duration": "360 Menit",
       "progress": 28,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     },
     {
-      "id": "3",
+      "id": "49181819-896c-4b4b-a993-98854d894650",
       "completedModules": 2,
       "totalModules": 12,
       "status": "Sedang Berjalan",
@@ -505,12 +3466,12 @@
       },
       "duration": "360 Menit",
       "progress": 28,
-      "userId": "1"
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2"
     }
   ],
   "users": [
     {
-      "id": "1",
+      "id": "9b70723f-fbdd-4dfb-af11-96d158a8ad9a",
       "fullName": "Jennie Ruby Jane",
       "email": "rubyjane@gmail.com",
       "password": "password123",
@@ -523,24 +3484,80 @@
   ],
   "course-content": [
     {
-      "courseId": "1",
+      "courseId": "94715b2c-d275-442a-98a0-61de15d365e2",
       "courseTitle": "Foundations of User Experience Design",
       "modules": [
         {
-          "id": "mod-1",
+          "id": "5d6d86f4-e4b6-4758-889d-f4ff2dcce3df",
           "title": "Introduction to HR",
           "items": [
-            { "id": "c1", "type": "pre-test", "title": "Pre-Test: Introduction to HR", "subtitle": "10 Pertanyaan", "isCompleted": true, "isActive": false, "isDisabled": false },
-            { "id": "c2", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
-            { "id": "c3", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
-            { "id": "c4", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
-            { "id": "c5", "type": "video", "title": "Video: Introduction to HR", "subtitle": "12 Menit", "isCompleted": true, "isActive": false, "isDisabled": false },
-            { "id": "c6", "type": "rangkuman", "title": "Rangkuman: Introduction to HR", "subtitle": "12 Menit", "isCompleted": false, "isActive": true, "isDisabled": false },
-            { "id": "c7", "type": "quiz", "title": "Quiz: Introduction to HR", "subtitle": "10 Pertanyaan", "isCompleted": false, "isActive": false, "isDisabled": true }
+            {
+              "id": "210757e5-c581-4884-a3d2-b95cce95d6f6",
+              "type": "pre-test",
+              "title": "Pre-Test: Introduction to HR",
+              "subtitle": "10 Pertanyaan",
+              "isCompleted": true,
+              "isActive": false,
+              "isDisabled": false
+            },
+            {
+              "id": "89938ff7-f235-4faa-a465-1c794e281f06",
+              "type": "video",
+              "title": "Video: Introduction to HR",
+              "subtitle": "12 Menit",
+              "isCompleted": true,
+              "isActive": false,
+              "isDisabled": false
+            },
+            {
+              "id": "2db73ede-3147-43f9-bf29-bad21331cee7",
+              "type": "video",
+              "title": "Video: Introduction to HR",
+              "subtitle": "12 Menit",
+              "isCompleted": true,
+              "isActive": false,
+              "isDisabled": false
+            },
+            {
+              "id": "921d1f8f-6b37-4c2d-aec1-6dbac213aaad",
+              "type": "video",
+              "title": "Video: Introduction to HR",
+              "subtitle": "12 Menit",
+              "isCompleted": true,
+              "isActive": false,
+              "isDisabled": false
+            },
+            {
+              "id": "bb99e091-18f2-4e2e-b503-bceee3e38b8f",
+              "type": "video",
+              "title": "Video: Introduction to HR",
+              "subtitle": "12 Menit",
+              "isCompleted": true,
+              "isActive": false,
+              "isDisabled": false
+            },
+            {
+              "id": "296d9f8c-d909-4767-a1b5-aca6f78d0633",
+              "type": "rangkuman",
+              "title": "Rangkuman: Introduction to HR",
+              "subtitle": "12 Menit",
+              "isCompleted": false,
+              "isActive": true,
+              "isDisabled": false
+            },
+            {
+              "id": "cb4f61e6-c431-40d9-be32-1ffd64fef0bd",
+              "type": "quiz",
+              "title": "Quiz: Introduction to HR",
+              "subtitle": "10 Pertanyaan",
+              "isCompleted": false,
+              "isActive": false,
+              "isDisabled": true
+            }
           ]
         },
         {
-          "id": "mod-2",
+          "id": "b8744d4d-451e-470d-87bb-e3854a291d01",
           "title": "Introduction to HR",
           "items": []
         }
@@ -551,13 +3568,25 @@
         "totalQuestions": 10,
         "questions": [
           {
-            "id": "q1",
+            "id": "6c752b0f-c7e7-4fa1-9d3b-581c643f776f",
             "question": "Memikirkan dan mengantisipasi secara teliti adanya user secara tidak sengaja mengutak-atik konfigurasi, namun dapat diatasi dengan membuat default yang mengurangi kepanikan pada user adalah pengertian dari ...",
             "options": [
-              { "id": "A", "text": "Memikirkan tentang default *" },
-              { "id": "B", "text": "Mempertimbangkan page layout berdasarkan suatu tujuan tertentu" },
-              { "id": "C", "text": "Memastikan bahwa sistem berjalan sesuai dengan apa yang terjadi saat itu juga" },
-              { "id": "D", "text": "Menciptakan konsistensi dan menggunakan elemen UI umum" }
+              {
+                "id": "dbf08a61-0ac4-4659-b896-b2376ef70625",
+                "text": "Memikirkan tentang default *"
+              },
+              {
+                "id": "e0966bee-6665-4745-9560-6390c42a6458",
+                "text": "Mempertimbangkan page layout berdasarkan suatu tujuan tertentu"
+              },
+              {
+                "id": "352c0be1-f47b-40e2-b508-723db052d237",
+                "text": "Memastikan bahwa sistem berjalan sesuai dengan apa yang terjadi saat itu juga"
+              },
+              {
+                "id": "02672b27-f359-4f3d-8a77-d1c612eec73e",
+                "text": "Menciptakan konsistensi dan menggunakan elemen UI umum"
+              }
             ],
             "correctAnswer": "A"
           }
@@ -567,10 +3596,10 @@
   ],
   "payment-guide": [
     {
-      "methodId": "bca",
+      "methodId": "1a26c8cc-9991-4419-a8ce-b7c968c1046c",
       "guides": [
         {
-          "id": "atm-bca",
+          "id": "cc0732f6-351a-406c-9098-d51a74a511cc",
           "title": "ATM BCA",
           "steps": [
             "Masukkan kartu ATM dan PIN BCA Anda",
@@ -582,7 +3611,7 @@
           ]
         },
         {
-          "id": "mobile-bca",
+          "id": "0d35e7ea-5aa5-42ca-bc75-34936a04dc4a",
           "title": "Mobile Banking BCA",
           "steps": [
             "Buka Aplikasi BCA Mobile",
@@ -596,7 +3625,7 @@
           ]
         },
         {
-          "id": "internet-bca",
+          "id": "3f93b755-5949-465d-a8ff-4ef0841faf53",
           "title": "Internet Banking BCA",
           "steps": [
             "Login ke KlikBCA Individual",
@@ -612,12 +3641,12 @@
   ],
   "checkout": [
     {
-      "id": "1",
+      "id": "3de13335-a134-478d-9d5d-003cc5c35dd1",
       "productName": "Video Learning: Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager.",
       "productPrice": 767500,
       "adminFee": 7000,
       "total": 774500,
-      "paymentMethodId": "bca",
+      "paymentMethodId": "1a26c8cc-9991-4419-a8ce-b7c968c1046c",
       "paymentMethodName": "Bank BCA",
       "virtualAccount": {
         "bankName": "BCA",
@@ -627,15 +3656,15 @@
       },
       "timerSeconds": 3055,
       "status": "pending",
-      "userId": "1",
-      "courseId": "1",
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2",
+      "courseId": "94715b2c-d275-442a-98a0-61de15d365e2",
       "createdAt": "2023-06-10T14:17:00Z",
       "expiresAt": "2023-06-10T15:08:55Z"
     }
   ],
   "certificates": [
     {
-      "id": "1",
+      "id": "94715b2c-d275-442a-98a0-61de15d365e2",
       "courseTitle": "Big 4 Auditor Financial Analyst",
       "courseDescription": "Mulai transformasi dengan instruktur profesional, harga yang terjangkau, dan kurikulum terbaik",
       "instructorName": "Jenna Ortega",
@@ -644,7 +3673,7 @@
       "rating": 3.5,
       "reviewCount": 86,
       "imageUrl": "sertifikat.jpeg",
-      "userId": "1",
+      "userId": "94715b2c-d275-442a-98a0-61de15d365e2",
       "completedAt": "2023-09-23T10:20:00Z"
     }
   ]

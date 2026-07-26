@@ -18,7 +18,7 @@ export interface CourseData {
   };
   rating: number;
   reviewCount: number;
-  price: string;
+  price: number;
 }
 
 export interface RelatedCoursesProps {
@@ -48,7 +48,7 @@ export const RelatedCourses: React.FC<RelatedCoursesProps> = ({ courses }) => {
             rating={course.rating}
             reviewCount={course.reviewCount}
             price={course.price}
-            to={`/produk/${course.title.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "dan").replace(/[^a-z0-9-]/g, "")}`}
+            to={`/produk/${index}`}
           />
         ))}
       </div>

@@ -11,52 +11,12 @@ import {
   type GuideEntry,
 } from "../features/pembayaran/components/PaymentGuide";
 import { getCourseById, type Course } from "../services/api/courseService";
-
-// Data panduan pembayaran
-const guideEntries: GuideEntry[] = [
-  {
-    id: "atm-bca",
-    title: "ATM BCA",
-    steps: [
-      "Masukkan kartu ATM dan PIN BCA Anda",
-      'Di menu utama, pilih "Transaksi Lainnya". Pilih "Transfer". Pilih "Ke BCA Virtual Account"',
-      "Masukkan nomor Virtual Account",
-      'Pastikan data Virtual Account Anda benar, kemudian masukkan angka yang perlu Anda bayarkan, kemudian pilih "Benar"',
-      'Cek dan perhatikan konfirmasi pembayaran dari layar ATM, jika sudah benar pilih "Ya", atau pilih "Tidak" jika data di layar masih salah',
-      'Transaksi Anda sudah selesai. Pilih "Tidak" untuk tidak melanjutkan transaksi lain',
-    ],
-  },
-  {
-    id: "mobile-bca",
-    title: "Mobile Banking BCA",
-    steps: [
-      "Buka Aplikasi BCA Mobile",
-      'Pilih "m-BCA", kemudian pilih "m-Transfer"',
-      'Pilih "BCA Virtual Account"',
-      'Masukkan nomor Virtual Account, lalu pilih "OK"',
-      'Klik tombol "Send" yang berada di sudut kanan atas aplikasi untuk melakukan transfer',
-      'Klik "OK" untuk melanjutkan pembayaran',
-      "Masukkan PIN Anda untuk meng-otorisasi transaksi",
-      "Transaksi Anda telah selesai",
-    ],
-  },
-  {
-    id: "internet-bca",
-    title: "Internet Banking BCA",
-    steps: [
-      "Login ke KlikBCA Individual",
-      'Pilih "Transfer", kemudian pilih "Transfer ke BCA Virtual Account"',
-      "Masukkan nomor Virtual Account",
-      'Pilih "Lanjutkan" untuk melanjutkan pembayaran',
-      'Masukkan "RESPON KEYBCA APPLI 1" yang muncul pada Token BCA Anda, lalu klik tombol "Kirim"',
-      "Pembayaran telah selesai",
-    ],
-  },
-];
+import { getAllPaymentGuides } from "../services/api/paymentGuideService";
 
 function Pembayaran() {
   const { id } = useParams();
   const [course, setCourse] = useState<Course | null>(null);
+  const [guideEntries, setGuideEntries] = useState<GuideEntry[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -64,12 +24,26 @@ function Pembayaran() {
     getCourseById(id).then(setCourse);
   }, [id]);
 
+  useEffect(() => {
+    getAllPaymentGuides().then((all) => {
+      // ambil guide untuk BCA (methodId: 1a26c8cc-9991-4419-a8ce-b7c968c1046c)
+      // fallback ke guide pertama
+      const entry = all.find(
+        (g) => g.methodId === "1a26c8cc-9991-4419-a8ce-b7c968c1046c",
+      ) ?? all[0];
+      if (entry) setGuideEntries(entry.guides as GuideEntry[]);
+    });
+  }, []);
+
   // State untuk melacak accordion panduan cara bayar mana saja yang terbuka
-  const [openGuides, setOpenGuides] = useState<string[]>([
-    "atm-bca",
-    "mobile-bca",
-    "internet-bca",
-  ]);
+  const [openGuides, setOpenGuides] = useState<string[]>([]);
+
+  // buka semua guides setelah data loaded
+  useEffect(() => {
+    if (guideEntries.length > 0 && openGuides.length === 0) {
+      setOpenGuides(guideEntries.map((g) => g.id));
+    }
+  }, [guideEntries]);
 
   const toggleGuide = (id: string) => {
     setOpenGuides((prev) =>

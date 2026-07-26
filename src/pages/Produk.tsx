@@ -17,82 +17,20 @@ import {
   type Course,
 } from "../services/api/courseService";
 
-const instructor = {
-  name: "Jessica Tan",
-  role: "Mobile Developer",
-  company: "tiket.com",
-  avatar: "https://i.pravatar.cc/40?img=7",
-};
-
-const syllabusModules = [
-  {
-    id: "m1",
-    title: "Introduction to Course 1: Foundations of User Experience Design",
-    lessons: [
-      {
-        id: "l1",
-        title: "The basics of user experience design",
-        type: "Video",
-        duration: "12 Menit",
-      },
-      {
-        id: "l2",
-        title: "Jobs in the field of user experience",
-        type: "Video",
-        duration: "12 Menit",
-      },
-      {
-        id: "l3",
-        title: "The product development life cycle",
-        type: "Video",
-        duration: "12 Menit",
-      },
-    ],
-  },
-  {
-    id: "m2",
-    title: "Universal design, inclusive design, and equity-focused design",
-    lessons: [],
-  },
-  { id: "m3", title: "Introduction to design sprints", lessons: [] },
-  { id: "m4", title: "Introduction to UX research", lessons: [] },
-];
-
-const reviews = [
-  {
-    id: "r1",
-    name: "Gregorius Edrik Lawanto",
-    batch: "Alumni Batch 2",
-    avatar: "https://i.pravatar.cc/40?img=12",
-    comment:
-      "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
-    rating: 3.5,
-  },
-  {
-    id: "r2",
-    name: "Gregorius Edrik Lawanto",
-    batch: "Alumni Batch 4",
-    avatar: "https://i.pravatar.cc/40?img=12",
-    comment:
-      "Berkarier di bidang HR selama lebih dari 3 tahun. Saat ini bekerja sebagai Senior Talent Acquisition Specialist di Wings Group Indonesia (Sayap Mas Utama) selama hampir 1 tahun.",
-    rating: 3.5,
-  },
-];
-
-interface RelatedItem {
-  image: string;
-  title: string;
-  description: string;
-  instructor: { name: string; role: string; company: string; avatar: string };
-  rating: number;
-  reviewCount: number;
-  price: string;
-}
+// interface RelatedItem {
+//   image: string;
+//   title: string;
+//   description: string;
+//   instructor: { name: string; role: string; company: string; avatar: string };
+//   rating: number;
+//   reviewCount: number;
+//   price: string;
+// }
 
 function Produk() {
   const { id } = useParams();
   const [course, setCourse] = useState<Course | null>(null);
-  const [relatedCourses, setRelatedCourses] = useState<RelatedItem[]>([]);
+  const [relatedCourses, setRelatedCourses] = useState<Course[]>([]);
   const [openModuleId, setOpenModuleId] = useState<string | null>("m1");
 
   useEffect(() => {
@@ -103,18 +41,6 @@ function Produk() {
         all
           .filter((c) => c.id !== id)
           .slice(0, 3)
-          .map((c) => ({
-            image: c.image,
-            title: c.title,
-            description: c.description,
-            instructor: c.instructor,
-            rating: c.rating,
-            reviewCount: c.reviewCount,
-            price:
-              c.price >= 1000000
-                ? `Rp ${(c.price / 1000000).toFixed(1)}M`
-                : `Rp ${(c.price / 1000).toFixed(0)}K`,
-          })),
       );
     });
   }, [id]);
@@ -158,7 +84,16 @@ function Produk() {
                     Belajar bersama Tutor Profesional
                   </h1>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-                    <InstructorCard
+                    {course.instructors?.map((instructor) => (
+                      <InstructorCard
+                        name={instructor.name}
+                        role={instructor.role}
+                        company={instructor.company}
+                        avatar={instructor.avatar}
+                        description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+                      />
+                    ))}
+                    {/* <InstructorCard
                       name={instructor.name}
                       role={instructor.role}
                       company={instructor.company}
@@ -171,7 +106,7 @@ function Produk() {
                       company={instructor.company}
                       avatar={instructor.avatar}
                       description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>
@@ -182,13 +117,13 @@ function Produk() {
                 Kamu akan Mempelajari
               </h2>
               <SyllabusAccordion
-                modules={syllabusModules}
+                modules={course.syllabus}
                 openModuleId={openModuleId}
                 onToggleModule={toggleModule}
               />
             </Card>
 
-            <ProductReviews reviews={reviews} />
+            <ProductReviews reviews={course.reviews.slice(0, 2)} />
           </main>
           <CheckoutCard course={course} checkoutLink={`/produk/${id}/metode`} />
         </div>

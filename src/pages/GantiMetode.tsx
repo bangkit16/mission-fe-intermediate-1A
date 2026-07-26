@@ -4,10 +4,10 @@ import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
 import Card from "../components/common/Card";
-import { PaymentMethodSelector } from "../features/ganti-metode/components/PaymentMethodSelector";
+import { PaymentMethodSelector, type PaymentCategory } from "../features/ganti-metode/components/PaymentMethodSelector";
 import { ChangeMethodAccordion } from "../features/ganti-metode/components/ChangeMethodAccordion";
-import { paymentCategories } from "../features/ganti-metode/data/paymentCategories";
 import { getCourseById, type Course } from "../services/api/courseService";
+import { getAllPaymentMethods } from "../services/api/paymentMethodsService";
 
 // Data accordion untuk ubah metode pembayaran
 const changeMethodSections = [
@@ -19,6 +19,7 @@ const changeMethodSections = [
 function GantiMetode() {
   const { id } = useParams();
   const [course, setCourse] = useState<Course | null>(null);
+  const [paymentCategories, setPaymentCategories] = useState<PaymentCategory[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,19 +27,37 @@ function GantiMetode() {
     getCourseById(id).then(setCourse);
   }, [id]);
 
+  useEffect(() => {
+    getAllPaymentMethods().then((groups) => {
+      const cats = groups[0]?.categories ?? [];
+      setPaymentCategories(cats as PaymentCategory[]);
+    });
+  }, []);
+
   // State untuk accordion Card 1 — metode pembayaran terpilih
-  const [selectedMethod, setSelectedMethod] = useState<string>("bca");
+  const [selectedMethod, setSelectedMethod] = useState<string>("");
 
   // State untuk accordion Card 1 & 2 — kategori mana yang terbuka
-  const [openCategories, setOpenCategories] = useState<string[]>([
-    "transfer-bank",
-  ]);
+  const [openCategories, setOpenCategories] = useState<string[]>([]);
 
   const toggleCategory = (id: string) => {
     setOpenCategories((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
+
+  // default selection & open categories once data loaded
+  useEffect(() => {
+    if (paymentCategories.length > 0) {
+      if (!selectedMethod) {
+        const first = paymentCategories[0]?.methods[0]?.id;
+        if (first) setSelectedMethod(first);
+      }
+      if (openCategories.length === 0) {
+        setOpenCategories(paymentCategories.map((c) => c.id));
+      }
+    }
+  }, [paymentCategories]);
 
   if (!course) {
     return (

@@ -1,14 +1,13 @@
 export interface TabLinkProps {
   label: string;
   active?: boolean;
-  href?: string;
   onClick?: () => void;
 }
 
-function TabLink({ label, active = false, href = "#", onClick }: TabLinkProps) {
+function TabLink({ label, active = false, onClick }: TabLinkProps) {
   return (
-    <a
-      href={href}
+    <button
+      // href={href}
       onClick={onClick}
       className={`whitespace-nowrap text-[15px] pb-2 font-bold no-underline ${
         active
@@ -17,7 +16,7 @@ function TabLink({ label, active = false, href = "#", onClick }: TabLinkProps) {
       }`}
     >
       {label}
-    </a>
+    </button>
   );
 }
 

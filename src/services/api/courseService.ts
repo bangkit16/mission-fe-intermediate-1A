@@ -9,6 +9,48 @@ export interface Instructor {
   avatar: string;
 }
 
+export interface CourseInstructor {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  description?: string;
+}
+
+export interface CourseFeatures {
+  hasFinalExam: boolean;
+  totalVideos: number;
+  totalDocuments: number;
+  hasCertificate: boolean;
+  hasPretest: boolean;
+}
+
+export interface CourseReview {
+  id: string;
+  name: string;
+  batch: string;
+  avatar: string;
+  comment: string;
+  rating: number;
+}
+
+export interface SyllabusLesson {
+  id: string;
+  title: string;
+  type: string;
+  duration: string;
+  isActive: boolean;
+  isCompleted: boolean;
+  isDisabled: boolean;
+}
+
+export interface SyllabusModule {
+  id: string;
+  title: string;
+  lessons: SyllabusLesson[];
+}
+
 export interface Course {
   id: string;
   image: string;
@@ -31,6 +73,15 @@ export interface Course {
   language: string;
   slug: string;
   featured: boolean;
+  /** from course-detail merge */
+  bgImage?: string;
+  promoEndsIn?: string;
+  checkoutLink?: string;
+  features?: CourseFeatures;
+  instructors?: CourseInstructor[];
+  /** from reviews & syllabus merge */
+  reviews: CourseReview[];
+  syllabus: SyllabusModule[];
 }
 
 export interface CreateCoursePayload {
