@@ -79,7 +79,7 @@ function Kelas() {
                       key={course.id}
                       course={course}
                       getStatusStyle={getStatusStyle}
-                      onContinueLearning={(id) => navigate(`/course/${id}`)}
+                      onContinueLearning={(id) => navigate(`/course/`)}
                       onViewDetail={(id) => navigate(`/course/${id}`)}
                       onDownloadCertificate={(id) => navigate(`/sertifikat/${id}`)}
                     />

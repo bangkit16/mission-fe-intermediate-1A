@@ -8,7 +8,11 @@ import VideoRangkumanScreen from "../components/course/screens/VideoRangkumanScr
 
 import type { ContentItem } from "../../features/course/types";
 import { modulesData } from "../../features/course/data";
-import { flattenItems, getNextItem, getPrevItem } from "../../features/course/utils";
+import {
+  flattenItems,
+  getNextItem,
+  getPrevItem,
+} from "../../features/course/utils";
 import { CourseHeader } from "../../features/course/components/CourseHeader";
 import { CourseNavigation } from "../../features/course/components/CourseNavigation";
 import { ModuleAccordion } from "../../features/course/components/ModuleAccordion";
@@ -55,7 +59,6 @@ const LearningModulePage = () => {
     }));
   };
 
-
   const handleItemClick = (item: ContentItem) => {
     setActiveContentId(item.id);
   };
@@ -75,6 +78,7 @@ const LearningModulePage = () => {
         return <VideoScreen />;
       case "rangkuman":
         return <VideoRangkumanScreen />;
+      case "pre-test":
       case "quiz":
         return <QuizScreen onComplete={goNext} />;
       default:
@@ -82,8 +86,10 @@ const LearningModulePage = () => {
     }
   };
 
-  const hasPrev = activeContentId !== null && getPrevItem(activeContentId, allItems) !== null;
-  const hasNext = activeContentId !== null && getNextItem(activeContentId, allItems) !== null;
+  const hasPrev =
+    activeContentId !== null && getPrevItem(activeContentId, allItems) !== null;
+  const hasNext =
+    activeContentId !== null && getNextItem(activeContentId, allItems) !== null;
 
   return (
     <div

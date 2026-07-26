@@ -141,9 +141,9 @@ function SemuaProduk() {
 
             {/* Grid List Card Produk */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {sortedCourses.map((course) => (
+              {sortedCourses.map((course , index) => (
                 <CourseCard
-                  key={course.id}
+                  key={index}
                   image={course.image}
                   title={course.title}
                   description={course.description}
@@ -151,7 +151,7 @@ function SemuaProduk() {
                   rating={course.rating}
                   reviewCount={course.reviewCount}
                   price={course.price}
-                  to={`/produk/${course.id}`}
+                  to={`/produk/${index}`}
                 />
               ))}
             </div>
