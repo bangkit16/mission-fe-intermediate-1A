@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
@@ -10,30 +11,31 @@ import {
   PaymentGuide,
   type GuideEntry,
 } from "../features/pembayaran/components/PaymentGuide";
-import { getCourseById, type Course } from "../services/api/courseService";
+import { getCourseById } from "../services/api/courseService";
 import { getAllPaymentGuides } from "../services/api/paymentGuideService";
 
 function Pembayaran() {
   const { id } = useParams();
-  const [course, setCourse] = useState<Course | null>(null);
-  const [guideEntries, setGuideEntries] = useState<GuideEntry[]>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!id) return;
-    getCourseById(id).then(setCourse);
-  }, [id]);
+  const { data: course } = useQuery({
+    queryKey: ["course", id],
+    queryFn: () => getCourseById(id!),
+    enabled: !!id,
+  });
 
-  useEffect(() => {
-    getAllPaymentGuides().then((all) => {
-      // ambil guide untuk BCA (methodId: 1a26c8cc-9991-4419-a8ce-b7c968c1046c)
-      // fallback ke guide pertama
-      const entry = all.find(
-        (g) => g.methodId === "1a26c8cc-9991-4419-a8ce-b7c968c1046c",
-      ) ?? all[0];
-      if (entry) setGuideEntries(entry.guides as GuideEntry[]);
-    });
-  }, []);
+  const { data: paymentGuides } = useQuery({
+    queryKey: ["payment-guides"],
+    queryFn: getAllPaymentGuides,
+  });
+
+  const guideEntries: GuideEntry[] = (() => {
+    if (!paymentGuides) return [];
+    const entry = paymentGuides.find(
+      (g) => g.methodId === "1a26c8cc-9991-4419-a8ce-b7c968c1046c",
+    ) ?? paymentGuides[0];
+    return entry?.guides as GuideEntry[] ?? [];
+  })();
 
   // State untuk melacak accordion panduan cara bayar mana saja yang terbuka
   const [openGuides, setOpenGuides] = useState<string[]>([]);
@@ -84,7 +86,6 @@ function Pembayaran() {
               />
 
               <PaymentSummary
-                // productName="Video Learning: Gapai Karier Impianmu sebagai Seorang UI/UX Designer & Product Manager."
                 productName={`Video Learning: ${course?.title}`}
                 productPrice={course?.price}
                 adminFee={7000}
@@ -103,7 +104,6 @@ function Pembayaran() {
           </main>
           <CheckoutCard
             course={course}
-            // checkoutLink="/produk/belajar-menyenangkan/metode"
           />
         </div>
       </SectionContainer>

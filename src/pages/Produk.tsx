@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 import Breadcrumb from "../components/common/Breadcrumb";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
@@ -14,36 +15,26 @@ import Card from "../components/common/Card";
 import {
   getCourseById,
   getAllCourses,
-  type Course,
 } from "../services/api/courseService";
-
-// interface RelatedItem {
-//   image: string;
-//   title: string;
-//   description: string;
-//   instructor: { name: string; role: string; company: string; avatar: string };
-//   rating: number;
-//   reviewCount: number;
-//   price: string;
-// }
 
 function Produk() {
   const { id } = useParams();
-  const [course, setCourse] = useState<Course | null>(null);
-  const [relatedCourses, setRelatedCourses] = useState<Course[]>([]);
   const [openModuleId, setOpenModuleId] = useState<string | null>("m1");
 
-  useEffect(() => {
-    if (!id) return;
-    getCourseById(id).then(setCourse);
-    getAllCourses().then((all) => {
-      setRelatedCourses(
-        all
-          .filter((c) => c.id !== id)
-          .slice(0, 3)
-      );
-    });
-  }, [id]);
+  const { data: course } = useQuery({
+    queryKey: ["course", id],
+    queryFn: () => getCourseById(id!),
+    enabled: !!id,
+  });
+
+  const { data: allCourses = [] } = useQuery({
+    queryKey: ["courses"],
+    queryFn: getAllCourses,
+  });
+
+  const relatedCourses = allCourses
+    .filter((c) => c.id !== id)
+    .slice(0, 3);
 
   const toggleModule = (id: string) => {
     setOpenModuleId(openModuleId === id ? null : id);
@@ -86,27 +77,14 @@ function Produk() {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                     {course.instructors?.map((instructor) => (
                       <InstructorCard
+                        key={instructor.id}
                         name={instructor.name}
                         role={instructor.role}
                         company={instructor.company}
                         avatar={instructor.avatar}
-                        description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
+                        description={instructor.description}
                       />
                     ))}
-                    {/* <InstructorCard
-                      name={instructor.name}
-                      role={instructor.role}
-                      company={instructor.company}
-                      avatar={instructor.avatar}
-                      description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
-                    />
-                    <InstructorCard
-                      name={instructor.name}
-                      role={instructor.role}
-                      company={instructor.company}
-                      avatar={instructor.avatar}
-                      description="Foundations of User Experience (UX) Design adalah yang pertama dari rangkaian tujuh kursus yang akan membekali"
-                    /> */}
                   </div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
@@ -10,35 +11,42 @@ import {
   type PaymentCategory,
 } from "../features/metode/components/PaymentMethodSelector";
 import { OrderSummary } from "../features/metode/components/OrderSummary";
-import { getCourseById, type Course } from "../services/api/courseService";
+import { getCourseById } from "../services/api/courseService";
 import {
   getAllPaymentMethods,
 } from "../services/api/paymentMethodsService";
 
 function Metode() {
   const [selectedMethod, setSelectedMethod] = useState<string>("");
-  const [paymentCategories, setPaymentCategories] = useState<PaymentCategory[]>([]);
   const [openCategories, setOpenCategories] = useState<string[]>([]);
   const { id } = useParams();
-  const [course, setCourse] = useState<Course | null>(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getAllPaymentMethods().then((groups) => {
-      const cats = groups[0]?.categories ?? [];
-      setPaymentCategories(cats as PaymentCategory[]);
-      // default ke metode pertama
-      const first = cats[0]?.methods[0]?.id;
-      if (first) setSelectedMethod(first);
-      // buka semua kategori
-      setOpenCategories(cats.map((c: any) => c.id));
-    });
-  }, []);
+  const { data: course } = useQuery({
+    queryKey: ["course", id],
+    queryFn: () => getCourseById(id!),
+    enabled: !!id,
+  });
 
+  const { data: paymentGroups } = useQuery({
+    queryKey: ["payment-methods"],
+    queryFn: getAllPaymentMethods,
+  });
+
+  const paymentCategories = (paymentGroups?.[0]?.categories ?? []) as PaymentCategory[];
+
+  // set default selection & open categories once data loaded
   useEffect(() => {
-    if (!id) return;
-    getCourseById(id).then(setCourse);
-  }, [id]);
+    if (paymentCategories.length > 0) {
+      if (!selectedMethod) {
+        const first = paymentCategories[0]?.methods[0]?.id;
+        if (first) setSelectedMethod(first);
+      }
+      if (openCategories.length === 0) {
+        setOpenCategories(paymentCategories.map((c) => c.id));
+      }
+    }
+  }, [paymentCategories]);
 
   if (!course) {
     return (
@@ -49,8 +57,6 @@ function Metode() {
       </LayoutBeranda>
     );
   }
-
-  // State untuk metode pembayaran terpilih (default: bca sesuai gambar)
 
   const toggleCategory = (categoryId: string) => {
     setOpenCategories((prev) =>
@@ -88,7 +94,6 @@ function Metode() {
           </main>
           <CheckoutCard
             course={course}
-            // checkoutLink={`/produk/${id}/pembayaran`}
           />
         </div>
       </SectionContainer>

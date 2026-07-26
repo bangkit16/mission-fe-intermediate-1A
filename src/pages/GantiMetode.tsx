@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CheckoutCard from "../features/produk/components/CheckoutCard";
 import Card from "../components/common/Card";
 import { PaymentMethodSelector, type PaymentCategory } from "../features/ganti-metode/components/PaymentMethodSelector";
 import { ChangeMethodAccordion } from "../features/ganti-metode/components/ChangeMethodAccordion";
-import { getCourseById, type Course } from "../services/api/courseService";
+import { getCourseById } from "../services/api/courseService";
 import { getAllPaymentMethods } from "../services/api/paymentMethodsService";
 
 // Data accordion untuk ubah metode pembayaran
@@ -18,21 +19,20 @@ const changeMethodSections = [
 
 function GantiMetode() {
   const { id } = useParams();
-  const [course, setCourse] = useState<Course | null>(null);
-  const [paymentCategories, setPaymentCategories] = useState<PaymentCategory[]>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!id) return;
-    getCourseById(id).then(setCourse);
-  }, [id]);
+  const { data: course } = useQuery({
+    queryKey: ["course", id],
+    queryFn: () => getCourseById(id!),
+    enabled: !!id,
+  });
 
-  useEffect(() => {
-    getAllPaymentMethods().then((groups) => {
-      const cats = groups[0]?.categories ?? [];
-      setPaymentCategories(cats as PaymentCategory[]);
-    });
-  }, []);
+  const { data: paymentGroups } = useQuery({
+    queryKey: ["payment-methods"],
+    queryFn: getAllPaymentMethods,
+  });
+
+  const paymentCategories = (paymentGroups?.[0]?.categories ?? []) as PaymentCategory[];
 
   // State untuk accordion Card 1 — metode pembayaran terpilih
   const [selectedMethod, setSelectedMethod] = useState<string>("");
@@ -98,7 +98,6 @@ function GantiMetode() {
           </main>
           <CheckoutCard
             course={course}
-            // checkoutLink={`/produk/${id}/metode`}
           />
         </div>
       </SectionContainer>

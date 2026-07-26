@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
@@ -7,17 +8,17 @@ import { PesananSidebar } from "../features/pesanan/components/PesananSidebar";
 import { PesananFilterTabs } from "../features/pesanan/components/PesananFilterTabs";
 import { PesananSearchBar } from "../features/pesanan/components/PesananSearchBar";
 import { OrderCard } from "../features/pesanan/components/OrderCard";
-import { getAllOrders, type Order } from "../services/api/ordersService";
+import { getAllOrders } from "../services/api/ordersService";
 
 const tabs = ["Semua Pesanan", "Menunggu", "Berhasil", "Gagal"];
 
 function Pesanan() {
-  const [orders, setOrders] = useState<Order[]>([]);
   const [activeTab, setActiveTab] = useState("Semua Pesanan");
 
-  useEffect(() => {
-    getAllOrders().then(setOrders);
-  }, []);
+  const { data: orders = [] } = useQuery({
+    queryKey: ["orders"],
+    queryFn: getAllOrders,
+  });
 
   const filteredOrders = activeTab === "Semua Pesanan"
     ? orders

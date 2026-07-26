@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import CourseCard from "../components/common/CourseCard";
 import SectionHeading from "../components/common/SectionHeading";
@@ -15,17 +16,17 @@ import {
 
 
 function Beranda() {
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [activeTab, setActiveTab] = useState("all");
 
-  useEffect(() => {
-    getAllCourses().then(setCourses);
-  }, []);
+  const { data: courses = [] } = useQuery({
+    queryKey: ["courses"],
+    queryFn: getAllCourses,
+  });
 
-  useEffect(() => {
-    getAllCategories().then(setCategories);
-  }, []);
+  const { data: categories = [] } = useQuery({
+    queryKey: ["categories"],
+    queryFn: getAllCategories,
+  });
 
   const filteredCourses =
     activeTab === "all"

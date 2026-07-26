@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import SectionHeading from "../components/common/SectionHeading";
@@ -7,22 +8,7 @@ import CourseCard from "../components/common/CourseCard";
 import FilterSidebar from "../features/semuaProduk/components/FilterSidebar";
 import type { FilterGroup } from "../features/semuaProduk/components/FilterSidebar";
 import { getAllCourses } from "../services/api/courseService";
-
-interface CourseData {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  instructor: {
-    name: string;
-    role: string;
-    company: string;
-    avatar: string;
-  };
-  rating: number;
-  reviewCount: number;
-  price: number;
-}
+import type { Course } from "../services/api/courseService";
 
 const filterGroups: FilterGroup[] = [
   {
@@ -60,7 +46,6 @@ const filterGroups: FilterGroup[] = [
 ];
 
 function SemuaProduk() {
-  const [courses, setCourses] = useState<CourseData[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState<
@@ -68,11 +53,10 @@ function SemuaProduk() {
   >("default");
   const [showSortDropdown, setShowSortDropdown] = useState(false);
 
-  useEffect(() => {
-    getAllCourses().then((courses) => {
-      setCourses(courses);
-    });
-  }, []);
+  const { data: courses = [] } = useQuery({
+    queryKey: ["courses"],
+    queryFn: getAllCourses,
+  });
 
   // Filter course berdasarkan pencarian
   const filteredCourses = courses.filter((course) =>
@@ -157,9 +141,9 @@ function SemuaProduk() {
 
             {/* Grid List Card Produk */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {sortedCourses.map((course, index) => (
+              {sortedCourses.map((course) => (
                 <CourseCard
-                  key={index}
+                  key={course.id}
                   image={course.image}
                   title={course.title}
                   description={course.description}
@@ -167,7 +151,7 @@ function SemuaProduk() {
                   rating={course.rating}
                   reviewCount={course.reviewCount}
                   price={course.price}
-                  to={`/produk/${index}`}
+                  to={`/produk/${course.id}`}
                 />
               ))}
             </div>

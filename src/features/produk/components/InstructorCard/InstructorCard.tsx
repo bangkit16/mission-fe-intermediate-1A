@@ -14,7 +14,7 @@ export interface InstructorCardProps {
   /** URL avatar instruktur */
   avatar: string;
   /** Deskripsi singkat instruktur */
-  description: string;
+  description?: string;
 }
 
 // ================================================

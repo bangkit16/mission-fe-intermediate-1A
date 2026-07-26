@@ -38,7 +38,7 @@ function App() {
         />
 
         <Route path="/course" element={<CoursePage />} />
-        <Route path="/sertifikat" element={<Sertifikat />} />
+        <Route path="/sertifikat/:id" element={<Sertifikat />} />
       </Route>
     </Routes>
   );

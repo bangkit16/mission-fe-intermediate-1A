@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 import Pagination from "../components/common/Pagination";
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
@@ -8,28 +10,21 @@ import { KelasFilterTabs } from "../features/kelas/components/KelasFilterTabs";
 import { KelasSearchBar } from "../features/kelas/components/KelasSearchBar";
 import {
   CourseProgressCard,
-  type CourseData,
 } from "../features/kelas/components/CourseProgressCard";
 import { getAllMyClasses } from "../services/api/myClassService";
 
 function Kelas() {
   const [activeTab, setActiveTab] = useState("Semua Kelas");
   const [searchQuery, setSearchQuery] = useState("");
-  const [courses, setCourses] = useState<CourseData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
   const tabs = ["Semua Kelas", "Sedang Berjalan", "Selesai"];
 
-  useEffect(() => {
-    getAllMyClasses()
-      .then((data) => {
-        setCourses(data.map((c) => ({ ...c, id: Number(c.id) })));
-      })
-      .catch((err) => {
-        setError(err.message || "Gagal memuat data kelas");
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  const { data: rawCourses = [], isLoading, error } = useQuery({
+    queryKey: ["my-classes"],
+    queryFn: getAllMyClasses,
+  });
+
+  const courses = rawCourses.map((c) => ({ ...c, id: Number(c.id) }));
 
   const filteredCourses = courses.filter((c) => {
     const matchTab =
@@ -68,12 +63,12 @@ function Kelas() {
               </div>
 
               <div className="space-y-4 pt-5">
-                {loading ? (
+                {isLoading ? (
                   <p className="text-center text-gray-400 py-10">
                     Memuat data...
                   </p>
                 ) : error ? (
-                  <p className="text-center text-red-500 py-10">{error}</p>
+                  <p className="text-center text-red-500 py-10">{(error as Error)?.message || "Gagal memuat data"}</p>
                 ) : filteredCourses.length === 0 ? (
                   <p className="text-center text-gray-400 py-10">
                     Belum ada kelas tersedia.
@@ -84,6 +79,9 @@ function Kelas() {
                       key={course.id}
                       course={course}
                       getStatusStyle={getStatusStyle}
+                      onContinueLearning={(id) => navigate(`/course/${id}`)}
+                      onViewDetail={(id) => navigate(`/course/${id}`)}
+                      onDownloadCertificate={(id) => navigate(`/sertifikat/${id}`)}
                     />
                   ))
                 )}
