@@ -12,7 +12,7 @@ interface PreTestScreenProps {
   onComplete: () => void;
 }
 
-function PreTestScreen({ onComplete }: PreTestScreenProps) {
+function QuizScreen({ onComplete }: PreTestScreenProps) {
   const isMobile = useIsMobile();
   const [phase, setPhase] = useState<PreTestPhase>("rules");
 
@@ -195,4 +195,4 @@ function PreTestScreen({ onComplete }: PreTestScreenProps) {
   );
 }
 
-export default PreTestScreen;
+export default QuizScreen;

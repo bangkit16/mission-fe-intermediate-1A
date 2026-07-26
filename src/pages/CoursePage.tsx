@@ -3,7 +3,7 @@ import { useState, useCallback, useMemo } from "react";
 import useIsMobile from "../hooks/useIsMobile";
 import ReviewModal from "../components/course/ReviewModal";
 import VideoScreen from "../components/course/screens/VideoScreen";
-import PreTestScreen from "../components/course/screens/PreTestScreen";
+import QuizScreen from "../components/course/screens/QuizScreen";
 import VideoRangkumanScreen from "../components/course/screens/VideoRangkumanScreen";
 
 import type { ContentItem } from "../../features/course/types";
@@ -55,6 +55,7 @@ const LearningModulePage = () => {
     }));
   };
 
+
   const handleItemClick = (item: ContentItem) => {
     setActiveContentId(item.id);
   };
@@ -74,9 +75,8 @@ const LearningModulePage = () => {
         return <VideoScreen />;
       case "rangkuman":
         return <VideoRangkumanScreen />;
-      case "pre-test":
       case "quiz":
-        return <PreTestScreen onComplete={goNext} />;
+        return <QuizScreen onComplete={goNext} />;
       default:
         return null;
     }
