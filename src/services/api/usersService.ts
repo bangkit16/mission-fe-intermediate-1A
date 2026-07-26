@@ -28,6 +28,16 @@ export type UpdateUserPayload = Partial<CreateUserPayload>;
 
 /* ── API functions ─────────────────────────── */
 
+export const loginUser = async (
+  email: string,
+  password: string,
+): Promise<User> => {
+  const response = await api.get(
+    `/users.json?orderBy="email"&equalTo="${email}"`,
+  );
+  return response.data as User;
+};
+
 export const getAllUsers = async (): Promise<User[]> => {
   const response = await api.get("/users.json");
   return response.data as User[];
@@ -38,7 +48,10 @@ export const getUserById = async (id: string): Promise<User> => {
   return response.data as User;
 };
 
-export const updateUser = async (id: string, payload: UpdateUserPayload): Promise<User> => {
+export const updateUser = async (
+  id: string,
+  payload: UpdateUserPayload,
+): Promise<User> => {
   const response = await api.put(`/users/${id}.json`, payload);
   return response.data as User;
 };

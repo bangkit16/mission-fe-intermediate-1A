@@ -1,4 +1,6 @@
-import { Link } from "react-router";
+import { useState, type FormEvent } from "react";
+import { Link, useNavigate } from "react-router";
+import { useMutation } from "@tanstack/react-query";
 import LayoutAuth from "../components/layout/LayoutAuth";
 import Button from "../components/common/Button";
 import InputField from "../components/common/InputField";
@@ -6,8 +8,37 @@ import PasswordInput from "../features/auth/components/PasswordInput";
 import AuthCard from "../features/auth/components/AuthCard";
 import AuthHeading from "../features/auth/components/AuthHeading";
 import Divider from "../features/auth/components/Divider";
+import { loginUser } from "../services/api/usersService";
 
 function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const mutation = useMutation({
+    mutationFn: () => loginUser(email, password),
+    onSuccess: (userLog) => {
+      console.log(userLog);
+      const users = Object.values(userLog);
+      const user = users[0];
+      // navigate("/");
+      if (!user) {
+        throw new Error("Email tidak ditemukan");
+      }
+
+      if (user.password !== password) {
+        throw new Error("Password salah");
+      }
+
+      navigate("/");
+    },
+  });
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    mutation.mutate();
+  };
+
   return (
     <LayoutAuth>
       <AuthCard>
@@ -16,7 +47,7 @@ function Login() {
           subtitle="Yuk, lanjutin belajarmu di videobelajar."
         />
 
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* EMAIL */}
           <InputField
             type="email"
@@ -25,6 +56,8 @@ function Login() {
             placeholder="babymonster@yg.co.id"
             containerClassName="mb-6"
             labelClassName="block mb-2.5 text-[#6d6d6d] text-base"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           {/* PASSWORD */}
@@ -34,7 +67,16 @@ function Login() {
             placeholder="**********"
             containerClassName="mb-6"
             labelClassName="block mb-2.5 text-[#6d6d6d] text-base"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
+
+          {/* ERROR */}
+          {mutation.isError && (
+            <p className="mb-4 text-sm text-red-500 text-center">
+              {(mutation.error as Error)?.message || "Login gagal"}
+            </p>
+          )}
 
           {/* FORGOT */}
           <div className="text-right mb-6">
@@ -47,8 +89,8 @@ function Login() {
           </div>
 
           {/* BUTTON LOGIN */}
-          <Button type="submit" variant="primary">
-            Masuk
+          <Button type="submit" variant="primary" disabled={mutation.isPending}>
+            {mutation.isPending ? "Memproses..." : "Masuk"}
           </Button>
 
           {/* BUTTON REGISTER */}
