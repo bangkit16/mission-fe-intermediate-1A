@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import SectionContainer from "../components/common/SectionContainer";
@@ -17,8 +17,6 @@ import {
 } from "../services/api/paymentMethodsService";
 
 function Metode() {
-  const [selectedMethod, setSelectedMethod] = useState<string>("");
-  const [openCategories, setOpenCategories] = useState<string[]>([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -35,18 +33,13 @@ function Metode() {
 
   const paymentCategories = (paymentGroups?.[0]?.categories ?? []) as PaymentCategory[];
 
-  // set default selection & open categories once data loaded
-  useEffect(() => {
-    if (paymentCategories.length > 0) {
-      if (!selectedMethod) {
-        const first = paymentCategories[0]?.methods[0]?.id;
-        if (first) setSelectedMethod(first);
-      }
-      if (openCategories.length === 0) {
-        setOpenCategories(paymentCategories.map((c) => c.id));
-      }
-    }
-  }, [paymentCategories]);
+  const [selectedMethod, setSelectedMethod] = useState<string>(
+    () => paymentCategories[0]?.methods[0]?.id ?? "",
+  );
+
+  const [openCategories, setOpenCategories] = useState<string[]>(
+    () => paymentCategories.map((c) => c.id),
+  );
 
   if (!course) {
     return (

@@ -8,7 +8,6 @@ import CourseCard from "../components/common/CourseCard";
 import FilterSidebar from "../features/semuaProduk/components/FilterSidebar";
 import type { FilterGroup } from "../features/semuaProduk/components/FilterSidebar";
 import { getAllCourses } from "../services/api/courseService";
-import type { Course } from "../services/api/courseService";
 
 const filterGroups: FilterGroup[] = [
   {

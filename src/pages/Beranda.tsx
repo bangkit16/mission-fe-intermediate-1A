@@ -11,7 +11,7 @@ import NewsletterSection from "../features/beranda/components/NewsletterSection"
 import { getAllCourses, type Course } from "../services/api/courseService";
 import {
   getAllCategories,
-  type Category,
+
 } from "../services/api/categoriesService";
 
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import SectionContainer from "../components/common/SectionContainer";
@@ -35,29 +35,20 @@ function GantiMetode() {
   const paymentCategories = (paymentGroups?.[0]?.categories ?? []) as PaymentCategory[];
 
   // State untuk accordion Card 1 — metode pembayaran terpilih
-  const [selectedMethod, setSelectedMethod] = useState<string>("");
+  const [selectedMethod, setSelectedMethod] = useState<string>(
+    () => paymentCategories[0]?.methods[0]?.id ?? "",
+  );
 
   // State untuk accordion Card 1 & 2 — kategori mana yang terbuka
-  const [openCategories, setOpenCategories] = useState<string[]>([]);
+  const [openCategories, setOpenCategories] = useState<string[]>(
+    () => paymentCategories.map((c) => c.id),
+  );
 
   const toggleCategory = (id: string) => {
     setOpenCategories((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
     );
   };
-
-  // default selection & open categories once data loaded
-  useEffect(() => {
-    if (paymentCategories.length > 0) {
-      if (!selectedMethod) {
-        const first = paymentCategories[0]?.methods[0]?.id;
-        if (first) setSelectedMethod(first);
-      }
-      if (openCategories.length === 0) {
-        setOpenCategories(paymentCategories.map((c) => c.id));
-      }
-    }
-  }, [paymentCategories]);
 
   if (!course) {
     return (

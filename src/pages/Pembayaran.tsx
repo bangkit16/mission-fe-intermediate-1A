@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import SectionContainer from "../components/common/SectionContainer";
@@ -29,23 +29,18 @@ function Pembayaran() {
     queryFn: getAllPaymentGuides,
   });
 
-  const guideEntries: GuideEntry[] = (() => {
+  const guideEntries: GuideEntry[] = useMemo(() => {
     if (!paymentGuides) return [];
     const entry = paymentGuides.find(
       (g) => g.methodId === "1a26c8cc-9991-4419-a8ce-b7c968c1046c",
     ) ?? paymentGuides[0];
     return entry?.guides as GuideEntry[] ?? [];
-  })();
+  }, [paymentGuides]);
 
   // State untuk melacak accordion panduan cara bayar mana saja yang terbuka
-  const [openGuides, setOpenGuides] = useState<string[]>([]);
-
-  // buka semua guides setelah data loaded
-  useEffect(() => {
-    if (guideEntries.length > 0 && openGuides.length === 0) {
-      setOpenGuides(guideEntries.map((g) => g.id));
-    }
-  }, [guideEntries]);
+  const [openGuides, setOpenGuides] = useState<string[]>(
+    () => guideEntries.map((g) => g.id),
+  );
 
   const toggleGuide = (id: string) => {
     setOpenGuides((prev) =>
