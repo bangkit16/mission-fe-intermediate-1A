@@ -1,8 +1,8 @@
 import { useEffect, useRef, type Ref } from "react";
 import { Link, useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import { User, BookOpen, ShoppingBag, LogOut } from "lucide-react";
-import { logout } from "../../store/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { User, BookOpen, ShoppingBag, LogOut, LogIn, UserPlus } from "lucide-react";
+import { logout, selectIsAuthenticated } from "../../store/authSlice";
 
 function NavigationMenu({
   open,
@@ -18,6 +18,7 @@ function NavigationMenu({
   const isMobile = variant === "mobile";
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(selectIsAuthenticated);
 
   useEffect(() => {
     if (isMobile || !open) return;
@@ -54,40 +55,57 @@ function NavigationMenu({
         </Link>
       )}
 
-      <Link to="/profile" className={itemClass} onClick={onClose}>
-        <User size={18} />
-        Profil Saya
-      </Link>
+      {isMobile && !isAuthenticated && (
+        <>
+          <Link to="/login" onClick={onClose} className={itemClass}>
+            <LogIn size={18} />
+            Login
+          </Link>
+          <Link to="/register" onClick={onClose} className={itemClass}>
+          <UserPlus size={18} />
+            Register
+          </Link>
+        </>
+      )}
 
-      <Link
-        to="/kelas"
-        className={`${itemClass} border-t border-gray-100`}
-        onClick={onClose}
-      >
-        <BookOpen size={18} />
-        Kelas Saya
-      </Link>
+      {(!isMobile || isAuthenticated) && (
+        <>
+          <Link to="/profile" className={itemClass} onClick={onClose}>
+            <User size={18} />
+            Profil Saya
+          </Link>
 
-      <Link
-        to="/pesanan"
-        className={`${itemClass} border-t border-gray-100`}
-        onClick={onClose}
-      >
-        <ShoppingBag size={18} />
-        Pesanan Saya
-      </Link>
+          <Link
+            to="/kelas"
+            className={`${itemClass} border-t border-gray-100`}
+            onClick={onClose}
+          >
+            <BookOpen size={18} />
+            Kelas Saya
+          </Link>
 
-      <button
-        onClick={() => {
-          dispatch(logout());
-          navigate("/login");
-          onClose();
-        }}
-        className="flex w-full items-center gap-3 border-t border-gray-100 px-5 py-4 text-sm text-red-500 hover:bg-red-50 transition no-underline"
-      >
-        <LogOut size={18} />
-        Keluar
-      </button>
+          <Link
+            to="/pesanan"
+            className={`${itemClass} border-t border-gray-100`}
+            onClick={onClose}
+          >
+            <ShoppingBag size={18} />
+            Pesanan Saya
+          </Link>
+
+          <button
+            onClick={() => {
+              dispatch(logout());
+              navigate("/login");
+              onClose();
+            }}
+            className="flex w-full items-center gap-3 border-t border-gray-100 px-5 py-4 text-sm text-red-500 hover:bg-red-50 transition no-underline"
+          >
+            <LogOut size={18} />
+            Keluar
+          </button>
+        </>
+      )}
     </div>
   );
 }
