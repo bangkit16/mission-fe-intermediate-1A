@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { StarRating } from "./StarRating";
 
 export interface CourseCardProps {
   /** URL gambar thumbnail kursus */
@@ -85,12 +86,7 @@ function CourseCard({
       </div>
       {/* Bagian Bawah: Rating dan Harga */}
       <div className="flex justify-between items-center gap-1 md:px-3 md:my-3 md:border-none">
-        <div className="text-[13px] md:text-sm">
-          {"⭐".repeat(Math.floor(rating))}
-          <span className="text-[#666] ml-1">
-            {rating} ({reviewCount})
-          </span>
-        </div>
+        <StarRating rating={rating} reviewCount={reviewCount} size={14} />
         <div className="text-lg font-extrabold text-[#2ecc71] md:text-3xl">
           {price >= 1000000
             ? `${(price / 1000000).toFixed(1)}M`

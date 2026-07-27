@@ -1,3 +1,5 @@
+import {StarRating} from "../../../components/common/StarRating";
+
 export interface OverlaySectionProps {
   bgImage: string;
   rating?: number;
@@ -34,12 +36,7 @@ function BannerProduct({
             <p className="text-sm md:text-base text-white mb-5 max-w-120">
               {description}
             </p>
-            <div className="text-[13px] md:text-sm">
-              {"⭐".repeat(Math.floor(rating))}
-              <span className="text-gray-300 ml-1">
-                {rating} ({reviewCount})
-              </span>
-            </div>
+            <StarRating rating={rating} reviewCount={reviewCount} size={16} />
           </div>
         </div>
       </div>

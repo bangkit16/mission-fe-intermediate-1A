@@ -20,7 +20,6 @@ export interface CourseHeaderProps {
 export const CourseHeader: React.FC<CourseHeaderProps> = ({
   title,
   isMobile,
-  onBack,
 }) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const isAuthenticated = useSelector(selectIsAuthenticated);

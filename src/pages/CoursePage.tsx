@@ -69,10 +69,6 @@ const LearningModulePage = () => {
     firstItem?.id ?? null,
   );
 
-  useEffect(() => {
-    setActiveContentId(firstItem?.id ?? null);
-  }, [firstItem]);
-
   const activeItem = useMemo(
     () => allItems.find((i) => i.id === activeContentId) ?? null,
     [activeContentId, allItems],

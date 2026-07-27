@@ -2,7 +2,7 @@
 import SectionContainer from "../components/common/SectionContainer";
 import LayoutBeranda from "../components/layout/LayoutBeranda";
 import Breadcrumb from "../components/common/Breadcrumb";
-
+import { StarRating } from "../components/common/StarRating";
 function Sertifikat() {
   return (
     <LayoutBeranda>
@@ -63,18 +63,7 @@ function Sertifikat() {
                 </div>
 
                 {/* Rating Bintang */}
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="flex text-amber-400 text-lg">
-                    <span>★</span>
-                    <span>★</span>
-                    <span>★</span>
-                    <span className="text-gray-200">★</span>
-                    <span className="text-gray-200">★</span>
-                  </div>
-                  <span className="text-xs font-bold text-gray-400 mt-0.5">
-                    3.5 <span className="font-normal text-gray-400">(86)</span>
-                  </span>
-                </div>
+                <StarRating rating={3.5} reviewCount={86} size={16} />
               </div>
 
               {/* Kolom Kanan: Tombol Download */}

@@ -1,4 +1,5 @@
 import useIsMobile from "../../../hooks/useIsMobile";
+import {StarRating} from "../../common/StarRating";
 
 function VideoScreen() {
   const isMobile = useIsMobile();
@@ -76,12 +77,7 @@ function VideoScreen() {
               </div>
             </div>
             <div className="flex justify-between items-center gap-1 md:px-3 md:my-3 md:border-none">
-              <div className="text-xs md:text-sm">
-                {"⭐".repeat(Math.floor(instructor.rating))}
-                <span className="text-[#666] ml-1">
-                  {instructor.rating} ({instructor.reviewCount})
-                </span>
-              </div>
+              <StarRating rating={instructor.rating} reviewCount={instructor.reviewCount} size={14} />
             </div>
           </div>
         </div>
