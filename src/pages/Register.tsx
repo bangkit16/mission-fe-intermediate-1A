@@ -1,4 +1,5 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import LayoutAuth from "../components/layout/LayoutAuth";
 import Button from "../components/common/Button";
 import InputField from "../components/common/InputField";
@@ -6,8 +7,60 @@ import PasswordInput from "../features/auth/components/PasswordInput";
 import Divider from "../features/auth/components/Divider";
 import AuthHeading from "../features/auth/components/AuthHeading";
 import AuthCard from "../features/auth/components/AuthCard";
+import { useMutation } from "@tanstack/react-query";
+import { createUser, getUserById } from "../services/api/usersService";
 
 function Register() {
+  const [namaLengkap, setNamaLengkap] = useState("");
+  const [email, setEmail] = useState("");
+  const [jenisKelamin, setJenisKelamin] = useState("Wanita");
+  const [kodeNegara, setKodeNegara] = useState("+62");
+  const [nomorHp, setNomorHp] = useState("");
+  const [password, setPassword] = useState("");
+  const [konfirmasiPassword, setKonfirmasiPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const { mutate : registerUserMutate} = useMutation({
+    mutationFn: createUser,
+  });
+
+  const {mutate: getUserByIdMutate} = useMutation({
+    mutationFn: getUserById,
+  });
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    if (password !== konfirmasiPassword) {
+      alert("Password dan konfirmasi password tidak cocok");
+      return;
+    }
+
+    registerUserMutate({
+      fullName: namaLengkap,
+      email,
+      gender: jenisKelamin,
+      countryCode: kodeNegara,
+      phoneNumber: nomorHp,
+      password,
+    } , {
+      onSuccess: (data) => {
+        const id = data.name;
+        getUserByIdMutate(id, {
+
+          onSuccess: (user) => {
+            console.log(user);
+            navigate("/");
+          }
+        });
+      },
+      onError: (error) => {
+        alert(error);
+      }
+    });
+  };
+
   return (
     <LayoutAuth>
       <AuthCard>
@@ -17,13 +70,15 @@ function Register() {
         />
 
         {/* FORM */}
-        <form className="flex flex-col gap-4 md:gap-5">
+        <form className="flex flex-col gap-4 md:gap-5" onSubmit={handleSubmit}>
           {/* Nama */}
           <InputField
             type="text"
             label="Nama Lengkap"
             required
             placeholder="Nama lengkap Anda"
+            value={namaLengkap}
+            onChange={(e) => setNamaLengkap(e.target.value)}
           />
 
           {/* Email */}
@@ -32,6 +87,8 @@ function Register() {
             label="E-Mail"
             required
             placeholder="contoh@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           {/* Jenis Kelamin (mobile only) */}
@@ -39,7 +96,11 @@ function Register() {
             <label className="block text-sm md:text-lg text-[#666] mb-2 md:mb-2.5">
               Jenis Kelamin <span className="text-[#ff5a2c]">*</span>
             </label>
-            <select className="w-full h-12 md:h-14 border border-[#dddddd] rounded px-4 text-[15px] md:text-base bg-white outline-none">
+            <select
+              className="w-full h-12 md:h-14 border border-[#dddddd] rounded px-4 text-[15px] md:text-base bg-white outline-none"
+              value={jenisKelamin}
+              onChange={(e) => setJenisKelamin(e.target.value)}
+            >
               <option>Wanita</option>
               <option>Pria</option>
             </select>
@@ -51,19 +112,35 @@ function Register() {
               No. Hp <span className="text-[#ff5a2c]">*</span>
             </label>
 
-            <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[124px_1fr] md:grid-cols-[160px_1fr] gap-2.5 md:gap-3.5">
-              <div className="h-12 md:h-14 border border-[#dddddd] rounded flex items-center px-3 gap-2.5">
-                <div className="w-7 h-5 md:w-8 md:h-6 rounded-sm border border-[#ddd] bg-[linear-gradient(to_bottom,#e70011_0%,#e70011_50%,#ffffff_50%,#ffffff_100%)]"></div>
-                <span className="text-sm md:text-lg text-[#444]">
-                  +62
-                </span>
-                <span className="ml-auto text-[#888]">⌄</span>
-              </div>
+            <div className="grid grid-cols-[140px_1fr] sm:grid-cols-[150px_1fr] md:grid-cols-[180px_1fr] gap-2.5 md:gap-3.5">
+              <select
+                className="h-12 md:h-14 border border-[#dddddd] rounded px-3 text-sm md:text-lg text-[#444] bg-white outline-none cursor-pointer"
+                value={kodeNegara}
+                onChange={(e) => setKodeNegara(e.target.value)}
+              >
+                <option value="+62">🇮🇩 +62</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+44">🇬🇧 +44</option>
+                <option value="+65">🇸🇬 +65</option>
+                <option value="+60">🇲🇾 +60</option>
+                <option value="+63">🇵🇭 +63</option>
+                <option value="+81">🇯🇵 +81</option>
+                <option value="+82">🇰🇷 +82</option>
+                <option value="+86">🇨🇳 +86</option>
+                <option value="+91">🇮🇳 +91</option>
+                <option value="+61">🇦🇺 +61</option>
+                <option value="+33">🇫🇷 +33</option>
+                <option value="+49">🇩🇪 +49</option>
+                <option value="+39">🇮🇹 +39</option>
+                <option value="+55">🇧🇷 +55</option>
+              </select>
 
               <InputField
                 type="text"
                 placeholder="81234567890"
                 className="rounded"
+                value={nomorHp}
+                onChange={(e) => setNomorHp(e.target.value)}
               />
             </div>
           </div>
@@ -73,6 +150,8 @@ function Register() {
             label="Kata Sandi"
             required
             placeholder="Buat kata sandi"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           {/* Confirm Password */}
@@ -80,6 +159,8 @@ function Register() {
             label="Konfirmasi Kata Sandi"
             required
             placeholder="Ulangi kata sandi"
+            value={konfirmasiPassword}
+            onChange={(e) => setKonfirmasiPassword(e.target.value)}
           />
 
           {/* Forgot */}

@@ -30,12 +30,18 @@ export type UpdateUserPayload = Partial<CreateUserPayload>;
 
 export const loginUser = async (
   email: string,
-  password: string,
 ): Promise<User> => {
   const response = await api.get(
     `/users.json?orderBy="email"&equalTo="${email}"`,
   );
   return response.data as User;
+};
+
+export const createUser = async (
+  payload: CreateUserPayload,
+) => {
+  const response = await api.post("/users.json", payload);
+  return response.data;
 };
 
 export const getAllUsers = async (): Promise<User[]> => {

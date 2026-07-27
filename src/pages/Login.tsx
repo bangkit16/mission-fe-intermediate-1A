@@ -8,29 +8,33 @@ import PasswordInput from "../features/auth/components/PasswordInput";
 import AuthCard from "../features/auth/components/AuthCard";
 import AuthHeading from "../features/auth/components/AuthHeading";
 import Divider from "../features/auth/components/Divider";
-import { loginUser } from "../services/api/usersService";
+import { getUserById, loginUser } from "../services/api/usersService";
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { mutate: getUserByIdMutate } = useMutation({
+    mutationFn: getUserById,
+  });
+
   const mutation = useMutation({
-    mutationFn: () => loginUser(email, password),
+    mutationFn: () => loginUser(email),
     onSuccess: (userLog) => {
-      console.log(userLog);
-      const users = Object.values(userLog);
-      const user = users[0];
-      // navigate("/");
-      if (!user) {
-        throw new Error("Email tidak ditemukan");
-      }
+      const keys = Object.keys(userLog);
+      const userId = keys[0];
 
-      if (user.password !== password) {
-        throw new Error("Password salah");
-      }
-
-      navigate("/");
+      getUserByIdMutate(userId, {
+        onSuccess: (user) => {
+          if (user.password !== password) {
+            alert("Password salah");
+            return;
+          }
+          console.log(user);
+          navigate("/");
+        },
+      });
     },
   });
 
