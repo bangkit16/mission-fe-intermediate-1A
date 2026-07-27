@@ -1,1 +1,2 @@
-export { OrderCard, type OrderCardProps, type OrderData } from './OrderCard';
+export { OrderCard, type OrderCardProps } from './OrderCard';
+export type { Order } from "../../../../services/api/ordersService";

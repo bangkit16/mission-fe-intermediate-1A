@@ -1,4 +1,4 @@
-import type { Order } from "../../../api/ordersService";
+import type { Order } from "../../../../services/api/ordersService";
 
 // ================================================
 // Interface Props
