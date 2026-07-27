@@ -12,7 +12,7 @@ const CertificatePopoverCard: React.FC = () => {
         Segitiga panah di atas modal (menghadap ke atas menuju pemicu).
         Posisinya disesuaikan di kanan atas sesuai dengan gambar asli.
       */}
-      <div className="absolute top-[-8px] right-6 w-4 h-4 bg-white rotate-45 transform border-l border-t border-gray-100 z-0"></div>
+      <div className="absolute -top-2 right-6 w-4 h-4 bg-white rotate-45 transform border-l border-t border-gray-100 z-0"></div>
 
       <div className="relative z-10">
         {/* Judul */}

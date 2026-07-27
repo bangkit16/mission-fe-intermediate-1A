@@ -104,3 +104,8 @@ Firebase Realtime Database REST API.
 
 **Base URL:**
 https://videobelajar-1a0b3-default-rtdb.asia-southeast1.firebasedatabase.app
+
+
+## ENV
+
+VITE_API_URL=https://videobelajar-1a0b3-default-rtdb.asia-southeast1.firebasedatabase.app
