@@ -7,51 +7,44 @@ export interface QuestionOption {
   text: string;
 }
 
-export interface PreTestQuestion {
-  id: string;
+export interface Question {
+  noQuestion: number;
   question: string;
   options: QuestionOption[];
   correctAnswer: string;
 }
 
-export interface PreTest {
-  durationMinutes: number;
-  passingScore: number;
-  totalQuestions: number;
-  questions: PreTestQuestion[];
-}
-
 export interface ModuleItem {
-  id: string;
+  idMateri: string;
   type: "pre-test" | "video" | "rangkuman" | "quiz";
   title: string;
   subtitle: string;
   isCompleted: boolean;
   isActive: boolean;
   isDisabled: boolean;
+  durationMinutes?: number;
+  passingScore?: number;
+  totalQuestions?: number;
+  questions?: Question[];
 }
 
 export interface CourseContentModule {
-  id: string;
+  idModul: string;
   title: string;
-  items: ModuleItem[];
+  items?: ModuleItem[];
 }
 
 export interface CourseContent {
   courseId: string;
   courseTitle: string;
   modules: CourseContentModule[];
-  preTest: PreTest;
 }
 
 /* ── API functions ─────────────────────────── */
 
-export const getAllCourseContents = async (): Promise<CourseContent[]> => {
-  const response = await api.get("/course-content.json");
-  return response.data as CourseContent[];
-};
-
-export const getCourseContentById = async (courseId: string): Promise<CourseContent> => {
-  const response = await api.get(`/course-content/${courseId}.json`);
+export const getCourseContentById = async (
+  id: string,
+): Promise<CourseContent> => {
+  const response = await api.get(`/course-content/${id}.json`);
   return response.data as CourseContent;
 };

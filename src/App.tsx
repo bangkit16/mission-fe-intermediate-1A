@@ -37,7 +37,7 @@ function App() {
           element={<SelesaiPembayaran />}
         />
 
-        <Route path="/course" element={<CoursePage />} />
+        <Route path="/course/:idCourse" element={<CoursePage />} />
         <Route path="/sertifikat/:id" element={<Sertifikat />} />
       </Route>
     </Routes>

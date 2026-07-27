@@ -31,7 +31,7 @@ const CertificatePopoverCard: React.FC = () => {
         {/* Tombol Ambil Sertifikat */}
         <button
           type="button"
-          onClick={() => navigate("/sertifikat")}
+          onClick={() => navigate("/sertifikat/2")}
           className="w-full bg-green-400 text-white font-semibold py-3 px-6 rounded-xl text-md  transition-colors duration-200"
         >
           Ambil Sertifikat

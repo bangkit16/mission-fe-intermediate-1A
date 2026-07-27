@@ -19,7 +19,7 @@ function CongratsScreen({ onContinue }: CongratsScreenProps) {
           isMobile ? "max-h-[30vh] overflow-auto" : "max-h-[40vh] overflow-hidden"
         }`}
       >
-        <img src="congrats.png" className="w-full" alt="" />
+        <img src="/congrats.png" className="w-full" alt="" />
       </section>
 
       {/* DESCRIPTION */}

@@ -83,7 +83,7 @@ const DonePreTestModal: React.FC<DonePreTestModalProps> = ({
         {/* Illustration Image */}
         <div className="mb-8 w-full max-w-md">
           <img
-            src="selesai-pretest.png"
+            src="/selesai-pretest.png"
             alt="Done Pretest Illustration"
             className="w-full h-auto object-contain mx-auto"
           />

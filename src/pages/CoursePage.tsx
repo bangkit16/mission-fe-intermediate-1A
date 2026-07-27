@@ -1,13 +1,16 @@
 // CoursePage.tsx
-import { useState, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router";
 import useIsMobile from "../hooks/useIsMobile";
 import ReviewModal from "../components/course/ReviewModal";
-import VideoScreen from "../components/course/screens/VideoScreen";
-import QuizScreen from "../components/course/screens/QuizScreen";
 import VideoRangkumanScreen from "../components/course/screens/VideoRangkumanScreen";
+import QuizScreen from "../components/course/screens/QuizScreen";
+import VideoScreen from "../components/course/screens/VideoScreen";
 
 import type { ContentItem } from "../features/course/types";
-import { modulesData } from "../features/course/data";
+import type { ModuleItem } from "../services/api/courseContentService";
+import { getCourseContentById } from "../services/api/courseContentService";
 import {
   flattenItems,
   getNextItem,
@@ -19,22 +22,57 @@ import { ModuleAccordion } from "../features/course/components/ModuleAccordion";
 
 const LearningModulePage = () => {
   const isMobile = useIsMobile();
+  const { idCourse } = useParams();
 
-  // State untuk mengontrol modul mana saja yang terbuka
-  const [openModules, setOpenModules] = useState<Record<string, boolean>>({
-    "mod-1": true,
+  const { data: content, isLoading, error } = useQuery({
+    queryKey: ["courseContent", idCourse],
+    queryFn: () => getCourseContentById(idCourse!),
+    enabled: !!idCourse,
   });
 
+  // ── State ──
+  const [openModules, setOpenModules] = useState<Record<string, boolean>>({});
   const [openModalReview, setOpenModalReview] = useState<boolean>(false);
 
-  // ── Active content (yang tampil di area utama) ──
-  const allItems = useMemo(() => flattenItems(modulesData), []);
+  useEffect(() => {
+    if (content?.modules?.length && !Object.keys(openModules).length) {
+      setOpenModules({ [content.modules[0].idModul]: true });
+    }
+  }, [content, openModules]);
+
+  // ── Konversi service type -> local ContentItem ──
+  const modulesData = useMemo(() => {
+    if (!content?.modules) return [];
+    return content.modules.map((m) => ({
+      id: m.idModul,
+      title: m.title,
+      items: (m.items ?? []).map((item: ModuleItem): ContentItem => ({
+        id: item.idMateri,
+        type: item.type,
+        title: item.title,
+        subtitle: item.subtitle,
+        isActive: item.isActive,
+        isCompleted: item.isCompleted,
+        isDisabled: item.isDisabled,
+        questions: item.questions,
+        durationMinutes: item.durationMinutes,
+        passingScore: item.passingScore,
+        totalQuestions: item.totalQuestions,
+      })),
+    }));
+  }, [content]);
+
+  // ── Active content ──
+  const allItems = useMemo(() => flattenItems(modulesData), [modulesData]);
   const firstItem = allItems[0];
   const [activeContentId, setActiveContentId] = useState<string | null>(
     firstItem?.id ?? null,
   );
 
-  // Item aktif sekarang
+  useEffect(() => {
+    setActiveContentId(firstItem?.id ?? null);
+  }, [firstItem]);
+
   const activeItem = useMemo(
     () => allItems.find((i) => i.id === activeContentId) ?? null,
     [activeContentId, allItems],
@@ -63,7 +101,32 @@ const LearningModulePage = () => {
     setActiveContentId(item.id);
   };
 
-  // ── Render screen berdasarkan tipe item aktif ──
+  // ── Loading / Error ──
+  if (isLoading) {
+    return (
+      <div className="h-screen flex items-center justify-center text-gray-400 text-sm">
+        Memuat konten kursus...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="h-screen flex items-center justify-center text-red-500 text-sm">
+        Gagal memuat: {(error as Error).message}
+      </div>
+    );
+  }
+
+  if (!content) {
+    return (
+      <div className="h-screen flex items-center justify-center text-gray-400 text-sm">
+        Konten kursus tidak ditemukan.
+      </div>
+    );
+  }
+
+  // ── Render screen ──
   const renderContent = () => {
     if (!activeItem) {
       return (
@@ -80,7 +143,17 @@ const LearningModulePage = () => {
         return <VideoRangkumanScreen />;
       case "pre-test":
       case "quiz":
-        return <QuizScreen onComplete={goNext} />;
+      case "final-test":
+        return (
+          <QuizScreen
+            onComplete={goNext}
+            questions={activeItem.questions ?? []}
+            totalQuestions={activeItem.totalQuestions ?? activeItem.questions?.length ?? 0}
+            durationMinutes={activeItem.durationMinutes}
+            passingScore={activeItem.passingScore}
+            title={activeItem.title}
+          />
+        );
       default:
         return null;
     }
@@ -105,21 +178,18 @@ const LearningModulePage = () => {
       />
 
       <CourseHeader
-        title="Foundations of User Experience Design"
+        title={content.courseTitle}
         isMobile={isMobile}
       />
 
-      {/* ================= CONTENT ================= */}
       <div
         className={
           isMobile ? "flex flex-col" : "flex-1 overflow-hidden lg:flex"
         }
       >
-        {/* ================= LEFT (MAIN CONTENT) ================= */}
         <main className="flex-1 flex flex-col overflow-hidden">
           {renderContent()}
 
-          {/* MOBILE NAVIGATION */}
           {isMobile && (
             <CourseNavigation
               activeItem={activeItem}
@@ -132,7 +202,6 @@ const LearningModulePage = () => {
           )}
         </main>
 
-        {/* ================= SIDEBAR (ACCORDION DYNAMIC) ================= */}
         <aside
           className={`bg-white border-l border-gray-100 ${
             isMobile
@@ -163,7 +232,6 @@ const LearningModulePage = () => {
             ))}
           </div>
 
-          {/* Review Button */}
           <button
             className="w-full bg-[#fbbf24] hover:bg-yellow-500 transition-colors py-4 px-6 font-bold text-white text-sm shrink-0 flex items-center justify-center gap-2"
             onClick={() => setOpenModalReview(true)}
@@ -173,7 +241,6 @@ const LearningModulePage = () => {
         </aside>
       </div>
 
-      {/* ================= DESKTOP FOOTER ================= */}
       {!isMobile && (
         <CourseNavigation
           activeItem={activeItem}

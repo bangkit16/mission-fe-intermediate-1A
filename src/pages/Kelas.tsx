@@ -8,9 +8,7 @@ import Card from "../components/common/Card";
 import { KelasSidebar } from "../features/kelas/components/KelasSidebar";
 import { KelasFilterTabs } from "../features/kelas/components/KelasFilterTabs";
 import { KelasSearchBar } from "../features/kelas/components/KelasSearchBar";
-import {
-  CourseProgressCard,
-} from "../features/kelas/components/CourseProgressCard";
+import { CourseProgressCard } from "../features/kelas/components/CourseProgressCard";
 import { getAllMyClasses } from "../services/api/myClassService";
 
 function Kelas() {
@@ -19,7 +17,11 @@ function Kelas() {
   const navigate = useNavigate();
   const tabs = ["Semua Kelas", "Sedang Berjalan", "Selesai"];
 
-  const { data: rawCourses = [], isLoading, error } = useQuery({
+  const {
+    data: rawCourses = [],
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["my-classes"],
     queryFn: getAllMyClasses,
   });
@@ -27,8 +29,7 @@ function Kelas() {
   const courses = rawCourses.map((c) => ({ ...c, id: Number(c.id) }));
 
   const filteredCourses = courses.filter((c) => {
-    const matchTab =
-      activeTab === "Semua Kelas" || c.status === activeTab;
+    const matchTab = activeTab === "Semua Kelas" || c.status === activeTab;
     const matchSearch = c.title
       .toLowerCase()
       .includes(searchQuery.toLowerCase());
@@ -68,7 +69,9 @@ function Kelas() {
                     Memuat data...
                   </p>
                 ) : error ? (
-                  <p className="text-center text-red-500 py-10">{(error as Error)?.message || "Gagal memuat data"}</p>
+                  <p className="text-center text-red-500 py-10">
+                    {(error as Error)?.message || "Gagal memuat data"}
+                  </p>
                 ) : filteredCourses.length === 0 ? (
                   <p className="text-center text-gray-400 py-10">
                     Belum ada kelas tersedia.
@@ -79,9 +82,11 @@ function Kelas() {
                       key={course.id}
                       course={course}
                       getStatusStyle={getStatusStyle}
-                      onContinueLearning={() => navigate(`/course/`)}
-                      onViewDetail={(cid) => navigate(`/course/${cid}`)}
-                      onDownloadCertificate={(certId) => navigate(`/sertifikat/${certId}`)}
+                      onContinueLearning={() => navigate(`/course/2`)}
+                      onViewDetail={() => navigate(`/course/2`)}
+                      onDownloadCertificate={(certId) =>
+                        navigate(`/sertifikat/${certId}`)
+                      }
                     />
                   ))
                 )}
