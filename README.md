@@ -1,75 +1,106 @@
-# React + TypeScript + Vite
+# Video Belajar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Platform pembelajaran online berbasis video course. React + TypeScript + Vite.
 
-Currently, two official plugins are available:
+## Fitur
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Course Marketplace
+- **Beranda** — Halaman utama dengan hero section, daftar kursus unggulan filterable by kategori, newsletter
+- **Semua Produk** — Katalog lengkap kursus dengan pencarian, filter bidang studi/harga/durasi, sorting (termurah/termahal/rating), pagination
+- **Detail Produk** — Banner, deskripsi, kartu instruktur, silabus accordion, review & rating, rekomendasi kursus terkait
 
-## React Compiler
+### Learning Management
+- **Kelas Saya** — Daftar kursus terdaftar dengan filter status (Semua/Sedang Berjalan/Selesai), pencarian, progress bar per kursus
+- **Course Player** — Belajar interaktif: video pembelajaran, rangkuman, pre-test, quiz, final test. Navigasi next/prev antar materi, accordion daftar modul, review & rating setelah belajar
+- **Sertifikat** — Preview dan download sertifikat kelulusan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Checkout & Payment
+- **Metode Pembayaran** — Pilih metode dari kategori (Transfer Bank, E-Wallet, Kartu Kredit), ringkasan pesanan
+- **Pembayaran** — Virtual account info, ringkasan biaya (harga + admin fee), tombol bayar, panduan cara bayar accordion
+- **Ganti Metode** — Ubah metode pembayaran sebelum transaksi selesai
+- **Selesai Pembayaran** — Status sukses atau tertunda (manual toggle untuk debugging)
 
-## Expanding the ESLint configuration
+### Order Management
+- **Pesanan** — Riwayat pesanan dengan filter tab (Semua/Menunggu/Berhasil/Gagal), pencarian, pagination
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### User System
+- **Login / Register** — Auth dengan Firebase Realtime DB, validasi password, opsi login Google (UI placeholder)
+- **Profile** — Edit profil (nama, email, no HP, foto), persistent via Redux + localStorage
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Teknologi | Fungsi |
+|---|---|
+| React 19 | UI library |
+| TypeScript | Type safety |
+| Vite 8 | Build tool |
+| Tailwind CSS 4 | Utility-first styling |
+| Redux Toolkit | State management (auth) |
+| TanStack React Query | Data fetching & caching |
+| React Router 8 | Client-side routing |
+| Axios | HTTP client |
+| Firebase Realtime DB | Backend database |
+| Headless UI | Accessible UI primitives |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Routing
 
-```
+| Path | Halaman |
+|---|---|
+| `/` | Beranda |
+| `/login` | Login |
+| `/register` | Register |
+| `/produk` | Semua Produk |
+| `/produk/:id` | Detail Produk |
+| `/produk/:id/metode` | Metode Pembayaran |
+| `/produk/:id/pembayaran` | Pembayaran |
+| `/produk/:id/ganti-metode` | Ganti Metode |
+| `/produk/:id/pembayaran-selesai` | Status Pembayaran |
+| `/pesanan` | Pesanan Saya |
+| `/kelas` | Kelas Saya |
+| `/course/:idCourse` | Belajar (course player) |
+| `/sertifikat/:id` | Sertifikat |
+| `/profile` | Profil |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Struktur Proyek
 
 ```
+src/
+├── components/        # UI komponen reusable
+│   ├── common/        # Button, Card, Footer, Pagination, dll
+│   ├── course/        # ModuleAccordion, ReviewModal, screens (Video, Quiz)
+│   └── layout/        # Layout, LayoutAuth, LayoutBeranda
+├── features/          # Feature-based modul
+│   ├── auth/          # Form auth components
+│   ├── beranda/       # Hero overlay, newsletter
+│   ├── course/        # Course player (types, utils, CourseHeader, Navigation)
+│   ├── kelas/         # Kelas saya (sidebar, filter tabs, search, progress card)
+│   ├── metode/        # Payment method selector & order summary
+│   ├── pembayaran/    # Virtual account, payment summary, payment guide
+│   ├── ganti-metode/  # Change payment method
+│   ├── pesanan/       # Order list (sidebar, filter, search, order card)
+│   ├── produk/        # Banner, instructor, syllabus, reviews, related, checkout
+│   ├── profile/       # Profile header, form, sidebar
+│   ├── selesai-pembayaran/ # Success & delayed payment cards
+│   └── semuaProduk/   # Filter sidebar
+├── hooks/             # useIsMobile
+├── lib/               # Axios instance
+├── pages/             # 14 halaman
+├── services/api/      # 8 service modules (courses, categories, orders, dll)
+└── store/             # Redux store + auth slice
+```
+
+## Scripts
+
+```
+npm run dev      — Start dev server
+npm run build    — Type check + build
+npm run preview  — Preview build
+npm run lint     — ESLint
+```
+
+## API
+
+Firebase Realtime Database REST API.
+
+**Base URL:**
+https://videobelajar-1a0b3-default-rtdb.asia-southeast1.firebasedatabase.app
