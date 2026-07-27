@@ -14,7 +14,7 @@ export interface PasswordInputProps
 
 /* ── Gaya input (Mobile-first) ── */
 const inputBase =
-  "w-full h-12 md:h-14 border rounded px-4 pr-12 text-[15px] md:text-base outline-none transition-colors duration-200 bg-white placeholder:text-[#333]";
+  "w-full h-12 md:h-14 border rounded px-4 pr-12 text-[15px] md:text-base outline-none transition-colors duration-200 bg-white placeholder:text-[#999]";
 const inputNormal = "border-[#dcdcdc]";
 const inputError = "border-red-500 focus:border-red-500";
 

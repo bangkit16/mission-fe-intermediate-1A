@@ -15,7 +15,7 @@ export interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 
 /* ── Tailwind default untuk input (Mobile-first: default = mobile) ── */
 const inputBase =
-  "w-full h-12 md:h-14 border rounded px-4 text-[15px] md:text-base outline-none transition-colors duration-200 bg-white placeholder:text-[#333]";
+  "w-full h-12 md:h-14 border rounded px-4 text-[15px] md:text-base outline-none transition-colors duration-200 bg-white placeholder:text-[#999]";
 
 const inputNormal = "border-[#dcdcdc] focus:border-[#3ac943]";
 const inputError = "border-red-500 focus:border-red-500";

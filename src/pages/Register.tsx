@@ -8,7 +8,9 @@ import Divider from "../features/auth/components/Divider";
 import AuthHeading from "../features/auth/components/AuthHeading";
 import AuthCard from "../features/auth/components/AuthCard";
 import { useMutation } from "@tanstack/react-query";
+import { useDispatch } from "react-redux";
 import { createUser, getUserById } from "../services/api/usersService";
+import { login } from "../store/authSlice";
 
 function Register() {
   const [namaLengkap, setNamaLengkap] = useState("");
@@ -20,6 +22,7 @@ function Register() {
   const [konfirmasiPassword, setKonfirmasiPassword] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const { mutate : registerUserMutate} = useMutation({
     mutationFn: createUser,
@@ -50,7 +53,7 @@ function Register() {
         getUserByIdMutate(id, {
 
           onSuccess: (user) => {
-            console.log(user);
+            dispatch(login({ ...user, id }));
             navigate("/");
           }
         });

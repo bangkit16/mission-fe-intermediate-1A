@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router";
 import { useMutation } from "@tanstack/react-query";
+import { useDispatch } from "react-redux";
 import LayoutAuth from "../components/layout/LayoutAuth";
 import Button from "../components/common/Button";
 import InputField from "../components/common/InputField";
@@ -9,9 +10,11 @@ import AuthCard from "../features/auth/components/AuthCard";
 import AuthHeading from "../features/auth/components/AuthHeading";
 import Divider from "../features/auth/components/Divider";
 import { getUserById, loginUser } from "../services/api/usersService";
+import { login } from "../store/authSlice";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,7 +34,7 @@ function Login() {
             alert("Password salah");
             return;
           }
-          console.log(user);
+          dispatch(login({ ...user, id: userId }));
           navigate("/");
         },
       });

@@ -1,6 +1,8 @@
 import { useEffect, useRef, type Ref } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
 import { User, BookOpen, ShoppingBag, LogOut } from "lucide-react";
+import { logout } from "../../store/authSlice";
 
 function NavigationMenu({
   open,
@@ -14,6 +16,8 @@ function NavigationMenu({
   const ref = useRef<HTMLElement | null>(null);
 
   const isMobile = variant === "mobile";
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isMobile || !open) return;
@@ -73,14 +77,17 @@ function NavigationMenu({
         Pesanan Saya
       </Link>
 
-      <Link
-        to="/login"
-        onClick={onClose}
+      <button
+        onClick={() => {
+          dispatch(logout());
+          navigate("/login");
+          onClose();
+        }}
         className="flex w-full items-center gap-3 border-t border-gray-100 px-5 py-4 text-sm text-red-500 hover:bg-red-50 transition no-underline"
       >
         <LogOut size={18} />
         Keluar
-      </Link>
+      </button>
     </div>
   );
 }

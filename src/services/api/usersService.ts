@@ -44,11 +44,6 @@ export const createUser = async (
   return response.data;
 };
 
-export const getAllUsers = async (): Promise<User[]> => {
-  const response = await api.get("/users.json");
-  return response.data as User[];
-};
-
 export const getUserById = async (id: string): Promise<User> => {
   const response = await api.get(`/users/${id}.json`);
   return response.data as User;
@@ -57,9 +52,9 @@ export const getUserById = async (id: string): Promise<User> => {
 export const updateUser = async (
   id: string,
   payload: UpdateUserPayload,
-): Promise<User> => {
-  const response = await api.put(`/users/${id}.json`, payload);
-  return response.data as User;
+) => {
+  const response = await api.patch(`/users/${id}.json`, payload);
+  return response.data;
 };
 
 export const deleteUser = async (id: string): Promise<void> => {
