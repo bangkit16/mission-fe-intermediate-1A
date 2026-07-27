@@ -2,9 +2,15 @@ import useIsMobile from "../../../hooks/useIsMobile";
 
 interface TryAgainProps {
   onRetry: () => void;
+  result: {
+    score: number;
+    totalQuestions: number;
+    correctCount: number;
+    wrongCount: number;
+  };
 }
 
-function TryAgain({ onRetry }: TryAgainProps) {
+function TryAgain({ onRetry, result }: TryAgainProps) {
   const isMobile = useIsMobile();
   return (
     <div
@@ -48,7 +54,7 @@ function TryAgain({ onRetry }: TryAgainProps) {
                 <span className="text-xs font-semibold opacity-90 mb-1">
                   Nilai
                 </span>
-                <span className="text-2xl font-bold">100</span>
+                <span className="text-2xl font-bold">{result.score}</span>
               </div>
 
               {/* Kolom Soal */}
@@ -56,7 +62,7 @@ function TryAgain({ onRetry }: TryAgainProps) {
                 <span className="text-xs font-semibold text-gray-400 mb-1">
                   Soal
                 </span>
-                <span className="text-2xl font-bold text-gray-800">10</span>
+                <span className="text-2xl font-bold text-gray-800">{result.totalQuestions}</span>
               </div>
 
               {/* Kolom Benar */}
@@ -66,7 +72,7 @@ function TryAgain({ onRetry }: TryAgainProps) {
                 </span>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="text-emerald-500 text-lg">✓</span>
-                  <span className="text-2xl font-bold text-gray-800">10</span>
+                  <span className="text-2xl font-bold text-gray-800">{result.correctCount}</span>
                 </div>
               </div>
 
@@ -77,7 +83,7 @@ function TryAgain({ onRetry }: TryAgainProps) {
                 </span>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="text-red-500 text-lg">✕</span>
-                  <span className="text-2xl font-bold text-gray-800">0</span>
+                  <span className="text-2xl font-bold text-gray-800">{result.wrongCount}</span>
                 </div>
               </div>
             </div>

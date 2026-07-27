@@ -9,6 +9,13 @@ import type { Question } from "../../../services/api/courseContentService";
 
 type PreTestPhase = "rules" | "quiz" | "passed" | "failed";
 
+interface QuizResult {
+  score: number;
+  totalQuestions: number;
+  correctCount: number;
+  wrongCount: number;
+}
+
 interface QuizScreenProps {
   onComplete: () => void;
   questions: Question[];
@@ -30,12 +37,15 @@ function QuizScreen({
   const [phase, setPhase] = useState<PreTestPhase>("rules");
 
   const [currentQuestion, setCurrentQuestion] = useState(1);
-  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [result, setResult] = useState<QuizResult | null>(null);
   const [openDoneModal, setOpenDoneModal] = useState(false);
 
   const currentQ = questions[currentQuestion - 1];
   const options = currentQ?.options ?? [];
   const questionCount = questions.length;
+
+  const selectedOption = answers[currentQuestion] ?? "";
 
   // ── Rules phase ──
   if (phase === "rules") {
@@ -52,17 +62,18 @@ function QuizScreen({
 
   // ── Result: passed ──
   if (phase === "passed") {
-    return <CongratsScreen onContinue={onComplete} />;
+    return <CongratsScreen onContinue={onComplete} result={result!} />;
   }
 
   // ── Result: failed ──
   if (phase === "failed") {
     return (
       <TryAgain
+        result={result!}
         onRetry={() => {
           setPhase("quiz");
           setCurrentQuestion(1);
-          setSelectedOption("");
+          setAnswers({});
         }}
       />
     );
@@ -131,7 +142,9 @@ function QuizScreen({
               return (
                 <button
                   key={option.id}
-                  onClick={() => setSelectedOption(option.id)}
+                  onClick={() =>
+                    setAnswers((prev) => ({ ...prev, [currentQuestion]: option.id }))
+                  }
                   className={`w-full flex items-center gap-4 p-4 rounded-xl border text-left transition-all ${
                     isSelected
                       ? "border-green-500 bg-white"
@@ -176,7 +189,6 @@ function QuizScreen({
                 setOpenDoneModal(true);
               } else {
                 setCurrentQuestion((prev) => prev + 1);
-                setSelectedOption("");
               }
             }}
             className="w-full text-xs md:text-lg flex justify-center items-center gap-2 px-6 py-3 border-2 border-green-500 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition-colors"
@@ -192,7 +204,17 @@ function QuizScreen({
         onClose={() => setOpenDoneModal(false)}
         onSubmit={() => {
           setOpenDoneModal(false);
-          setPhase("passed");
+          const correctCount = questions.filter(
+            (q) => answers[q.noQuestion] === q.correctAnswer,
+          ).length;
+          const total = questions.length;
+          const score = Math.round((correctCount / total) * 100);
+          setResult({ score, totalQuestions: total, correctCount, wrongCount: total - correctCount });
+          if (score >= (passingScore ?? 80)) {
+            setPhase("passed");
+          } else {
+            setPhase("failed");
+          }
         }}
       />
     </div>
